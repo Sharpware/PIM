@@ -44,6 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="View\Botoes\BotaoAdicionarClienteVenda.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Botoes\BotaoAdicionarClienteVenda.Designer.cs">
+      <DependentUpon>BotaoAdicionarClienteVenda.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Sistema\Agradecimentos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -404,16 +410,16 @@
     <Compile Include="View\Botoes\BotaoSistema.Designer.cs">
       <DependentUpon>BotaoSistema.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Sistema\Cliente\CadastrarCliente.cs">
+    <Compile Include="View\Caixa\Cliente\CadastrarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Sistema\Cliente\CadastrarCliente.Designer.cs">
+    <Compile Include="View\Caixa\Cliente\CadastrarCliente.Designer.cs">
       <DependentUpon>CadastrarCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Sistema\Cliente\PesquisarCliente.cs">
+    <Compile Include="View\Caixa\Cliente\PesquisarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Sistema\Cliente\PesquisarCliente.Designer.cs">
+    <Compile Include="View\Caixa\Cliente\PesquisarCliente.Designer.cs">
       <DependentUpon>PesquisarCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Pesquisar\PesquisarProduto.cs">
@@ -454,12 +460,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\Sistema\Cliente\EditarCliente.cs">
+    <Compile Include="View\Caixa\Cliente\EditarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Sistema\Cliente\EditarCliente.Designer.cs">
+    <Compile Include="View\Caixa\Cliente\EditarCliente.Designer.cs">
       <DependentUpon>EditarCliente.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Botoes\BotaoAdicionarClienteVenda.resx">
+      <DependentUpon>BotaoAdicionarClienteVenda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Sistema\Agradecimentos.resx">
       <DependentUpon>Agradecimentos.cs</DependentUpon>
     </EmbeddedResource>
@@ -640,10 +649,10 @@
     <EmbeddedResource Include="View\Botoes\BotaoSistema.resx">
       <DependentUpon>BotaoSistema.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Sistema\Cliente\CadastrarCliente.resx">
+    <EmbeddedResource Include="View\Caixa\Cliente\CadastrarCliente.resx">
       <DependentUpon>CadastrarCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Sistema\Cliente\PesquisarCliente.resx">
+    <EmbeddedResource Include="View\Caixa\Cliente\PesquisarCliente.resx">
       <DependentUpon>PesquisarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Pesquisar\PesquisarProduto.resx">
@@ -674,7 +683,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="View\Sistema\Cliente\EditarCliente.resx">
+    <EmbeddedResource Include="View\Caixa\Cliente\EditarCliente.resx">
       <DependentUpon>EditarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -1005,6 +1014,12 @@
   <ItemGroup>
     <Folder Include="Controller\" />
     <Folder Include="Model\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BotaoAdicionarClienteVenda1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BotaoAdicionarClienteVenda2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
