@@ -409,3 +409,6 @@ C:\Users\RodrigoFelipe\Documents\repositorios\GitHub\PIM\TelasSharpWare\obj\Debu
 C:\Users\RodrigoFelipe\Documents\repositorios\GitHub\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.EditarCliente.resources
 C:\Users\RodrigoFelipe\Documents\repositorios\GitHub\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.csproj.GenerateResource.Cache
 C:\Users\RodrigoFelipe\Documents\repositorios\GitHub\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.View.Botoes.BotaoAdicionarClienteVenda.resources
+C:\Users\ATOM\Desktop\PIM\TelasSharpWare\bin\Debug\TelasSharpWare.exe.config
+C:\Users\ATOM\Desktop\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.exe
+C:\Users\ATOM\Desktop\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.pdb
