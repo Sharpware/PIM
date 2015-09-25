@@ -10,6 +10,7 @@ namespace TelasSharpWare.Model
     {
         private String login;
         private String senha;
+        private TipoFuncionario tipoFuncionario;
 
         public string Login
         {
@@ -34,6 +35,19 @@ namespace TelasSharpWare.Model
             set
             {
                 senha = value;
+            }
+        }
+
+        public TipoFuncionario TipoFuncionario
+        {
+            get
+            {
+                return tipoFuncionario;
+            }
+
+            set
+            {
+                tipoFuncionario = value;
             }
         }
     }
