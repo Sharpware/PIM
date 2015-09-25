@@ -6,18 +6,19 @@ using System.Threading.Tasks;
 
 namespace TelasSharpWare.Model
 {
-    public abstract class Pessoa
+    public class Produto
     {
         private long id;
         private String nome;
-        private long cpf;
-        private DateTime dataNascimento;
-        private String telefonePrimario;
-        private String telefoneSecundario;
-        private String celular;
+        private String marca;
+        private int quantidade;
+        private String tamanho;
+        private long codigoBarras;
+        private double precoCusto;
+        private double precoVenda;
         private String observacao;
+        private TipoProduto tipoFuncionario;
         private Status status;
-        private Endereco endereco;
 
         public long Id
         {
@@ -45,68 +46,81 @@ namespace TelasSharpWare.Model
             }
         }
 
-        public long CPF
+        public string Marca
         {
             get
             {
-                return cpf;
+                return marca;
             }
 
             set
             {
-                cpf = value;
+                marca = value;
             }
         }
 
-        public DateTime DataNascimento
+        public int Quantidade
         {
             get
             {
-                return dataNascimento;
+                return quantidade;
             }
 
             set
             {
-                dataNascimento = value;
+                quantidade = value;
             }
         }
 
-        public string TelefonePrimario
+        public string Tamanho
         {
             get
             {
-                return telefonePrimario;
+                return tamanho;
             }
 
             set
             {
-                telefonePrimario = value;
+                tamanho = value;
             }
         }
 
-        public string TelefoneSecundario
+        public long CodigoBarras
         {
             get
             {
-                return telefoneSecundario;
+                return codigoBarras;
             }
 
             set
             {
-                telefoneSecundario = value;
+                codigoBarras = value;
             }
         }
 
-        public string Celular
+        public double PrecoCusto
         {
             get
             {
-                return celular;
+                return precoCusto;
             }
 
             set
             {
-                celular = value;
+                precoCusto = value;
+            }
+        }
+
+        public double PrecoVenda
+        {
+            get
+            {
+                return precoVenda;
+            }
+
+            set
+            {
+                precoVenda = value;
             }
         }
 
@@ -120,6 +134,19 @@ namespace TelasSharpWare.Model
             set
             {
                 observacao = value;
+            }
+        }
+
+        public TipoProduto TipoFuncionario
+        {
+            get
+            {
+                return tipoFuncionario;
+            }
+
+            set
+            {
+                tipoFuncionario = value;
             }
         }
 

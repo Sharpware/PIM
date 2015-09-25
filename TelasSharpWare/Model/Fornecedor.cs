@@ -6,18 +6,26 @@ using System.Threading.Tasks;
 
 namespace TelasSharpWare.Model
 {
-    public abstract class Pessoa
+    public class Fornecedor
     {
         private long id;
-        private String nome;
-        private long cpf;
-        private DateTime dataNascimento;
+        private String nomeFantasia;
+        private String razaoSocial;
+        private long cnpj;
+        private String emailPrimario;
+        private String emailSecundario;
         private String telefonePrimario;
         private String telefoneSecundario;
-        private String celular;
+        private String telefoneTerceario;
         private String observacao;
-        private Status status;
         private Endereco endereco;
+        private Status status;
+        private List<Produto> produtos;
+
+        public Fornecedor()
+        {
+            produtos = new List<Produto>();
+        }
 
         public long Id
         {
@@ -32,42 +40,68 @@ namespace TelasSharpWare.Model
             }
         }
 
-        public string Nome
+        public string NomeFantasia
         {
             get
             {
-                return nome;
+                return nomeFantasia;
             }
 
             set
             {
-                nome = value;
+                nomeFantasia = value;
             }
         }
 
-        public long CPF
+        public string RazaoSocial
         {
             get
             {
-                return cpf;
+                return razaoSocial;
             }
 
             set
             {
-                cpf = value;
+                razaoSocial = value;
             }
         }
 
-        public DateTime DataNascimento
+        public long Cnpj
         {
             get
             {
-                return dataNascimento;
+                return cnpj;
             }
 
             set
             {
-                dataNascimento = value;
+                cnpj = value;
+            }
+        }
+
+        public string EmailPrimario
+        {
+            get
+            {
+                return emailPrimario;
+            }
+
+            set
+            {
+                emailPrimario = value;
+            }
+        }
+
+        public string EmailSecundario
+        {
+            get
+            {
+                return emailSecundario;
+            }
+
+            set
+            {
+                emailSecundario = value;
             }
         }
 
@@ -97,16 +131,16 @@ namespace TelasSharpWare.Model
             }
         }
 
-        public string Celular
+        public string TelefoneTerceario
         {
             get
             {
-                return celular;
+                return telefoneTerceario;
             }
 
             set
             {
-                celular = value;
+                telefoneTerceario = value;
             }
         }
 
@@ -120,6 +154,19 @@ namespace TelasSharpWare.Model
             set
             {
                 observacao = value;
+            }
+        }
+
+        public Endereco Endereco
+        {
+            get
+            {
+                return endereco;
+            }
+
+            set
+            {
+                endereco = value;
             }
         }
 
