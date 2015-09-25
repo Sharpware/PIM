@@ -21,19 +21,6 @@ namespace TelasSharpWare
             do
             {
                 entrada.ShowDialog();
-                if (entrada.DialogResult == DialogResult.OK)
-                {
-                    if (login.ShowDialog() == DialogResult.OK)
-                    {
-                        Application.Run(new SistemaControle());
-                    }
-                    if (login.DialogResult == DialogResult.No)
-                    {
-                        login.Close();
-                    }
-                    if (login.DialogResult == DialogResult.Retry)
-                        MessageBox.Show("Login ou senha incoreta");
-                }
                 if (entrada.DialogResult == DialogResult.Yes)
                 {
                     if (login.ShowDialog() == DialogResult.OK)

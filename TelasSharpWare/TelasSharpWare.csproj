@@ -54,24 +54,6 @@
     <Compile Include="View\Botoes\BotaoAdicionarClienteVenda.Designer.cs">
       <DependentUpon>BotaoAdicionarClienteVenda.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Sistema\Agradecimentos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Sistema\Agradecimentos.Designer.cs">
-      <DependentUpon>Agradecimentos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Sistema\Administrativo\PesquisarUsuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Sistema\Administrativo\PesquisarUsuario.Designer.cs">
-      <DependentUpon>PesquisarUsuario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Sistema\Administrativo\AdicionarUsuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Sistema\Administrativo\AdicionarUsuario.Designer.cs">
-      <DependentUpon>AdicionarUsuario.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\Botoes\BotaoCadUsuario.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -132,36 +114,6 @@
     <Compile Include="View\Botoes\BotaoPesqPedido.Designer.cs">
       <DependentUpon>BotaoPesqPedido.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Sistema\Administrativo\RelatorioVendas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Sistema\Administrativo\RelatorioVendas.Designer.cs">
-      <DependentUpon>RelatorioVendas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Sistema\Compras\FazerPedido.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Sistema\Compras\FazerPedido.Designer.cs">
-      <DependentUpon>FazerPedido.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Sistema\Compras\PesquisarPedido.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Sistema\Compras\PesquisarPedido.Designer.cs">
-      <DependentUpon>PesquisarPedido.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Sistema\Fornecedor\PesquisarFornecedor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Sistema\Fornecedor\PesquisarFornecedor.Designer.cs">
-      <DependentUpon>PesquisarFornecedor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Sistema\Fornecedor\AdicionarFornecedor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Sistema\Fornecedor\AdicionarFornecedor.Designer.cs">
-      <DependentUpon>AdicionarFornecedor.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\Botoes\BotaoCadFornecedor.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -179,18 +131,6 @@
     </Compile>
     <Compile Include="View\Botoes\BotaoPesqProduto.Designer.cs">
       <DependentUpon>BotaoPesqProduto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Sistema\Produto\PesquisaDeProduto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Sistema\Produto\PesquisaDeProduto.Designer.cs">
-      <DependentUpon>PesquisaDeProduto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Sistema\Produto\AdicionarProduto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Sistema\Produto\AdicionarProduto.Designer.cs">
-      <DependentUpon>AdicionarProduto.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Botoes\BotaoAdicionaProduto.cs">
       <SubType>UserControl</SubType>
@@ -444,12 +384,6 @@
     <Compile Include="View\Caixa\ModoDePagamento.Designer.cs">
       <DependentUpon>ModoDePagamento.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Sistema\SistemaControle.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Sistema\SistemaControle.Designer.cs">
-      <DependentUpon>SistemaControle.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\EntradaLogin\FormEntrada.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -472,15 +406,6 @@
     </Compile>
     <EmbeddedResource Include="View\Botoes\BotaoAdicionarClienteVenda.resx">
       <DependentUpon>BotaoAdicionarClienteVenda.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Sistema\Agradecimentos.resx">
-      <DependentUpon>Agradecimentos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Sistema\Administrativo\PesquisarUsuario.resx">
-      <DependentUpon>PesquisarUsuario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Sistema\Administrativo\AdicionarUsuario.resx">
-      <DependentUpon>AdicionarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Botoes\BotaoCadUsuario.resx">
       <DependentUpon>BotaoCadUsuario.cs</DependentUpon>
@@ -512,21 +437,6 @@
     <EmbeddedResource Include="View\Botoes\BotaoPesqPedido.resx">
       <DependentUpon>BotaoPesqPedido.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Sistema\Compras\PesquisarPedido.resx">
-      <DependentUpon>PesquisarPedido.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Sistema\Administrativo\RelatorioVendas.resx">
-      <DependentUpon>RelatorioVendas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Sistema\Compras\FazerPedido.resx">
-      <DependentUpon>FazerPedido.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Sistema\Fornecedor\PesquisarFornecedor.resx">
-      <DependentUpon>PesquisarFornecedor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Sistema\Fornecedor\AdicionarFornecedor.resx">
-      <DependentUpon>AdicionarFornecedor.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\Botoes\BotaoCadFornecedor.resx">
       <DependentUpon>BotaoCadFornecedor.cs</DependentUpon>
     </EmbeddedResource>
@@ -535,12 +445,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Botoes\BotaoPesqProduto.resx">
       <DependentUpon>BotaoPesqProduto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Sistema\Produto\PesquisaDeProduto.resx">
-      <DependentUpon>PesquisaDeProduto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Sistema\Produto\AdicionarProduto.resx">
-      <DependentUpon>AdicionarProduto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Botoes\BotaoAdicionaProduto.resx">
       <DependentUpon>BotaoAdicionaProduto.cs</DependentUpon>
@@ -667,9 +571,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Caixa\ModoDePagamento.resx">
       <DependentUpon>ModoDePagamento.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Sistema\SistemaControle.resx">
-      <DependentUpon>SistemaControle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\EntradaLogin\FormEntrada.resx">
       <DependentUpon>FormEntrada.cs</DependentUpon>
