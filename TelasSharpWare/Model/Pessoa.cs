@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,27 +9,30 @@ namespace TelasSharpWare.Model
 {
     public abstract class Pessoa
     {
-        private long id;
-        private String nome;
-        private long cpf;
-        private DateTime dataNascimento;
-        private String telefonePrimario;
-        private String telefoneSecundario;
-        private String celular;
-        private String observacao;
-        private Status status;
-        private Endereco endereco;
+        private long _id;
+        private String _nome;
+        private long _cpf;
+        private DateTime _dataNascimento;
+        private String _observacao;
+        private Status _status;
+        private Endereco _endereco;
+        private Lazy<IList<Telefone>> _lazyTelefones;
+        
+        public Pessoa()
+        {
+            _lazyTelefones = new Lazy<IList<Telefone>>(() => new List<Telefone>());
+        }
 
         public long Id
         {
             get
             {
-                return id;
+                return _id;
             }
 
             set
             {
-                id = value;
+                _id = value;
             }
         }
 
@@ -36,25 +40,25 @@ namespace TelasSharpWare.Model
         {
             get
             {
-                return nome;
+                return _nome;
             }
 
             set
             {
-                nome = value;
+                _nome = value;
             }
         }
 
-        public long CPF
+        public long Cpf
         {
             get
             {
-                return cpf;
+                return _cpf;
             }
 
             set
             {
-                cpf = value;
+                _cpf = value;
             }
         }
 
@@ -62,51 +66,12 @@ namespace TelasSharpWare.Model
         {
             get
             {
-                return dataNascimento;
+                return _dataNascimento;
             }
 
             set
             {
-                dataNascimento = value;
-            }
-        }
-
-        public string TelefonePrimario
-        {
-            get
-            {
-                return telefonePrimario;
-            }
-
-            set
-            {
-                telefonePrimario = value;
-            }
-        }
-
-        public string TelefoneSecundario
-        {
-            get
-            {
-                return telefoneSecundario;
-            }
-
-            set
-            {
-                telefoneSecundario = value;
-            }
-        }
-
-        public string Celular
-        {
-            get
-            {
-                return celular;
-            }
-
-            set
-            {
-                celular = value;
+                _dataNascimento = value;
             }
         }
 
@@ -114,12 +79,12 @@ namespace TelasSharpWare.Model
         {
             get
             {
-                return observacao;
+                return _observacao;
             }
 
             set
             {
-                observacao = value;
+                _observacao = value;
             }
         }
 
@@ -127,12 +92,33 @@ namespace TelasSharpWare.Model
         {
             get
             {
-                return status;
+                return _status;
             }
 
             set
             {
-                status = value;
+                _status = value;
+            }
+        }
+
+        public Endereco Endereco
+        {
+            get
+            {
+                return _endereco;
+            }
+
+            set
+            {
+                _endereco = value;
+            }
+        }
+
+        public IReadOnlyCollection<Telefone> Telefones
+        {
+            get
+            {
+                return new ReadOnlyCollection<Telefone>(_lazyTelefones.Value);
             }
         }
     }
