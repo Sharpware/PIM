@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Caixa));
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.vendaProdutosDgv = new System.Windows.Forms.DataGridView();
             this.CodigoProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NomeProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DescricaoPrdouto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,35 +38,43 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.valorTotalLbl = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.quantidadeItensLbl = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.valorProdutoLbl = new System.Windows.Forms.Label();
+            this.idProdutoTbx = new System.Windows.Forms.TextBox();
+            this.nomeProdutoTbx = new System.Windows.Forms.TextBox();
+            this.descricaoProdutoTbx = new System.Windows.Forms.TextBox();
+            this.tamanhoTbx = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.CaixaSsl = new System.Windows.Forms.ToolStripStatusLabel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.vendedorVendaCbx = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.clienteVendaTbx = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.atalhosBtn = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.botaoCancelarVenda1 = new TelasSharpWare.Botoes.BotaoCancelarVenda();
-            this.botaoAdicionarClienteCaixa1 = new TelasSharpWare.Botoes.BotaoAdicionarClienteCaixa();
-            this.botaoFinalizarVenda2 = new TelasSharpWare.Botoes.BotaoFinalizarVenda();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.fecharBtn = new System.Windows.Forms.Button();
+            this.cancelarVendaBtn = new TelasSharpWare.Botoes.BotaoCancelarVenda();
+            this.adicionarClienteBtn = new TelasSharpWare.Botoes.BotaoAdicionarClienteCaixa();
+            this.finalizarVenda = new TelasSharpWare.Botoes.BotaoFinalizarVenda();
+            this.atalhosPnl = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.vendaProdutosDgv)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -74,23 +82,24 @@
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.atalhosPnl.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // vendaProdutosDgv
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.vendaProdutosDgv.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.vendaProdutosDgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.vendaProdutosDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.vendaProdutosDgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CodigoProduto,
             this.NomeProduto,
             this.DescricaoPrdouto,
             this.TamanhoProduto,
             this.ValorProduto});
-            this.dataGridView1.Location = new System.Drawing.Point(536, 62);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(703, 336);
-            this.dataGridView1.TabIndex = 1;
+            this.vendaProdutosDgv.Location = new System.Drawing.Point(536, 62);
+            this.vendaProdutosDgv.Name = "vendaProdutosDgv";
+            this.vendaProdutosDgv.Size = new System.Drawing.Size(703, 336);
+            this.vendaProdutosDgv.TabIndex = 1;
             // 
             // CodigoProduto
             // 
@@ -150,9 +159,9 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.valorTotalLbl);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.quantidadeItensLbl);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Font = new System.Drawing.Font("Arial Black", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -162,14 +171,14 @@
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             // 
-            // label6
+            // valorTotalLbl
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(210, 109);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(71, 33);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "0,00";
+            this.valorTotalLbl.AutoSize = true;
+            this.valorTotalLbl.Location = new System.Drawing.Point(210, 109);
+            this.valorTotalLbl.Name = "valorTotalLbl";
+            this.valorTotalLbl.Size = new System.Drawing.Size(71, 33);
+            this.valorTotalLbl.TabIndex = 3;
+            this.valorTotalLbl.Text = "0,00";
             // 
             // label5
             // 
@@ -180,15 +189,15 @@
             this.label5.TabIndex = 2;
             this.label5.Text = "Valor Total: R$";
             // 
-            // label4
+            // quantidadeItensLbl
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial Black", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(324, 50);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 38);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "00";
+            this.quantidadeItensLbl.AutoSize = true;
+            this.quantidadeItensLbl.Font = new System.Drawing.Font("Arial Black", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quantidadeItensLbl.Location = new System.Drawing.Point(324, 50);
+            this.quantidadeItensLbl.Name = "quantidadeItensLbl";
+            this.quantidadeItensLbl.Size = new System.Drawing.Size(53, 38);
+            this.quantidadeItensLbl.TabIndex = 1;
+            this.quantidadeItensLbl.Text = "00";
             // 
             // label3
             // 
@@ -203,7 +212,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.valorProdutoLbl);
             this.groupBox1.Font = new System.Drawing.Font("Arial Black", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.groupBox1.Location = new System.Drawing.Point(14, 14);
@@ -212,54 +221,54 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             // 
-            // label2
+            // valorProdutoLbl
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Black", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(290, 48);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 33);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "0,00";
+            this.valorProdutoLbl.AutoSize = true;
+            this.valorProdutoLbl.Font = new System.Drawing.Font("Arial Black", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.valorProdutoLbl.Location = new System.Drawing.Point(290, 48);
+            this.valorProdutoLbl.Name = "valorProdutoLbl";
+            this.valorProdutoLbl.Size = new System.Drawing.Size(71, 33);
+            this.valorProdutoLbl.TabIndex = 3;
+            this.valorProdutoLbl.Text = "0,00";
             // 
-            // textBox1
+            // idProdutoTbx
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBox1.Location = new System.Drawing.Point(18, 27);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(412, 22);
-            this.textBox1.TabIndex = 4;
+            this.idProdutoTbx.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.idProdutoTbx.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.idProdutoTbx.Location = new System.Drawing.Point(18, 27);
+            this.idProdutoTbx.Name = "idProdutoTbx";
+            this.idProdutoTbx.Size = new System.Drawing.Size(412, 22);
+            this.idProdutoTbx.TabIndex = 4;
             // 
-            // textBox2
+            // nomeProdutoTbx
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(18, 72);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(412, 20);
-            this.textBox2.TabIndex = 6;
+            this.nomeProdutoTbx.Enabled = false;
+            this.nomeProdutoTbx.Location = new System.Drawing.Point(18, 72);
+            this.nomeProdutoTbx.Name = "nomeProdutoTbx";
+            this.nomeProdutoTbx.ReadOnly = true;
+            this.nomeProdutoTbx.Size = new System.Drawing.Size(412, 20);
+            this.nomeProdutoTbx.TabIndex = 6;
             // 
-            // textBox3
+            // descricaoProdutoTbx
             // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(18, 115);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(412, 80);
-            this.textBox3.TabIndex = 7;
+            this.descricaoProdutoTbx.Enabled = false;
+            this.descricaoProdutoTbx.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.descricaoProdutoTbx.Location = new System.Drawing.Point(18, 115);
+            this.descricaoProdutoTbx.Multiline = true;
+            this.descricaoProdutoTbx.Name = "descricaoProdutoTbx";
+            this.descricaoProdutoTbx.ReadOnly = true;
+            this.descricaoProdutoTbx.Size = new System.Drawing.Size(412, 80);
+            this.descricaoProdutoTbx.TabIndex = 7;
             // 
-            // textBox4
+            // tamanhoTbx
             // 
-            this.textBox4.Enabled = false;
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(447, 27);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(51, 22);
-            this.textBox4.TabIndex = 8;
+            this.tamanhoTbx.Enabled = false;
+            this.tamanhoTbx.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tamanhoTbx.Location = new System.Drawing.Point(447, 27);
+            this.tamanhoTbx.Name = "tamanhoTbx";
+            this.tamanhoTbx.ReadOnly = true;
+            this.tamanhoTbx.Size = new System.Drawing.Size(51, 22);
+            this.tamanhoTbx.TabIndex = 8;
             // 
             // label8
             // 
@@ -310,29 +319,29 @@
             this.CaixaSsl.Size = new System.Drawing.Size(35, 17);
             this.CaixaSsl.Text = "Caixa";
             // 
-            // comboBox1
+            // vendedorVendaCbx
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.vendedorVendaCbx.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vendedorVendaCbx.FormattingEnabled = true;
+            this.vendedorVendaCbx.Items.AddRange(new object[] {
             "Carlos Aurea",
             "Pedro Felipe",
             "Lucas Henrique",
             "Marisa Santana"});
-            this.comboBox1.Location = new System.Drawing.Point(536, 474);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(430, 25);
-            this.comboBox1.TabIndex = 14;
+            this.vendedorVendaCbx.Location = new System.Drawing.Point(536, 474);
+            this.vendedorVendaCbx.Name = "vendedorVendaCbx";
+            this.vendedorVendaCbx.Size = new System.Drawing.Size(430, 25);
+            this.vendedorVendaCbx.TabIndex = 14;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(195)))), ((int)(((byte)(215)))));
             this.panel3.Controls.Add(this.label11);
-            this.panel3.Controls.Add(this.textBox4);
-            this.panel3.Controls.Add(this.textBox3);
-            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.tamanhoTbx);
+            this.panel3.Controls.Add(this.descricaoProdutoTbx);
+            this.panel3.Controls.Add(this.idProdutoTbx);
             this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.textBox2);
+            this.panel3.Controls.Add(this.nomeProdutoTbx);
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.label9);
             this.panel3.Location = new System.Drawing.Point(536, 513);
@@ -361,15 +370,15 @@
             this.label7.TabIndex = 5;
             this.label7.Text = "Digite o codigo do produto:";
             // 
-            // textBox5
+            // clienteVendaTbx
             // 
-            this.textBox5.Enabled = false;
-            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(536, 426);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(430, 25);
-            this.textBox5.TabIndex = 18;
+            this.clienteVendaTbx.Enabled = false;
+            this.clienteVendaTbx.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clienteVendaTbx.Location = new System.Drawing.Point(536, 426);
+            this.clienteVendaTbx.Name = "clienteVendaTbx";
+            this.clienteVendaTbx.ReadOnly = true;
+            this.clienteVendaTbx.Size = new System.Drawing.Size(430, 25);
+            this.clienteVendaTbx.TabIndex = 18;
             // 
             // label12
             // 
@@ -397,12 +406,27 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(164)))), ((int)(((byte)(180)))));
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.atalhosBtn);
             this.panel4.Controls.Add(this.pictureBox2);
-            this.panel4.Controls.Add(this.button1);
+            this.panel4.Controls.Add(this.fecharBtn);
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1368, 37);
             this.panel4.TabIndex = 22;
+            // 
+            // atalhosBtn
+            // 
+            this.atalhosBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.atalhosBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.atalhosBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.atalhosBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.atalhosBtn.Location = new System.Drawing.Point(11, 3);
+            this.atalhosBtn.Name = "atalhosBtn";
+            this.atalhosBtn.Size = new System.Drawing.Size(36, 29);
+            this.atalhosBtn.TabIndex = 10;
+            this.atalhosBtn.Text = "?";
+            this.atalhosBtn.UseVisualStyleBackColor = true;
+            this.atalhosBtn.Click += new System.EventHandler(this.atalhosBtn_Click);
             // 
             // pictureBox2
             // 
@@ -414,50 +438,125 @@
             this.pictureBox2.TabIndex = 9;
             this.pictureBox2.TabStop = false;
             // 
-            // button1
+            // fecharBtn
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(1325, -1);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(38, 32);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "X";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.fecharBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.fecharBtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fecharBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.fecharBtn.Location = new System.Drawing.Point(1325, -1);
+            this.fecharBtn.Name = "fecharBtn";
+            this.fecharBtn.Size = new System.Drawing.Size(38, 32);
+            this.fecharBtn.TabIndex = 5;
+            this.fecharBtn.Text = "X";
+            this.fecharBtn.UseVisualStyleBackColor = true;
+            this.fecharBtn.Click += new System.EventHandler(this.button1_Click);
             // 
-            // botaoCancelarVenda1
+            // cancelarVendaBtn
             // 
-            this.botaoCancelarVenda1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botaoCancelarVenda1.BackgroundImage")));
-            this.botaoCancelarVenda1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.botaoCancelarVenda1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.botaoCancelarVenda1.Location = new System.Drawing.Point(1124, 540);
-            this.botaoCancelarVenda1.Name = "botaoCancelarVenda1";
-            this.botaoCancelarVenda1.Size = new System.Drawing.Size(230, 80);
-            this.botaoCancelarVenda1.TabIndex = 21;
+            this.cancelarVendaBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cancelarVendaBtn.BackgroundImage")));
+            this.cancelarVendaBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cancelarVendaBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cancelarVendaBtn.Location = new System.Drawing.Point(1124, 540);
+            this.cancelarVendaBtn.Name = "cancelarVendaBtn";
+            this.cancelarVendaBtn.Size = new System.Drawing.Size(230, 80);
+            this.cancelarVendaBtn.TabIndex = 21;
             // 
-            // botaoAdicionarClienteCaixa1
+            // adicionarClienteBtn
             // 
-            this.botaoAdicionarClienteCaixa1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botaoAdicionarClienteCaixa1.BackgroundImage")));
-            this.botaoAdicionarClienteCaixa1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.botaoAdicionarClienteCaixa1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.botaoAdicionarClienteCaixa1.Location = new System.Drawing.Point(1124, 454);
-            this.botaoAdicionarClienteCaixa1.Name = "botaoAdicionarClienteCaixa1";
-            this.botaoAdicionarClienteCaixa1.Size = new System.Drawing.Size(230, 80);
-            this.botaoAdicionarClienteCaixa1.TabIndex = 20;
-            this.botaoAdicionarClienteCaixa1.Click += new System.EventHandler(this.botaoAdicionarClienteCaixa1_Click);
+            this.adicionarClienteBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("adicionarClienteBtn.BackgroundImage")));
+            this.adicionarClienteBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.adicionarClienteBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.adicionarClienteBtn.Location = new System.Drawing.Point(1124, 454);
+            this.adicionarClienteBtn.Name = "adicionarClienteBtn";
+            this.adicionarClienteBtn.Size = new System.Drawing.Size(230, 80);
+            this.adicionarClienteBtn.TabIndex = 20;
+            this.adicionarClienteBtn.Click += new System.EventHandler(this.botaoAdicionarClienteCaixa1_Click);
             // 
-            // botaoFinalizarVenda2
+            // finalizarVenda
             // 
-            this.botaoFinalizarVenda2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botaoFinalizarVenda2.BackgroundImage")));
-            this.botaoFinalizarVenda2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.botaoFinalizarVenda2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.botaoFinalizarVenda2.Location = new System.Drawing.Point(1124, 628);
-            this.botaoFinalizarVenda2.Name = "botaoFinalizarVenda2";
-            this.botaoFinalizarVenda2.Size = new System.Drawing.Size(230, 80);
-            this.botaoFinalizarVenda2.TabIndex = 17;
-            this.botaoFinalizarVenda2.Click += new System.EventHandler(this.botaoFinalizarVenda2_Click);
+            this.finalizarVenda.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("finalizarVenda.BackgroundImage")));
+            this.finalizarVenda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.finalizarVenda.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.finalizarVenda.Location = new System.Drawing.Point(1124, 628);
+            this.finalizarVenda.Name = "finalizarVenda";
+            this.finalizarVenda.Size = new System.Drawing.Size(230, 80);
+            this.finalizarVenda.TabIndex = 17;
+            this.finalizarVenda.Click += new System.EventHandler(this.botaoFinalizarVenda2_Click);
+            // 
+            // atalhosPnl
+            // 
+            this.atalhosPnl.BackColor = System.Drawing.Color.White;
+            this.atalhosPnl.Controls.Add(this.label15);
+            this.atalhosPnl.Controls.Add(this.label14);
+            this.atalhosPnl.Controls.Add(this.label13);
+            this.atalhosPnl.Controls.Add(this.label6);
+            this.atalhosPnl.Controls.Add(this.label4);
+            this.atalhosPnl.Controls.Add(this.label2);
+            this.atalhosPnl.Location = new System.Drawing.Point(0, 39);
+            this.atalhosPnl.Name = "atalhosPnl";
+            this.atalhosPnl.Size = new System.Drawing.Size(242, 235);
+            this.atalhosPnl.TabIndex = 23;
+            this.atalhosPnl.Visible = false;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(8, 174);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(145, 21);
+            this.label15.TabIndex = 5;
+            this.label15.Text = "F6 - Finalizar venda";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(8, 139);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(148, 21);
+            this.label14.TabIndex = 4;
+            this.label14.Text = "F5 - Cancelar Venda";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(8, 106);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(189, 21);
+            this.label13.TabIndex = 3;
+            this.label13.Text = "F4 - Adicionar quantidade";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(8, 74);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(161, 21);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "F3 - Cancelar Produto";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(8, 42);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(178, 21);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "F2 - Adicionar Vendedor";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(8, 10);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(159, 21);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "F1 - Adicionar Cliente";
             // 
             // Caixa
             // 
@@ -465,24 +564,25 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(224)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(1368, 758);
+            this.Controls.Add(this.atalhosPnl);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.botaoCancelarVenda1);
-            this.Controls.Add(this.botaoAdicionarClienteCaixa1);
+            this.Controls.Add(this.cancelarVendaBtn);
+            this.Controls.Add(this.adicionarClienteBtn);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.botaoFinalizarVenda2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.clienteVendaTbx);
+            this.Controls.Add(this.finalizarVenda);
+            this.Controls.Add(this.vendedorVendaCbx);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.vendaProdutosDgv);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Caixa";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendaProdutosDgv)).EndInit();
             this.panel2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -494,6 +594,8 @@
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.atalhosPnl.ResumeLayout(false);
+            this.atalhosPnl.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -502,34 +604,34 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView vendaProdutosDgv;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label valorTotalLbl;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label quantidadeItensLbl;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label valorProdutoLbl;
+        private System.Windows.Forms.TextBox idProdutoTbx;
+        private System.Windows.Forms.TextBox nomeProdutoTbx;
+        private System.Windows.Forms.TextBox descricaoProdutoTbx;
+        private System.Windows.Forms.TextBox tamanhoTbx;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel CaixaSsl;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox vendedorVendaCbx;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label7;
-        private Botoes.BotaoFinalizarVenda botaoFinalizarVenda2;
-        private System.Windows.Forms.TextBox textBox5;
+        private Botoes.BotaoFinalizarVenda finalizarVenda;
+        private System.Windows.Forms.TextBox clienteVendaTbx;
         private System.Windows.Forms.Label label12;
-        private Botoes.BotaoAdicionarClienteCaixa botaoAdicionarClienteCaixa1;
-        private Botoes.BotaoCancelarVenda botaoCancelarVenda1;
+        private Botoes.BotaoAdicionarClienteCaixa adicionarClienteBtn;
+        private Botoes.BotaoCancelarVenda cancelarVendaBtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodigoProduto;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomeProduto;
         private System.Windows.Forms.DataGridViewTextBoxColumn DescricaoPrdouto;
@@ -537,6 +639,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ValorProduto;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button fecharBtn;
+        private System.Windows.Forms.Button atalhosBtn;
+        private System.Windows.Forms.Panel atalhosPnl;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label2;
     }
 }

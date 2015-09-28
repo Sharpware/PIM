@@ -32,17 +32,17 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.tipoProdutoCbx = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.tamanhoTbx = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.nomeProdutoTbx = new System.Windows.Forms.TextBox();
+            this.idProdutoTbx = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.marcaProdutoTbx = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.pesquisaProdutosDgv = new System.Windows.Forms.DataGridView();
             this.CodigoProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NomeProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,11 +51,11 @@
             this.ValorProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.botaoFInalizaPesquisa1 = new TelasSharpWare.Botoes.BotaoFinalizarPesquisa();
-            this.botaoPesqProduto1 = new TelasSharpWare.Botoes.BotaoPesqProduto();
+            this.fecharBtn = new System.Windows.Forms.Button();
+            this.finalizarPesquisaProdutoBtn = new TelasSharpWare.Botoes.BotaoFinalizarPesquisa();
+            this.pesquisarProdutosBtn = new TelasSharpWare.Botoes.BotaoPesqProduto();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pesquisaProdutosDgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,15 +73,15 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(164)))), ((int)(((byte)(180)))));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.comboBox3);
+            this.panel2.Controls.Add(this.tipoProdutoCbx);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.comboBox2);
+            this.panel2.Controls.Add(this.tamanhoTbx);
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.nomeProdutoTbx);
+            this.panel2.Controls.Add(this.idProdutoTbx);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Controls.Add(this.marcaProdutoTbx);
             this.panel2.Location = new System.Drawing.Point(200, 123);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(521, 227);
@@ -98,10 +98,10 @@
             this.label6.TabIndex = 9;
             this.label6.Text = "Tipo";
             // 
-            // comboBox3
+            // tipoProdutoCbx
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.tipoProdutoCbx.FormattingEnabled = true;
+            this.tipoProdutoCbx.Items.AddRange(new object[] {
             "Corrida ou caminhada",
             "Corrida performance",
             "Skate",
@@ -111,11 +111,11 @@
             "Vôlei",
             "Fitness e musculação",
             "Basquete"});
-            this.comboBox3.Location = new System.Drawing.Point(35, 84);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(305, 21);
-            this.comboBox3.TabIndex = 8;
-            this.comboBox3.Text = "Todos--";
+            this.tipoProdutoCbx.Location = new System.Drawing.Point(35, 84);
+            this.tipoProdutoCbx.Name = "tipoProdutoCbx";
+            this.tipoProdutoCbx.Size = new System.Drawing.Size(305, 21);
+            this.tipoProdutoCbx.TabIndex = 8;
+            this.tipoProdutoCbx.Text = "Todos--";
             // 
             // label5
             // 
@@ -128,10 +128,10 @@
             this.label5.TabIndex = 7;
             this.label5.Text = "Tamanho";
             // 
-            // comboBox2
+            // tamanhoTbx
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.tamanhoTbx.FormattingEnabled = true;
+            this.tamanhoTbx.Items.AddRange(new object[] {
             "34-35",
             "35-36",
             "36-37",
@@ -144,10 +144,10 @@
             "43-44",
             "44-45",
             "45+"});
-            this.comboBox2.Location = new System.Drawing.Point(364, 184);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(78, 21);
-            this.comboBox2.TabIndex = 6;
+            this.tamanhoTbx.Location = new System.Drawing.Point(364, 184);
+            this.tamanhoTbx.Name = "tamanhoTbx";
+            this.tamanhoTbx.Size = new System.Drawing.Size(78, 21);
+            this.tamanhoTbx.TabIndex = 6;
             // 
             // label4
             // 
@@ -160,19 +160,19 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Nome do produto";
             // 
-            // textBox2
+            // nomeProdutoTbx
             // 
-            this.textBox2.Location = new System.Drawing.Point(35, 185);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(305, 20);
-            this.textBox2.TabIndex = 4;
+            this.nomeProdutoTbx.Location = new System.Drawing.Point(35, 185);
+            this.nomeProdutoTbx.Name = "nomeProdutoTbx";
+            this.nomeProdutoTbx.Size = new System.Drawing.Size(305, 20);
+            this.nomeProdutoTbx.TabIndex = 4;
             // 
-            // textBox1
+            // idProdutoTbx
             // 
-            this.textBox1.Location = new System.Drawing.Point(35, 37);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(128, 20);
-            this.textBox1.TabIndex = 3;
+            this.idProdutoTbx.Location = new System.Drawing.Point(35, 37);
+            this.idProdutoTbx.Name = "idProdutoTbx";
+            this.idProdutoTbx.Size = new System.Drawing.Size(128, 20);
+            this.idProdutoTbx.TabIndex = 3;
             // 
             // label3
             // 
@@ -196,10 +196,10 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Marca";
             // 
-            // comboBox1
+            // marcaProdutoTbx
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.marcaProdutoTbx.FormattingEnabled = true;
+            this.marcaProdutoTbx.Items.AddRange(new object[] {
             "NIKE",
             "ADIDAS",
             "PUMA",
@@ -208,11 +208,11 @@
             "OAKLEY",
             "OLIMPIKUS",
             "TIMBERLAND"});
-            this.comboBox1.Location = new System.Drawing.Point(35, 137);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(305, 21);
-            this.comboBox1.TabIndex = 0;
-            this.comboBox1.Text = "Todos--";
+            this.marcaProdutoTbx.Location = new System.Drawing.Point(35, 137);
+            this.marcaProdutoTbx.Name = "marcaProdutoTbx";
+            this.marcaProdutoTbx.Size = new System.Drawing.Size(305, 21);
+            this.marcaProdutoTbx.TabIndex = 0;
+            this.marcaProdutoTbx.Text = "Todos--";
             // 
             // label1
             // 
@@ -225,12 +225,12 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "PESQUISAR PRODUTO";
             // 
-            // dataGridView1
+            // pesquisaProdutosDgv
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.pesquisaProdutosDgv.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pesquisaProdutosDgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.pesquisaProdutosDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.pesquisaProdutosDgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CodigoProduto,
             this.Tipo,
             this.NomeProduto,
@@ -238,10 +238,10 @@
             this.TamanhoProduto,
             this.ValorProduto,
             this.Quantidade});
-            this.dataGridView1.Location = new System.Drawing.Point(190, 366);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(931, 191);
-            this.dataGridView1.TabIndex = 3;
+            this.pesquisaProdutosDgv.Location = new System.Drawing.Point(190, 366);
+            this.pesquisaProdutosDgv.Name = "pesquisaProdutosDgv";
+            this.pesquisaProdutosDgv.Size = new System.Drawing.Size(931, 191);
+            this.pesquisaProdutosDgv.TabIndex = 3;
             // 
             // CodigoProduto
             // 
@@ -300,38 +300,38 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // button1
+            // fecharBtn
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(164)))), ((int)(((byte)(180)))));
-            this.button1.Location = new System.Drawing.Point(1313, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(38, 32);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "X";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.fecharBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.fecharBtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fecharBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(164)))), ((int)(((byte)(180)))));
+            this.fecharBtn.Location = new System.Drawing.Point(1313, 3);
+            this.fecharBtn.Name = "fecharBtn";
+            this.fecharBtn.Size = new System.Drawing.Size(38, 32);
+            this.fecharBtn.TabIndex = 6;
+            this.fecharBtn.Text = "X";
+            this.fecharBtn.UseVisualStyleBackColor = true;
+            this.fecharBtn.Click += new System.EventHandler(this.button1_Click);
             // 
-            // botaoFInalizaPesquisa1
+            // finalizarPesquisaProdutoBtn
             // 
-            this.botaoFInalizaPesquisa1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botaoFInalizaPesquisa1.BackgroundImage")));
-            this.botaoFInalizaPesquisa1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.botaoFInalizaPesquisa1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.botaoFInalizaPesquisa1.Location = new System.Drawing.Point(1122, 687);
-            this.botaoFInalizaPesquisa1.Name = "botaoFInalizaPesquisa1";
-            this.botaoFInalizaPesquisa1.Size = new System.Drawing.Size(220, 60);
-            this.botaoFInalizaPesquisa1.TabIndex = 5;
+            this.finalizarPesquisaProdutoBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("finalizarPesquisaProdutoBtn.BackgroundImage")));
+            this.finalizarPesquisaProdutoBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.finalizarPesquisaProdutoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.finalizarPesquisaProdutoBtn.Location = new System.Drawing.Point(1122, 687);
+            this.finalizarPesquisaProdutoBtn.Name = "finalizarPesquisaProdutoBtn";
+            this.finalizarPesquisaProdutoBtn.Size = new System.Drawing.Size(220, 60);
+            this.finalizarPesquisaProdutoBtn.TabIndex = 5;
             // 
-            // botaoPesqProduto1
+            // pesquisarProdutosBtn
             // 
-            this.botaoPesqProduto1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botaoPesqProduto1.BackgroundImage")));
-            this.botaoPesqProduto1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.botaoPesqProduto1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.botaoPesqProduto1.Location = new System.Drawing.Point(1122, 604);
-            this.botaoPesqProduto1.Name = "botaoPesqProduto1";
-            this.botaoPesqProduto1.Size = new System.Drawing.Size(220, 67);
-            this.botaoPesqProduto1.TabIndex = 7;
+            this.pesquisarProdutosBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pesquisarProdutosBtn.BackgroundImage")));
+            this.pesquisarProdutosBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pesquisarProdutosBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pesquisarProdutosBtn.Location = new System.Drawing.Point(1122, 604);
+            this.pesquisarProdutosBtn.Name = "pesquisarProdutosBtn";
+            this.pesquisarProdutosBtn.Size = new System.Drawing.Size(220, 67);
+            this.pesquisarProdutosBtn.TabIndex = 7;
             // 
             // PesquisarProduto
             // 
@@ -340,11 +340,11 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(224)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(1354, 759);
             this.ControlBox = false;
-            this.Controls.Add(this.botaoPesqProduto1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.botaoFInalizaPesquisa1);
+            this.Controls.Add(this.pesquisarProdutosBtn);
+            this.Controls.Add(this.fecharBtn);
+            this.Controls.Add(this.finalizarPesquisaProdutoBtn);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.pesquisaProdutosDgv);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
@@ -354,7 +354,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pesquisaProdutosDgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -366,21 +366,21 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox nomeProdutoTbx;
+        private System.Windows.Forms.TextBox idProdutoTbx;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox marcaProdutoTbx;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView pesquisaProdutosDgv;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private Botoes.BotaoFinalizarPesquisa botaoFInalizaPesquisa1;
-        private System.Windows.Forms.Button button1;
+        private Botoes.BotaoFinalizarPesquisa finalizarPesquisaProdutoBtn;
+        private System.Windows.Forms.Button fecharBtn;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox tipoProdutoCbx;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private Botoes.BotaoPesqProduto botaoPesqProduto1;
+        private System.Windows.Forms.ComboBox tamanhoTbx;
+        private Botoes.BotaoPesqProduto pesquisarProdutosBtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodigoProduto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomeProduto;

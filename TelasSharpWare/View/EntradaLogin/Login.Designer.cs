@@ -32,12 +32,12 @@
             this.LoginTbx = new System.Windows.Forms.TextBox();
             this.SenhaTbx = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.botaoLogin1 = new TelasSharpWare.BotaoLogin();
+            this.loginBtn = new TelasSharpWare.BotaoLogin();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.fecharBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -64,7 +64,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.botaoLogin1);
+            this.groupBox1.Controls.Add(this.loginBtn);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.SenhaTbx);
@@ -76,17 +76,17 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             // 
-            // botaoLogin1
+            // loginBtn
             // 
-            this.botaoLogin1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botaoLogin1.BackgroundImage")));
-            this.botaoLogin1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.botaoLogin1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.botaoLogin1.Location = new System.Drawing.Point(195, 171);
-            this.botaoLogin1.Margin = new System.Windows.Forms.Padding(4);
-            this.botaoLogin1.Name = "botaoLogin1";
-            this.botaoLogin1.Size = new System.Drawing.Size(60, 60);
-            this.botaoLogin1.TabIndex = 4;
-            this.botaoLogin1.Click += new System.EventHandler(this.botaoLogin1_Click);
+            this.loginBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("loginBtn.BackgroundImage")));
+            this.loginBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.loginBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.loginBtn.Location = new System.Drawing.Point(195, 171);
+            this.loginBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.loginBtn.Name = "loginBtn";
+            this.loginBtn.Size = new System.Drawing.Size(60, 60);
+            this.loginBtn.TabIndex = 4;
+            this.loginBtn.Click += new System.EventHandler(this.botaoLogin1_Click);
             // 
             // label2
             // 
@@ -111,7 +111,7 @@
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(164)))), ((int)(((byte)(180)))));
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.pictureBox2);
-            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.fecharBtn);
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(286, 37);
@@ -127,18 +127,18 @@
             this.pictureBox2.TabIndex = 9;
             this.pictureBox2.TabStop = false;
             // 
-            // button1
+            // fecharBtn
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(247, -1);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(38, 32);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "X";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.fecharBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.fecharBtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fecharBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.fecharBtn.Location = new System.Drawing.Point(247, -1);
+            this.fecharBtn.Name = "fecharBtn";
+            this.fecharBtn.Size = new System.Drawing.Size(38, 32);
+            this.fecharBtn.TabIndex = 5;
+            this.fecharBtn.Text = "X";
+            this.fecharBtn.UseVisualStyleBackColor = true;
+            this.fecharBtn.Click += new System.EventHandler(this.button1_Click);
             // 
             // Login
             // 
@@ -169,9 +169,9 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private BotaoLogin botaoLogin1;
+        private BotaoLogin loginBtn;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button fecharBtn;
     }
 }
