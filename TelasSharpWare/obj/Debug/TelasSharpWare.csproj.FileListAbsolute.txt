@@ -479,3 +479,9 @@ C:\Users\Usuario\Desktop\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.EditarClien
 C:\Users\Usuario\Desktop\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.csproj.GenerateResource.Cache
 C:\Users\Usuario\Desktop\PIM\TelasSharpWare\bin\Debug\TelasSharpWare.exe
 C:\Users\Usuario\Desktop\PIM\TelasSharpWare\bin\Debug\TelasSharpWare.pdb
+C:\Users\Usuario\Documents\repositorios\GitHub\PIM\TelasSharpWare\bin\Debug\TelasSharpWare.exe.config
+C:\Users\Usuario\Documents\repositorios\GitHub\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.exe
+C:\Users\Usuario\Documents\repositorios\GitHub\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.pdb
+C:\Users\A-IKASORUK\Desktop\PIM\TelasSharpWare\bin\Debug\TelasSharpWare.exe.config
+C:\Users\A-IKASORUK\Desktop\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.exe
+C:\Users\A-IKASORUK\Desktop\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.pdb

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,35 +9,32 @@ namespace TelasSharpWare.Model
 {
     public class Fornecedor
     {
-        private long id;
-        private String nomeFantasia;
-        private String razaoSocial;
-        private long cnpj;
-        private String emailPrimario;
-        private String emailSecundario;
-        private String telefonePrimario;
-        private String telefoneSecundario;
-        private String telefoneTerceario;
-        private String observacao;
-        private Endereco endereco;
-        private Status status;
-        private List<Produto> produtos;
+        private long _id;
+        private String _nomeFantasia;
+        private String _razaoSocial;
+        private long _cnpj;
+        private String _observacao;
+        private Endereco _endereco;
+        private Status _status;
+        private Lazy<IList<Produto>> _lazyProdutos;
+        private Lazy<IList<Telefone>> _lazyTelefones;
 
         public Fornecedor()
         {
-            produtos = new List<Produto>();
+            _lazyProdutos = new Lazy<IList<Produto>>(() => new List<Produto>());
+            _lazyTelefones = new Lazy<IList<Telefone>>(() => new List<Telefone>());
         }
 
         public long Id
         {
             get
             {
-                return id;
+                return _id;
             }
 
             set
             {
-                id = value;
+                _id = value;
             }
         }
 
@@ -44,12 +42,12 @@ namespace TelasSharpWare.Model
         {
             get
             {
-                return nomeFantasia;
+                return _nomeFantasia;
             }
 
             set
             {
-                nomeFantasia = value;
+                _nomeFantasia = value;
             }
         }
 
@@ -57,12 +55,12 @@ namespace TelasSharpWare.Model
         {
             get
             {
-                return razaoSocial;
+                return _razaoSocial;
             }
 
             set
             {
-                razaoSocial = value;
+                _razaoSocial = value;
             }
         }
 
@@ -70,77 +68,12 @@ namespace TelasSharpWare.Model
         {
             get
             {
-                return cnpj;
+                return _cnpj;
             }
 
             set
             {
-                cnpj = value;
-            }
-        }
-
-        public string EmailPrimario
-        {
-            get
-            {
-                return emailPrimario;
-            }
-
-            set
-            {
-                emailPrimario = value;
-            }
-        }
-
-        public string EmailSecundario
-        {
-            get
-            {
-                return emailSecundario;
-            }
-
-            set
-            {
-                emailSecundario = value;
-            }
-        }
-
-        public string TelefonePrimario
-        {
-            get
-            {
-                return telefonePrimario;
-            }
-
-            set
-            {
-                telefonePrimario = value;
-            }
-        }
-
-        public string TelefoneSecundario
-        {
-            get
-            {
-                return telefoneSecundario;
-            }
-
-            set
-            {
-                telefoneSecundario = value;
-            }
-        }
-
-        public string TelefoneTerceario
-        {
-            get
-            {
-                return telefoneTerceario;
-            }
-
-            set
-            {
-                telefoneTerceario = value;
+                _cnpj = value;
             }
         }
 
@@ -148,12 +81,12 @@ namespace TelasSharpWare.Model
         {
             get
             {
-                return observacao;
+                return _observacao;
             }
 
             set
             {
-                observacao = value;
+                _observacao = value;
             }
         }
 
@@ -161,12 +94,12 @@ namespace TelasSharpWare.Model
         {
             get
             {
-                return endereco;
+                return _endereco;
             }
 
             set
             {
-                endereco = value;
+                _endereco = value;
             }
         }
 
@@ -174,12 +107,28 @@ namespace TelasSharpWare.Model
         {
             get
             {
-                return status;
+                return _status;
             }
 
             set
             {
-                status = value;
+                _status = value;
+            }
+        }
+
+        public IReadOnlyCollection<Produto> Produtos
+        {
+            get
+            {
+                return new ReadOnlyCollection<Produto>(_lazyProdutos.Value);
+            }
+        }
+
+        public IReadOnlyCollection<Telefone> Telefones
+        {
+            get
+            {
+                return new ReadOnlyCollection<Telefone>(_lazyTelefones.Value);
             }
         }
     }

@@ -8,24 +8,30 @@ namespace TelasSharpWare.Model
 {
     public class Endereco
     {
-        private String rua;
-        private int numero;
-        private String complemento;
-        private int cep;
-        private String bairro;
-        private String uf;
-        private String cidade;
+        private String _rua;
+        private int _numero;
+        private String _complemento;
+        private int _cep;
+        private String _bairro;
+        private string _uf;
+        private String _cidade;
+
+        public Endereco(String rua, int numero, String complemento, int cep, String bairro, String uf, String cidade)
+        {
+            _rua = rua;
+            _numero = numero;
+            _complemento = complemento;
+            _cep = cep;
+            _bairro = bairro;
+            _uf = uf;
+            _cidade = cidade;
+        }
 
         public string Rua
         {
             get
             {
-                return rua;
-            }
-
-            set
-            {
-                rua = value;
+                return _rua;
             }
         }
 
@@ -33,12 +39,7 @@ namespace TelasSharpWare.Model
         {
             get
             {
-                return numero;
-            }
-
-            set
-            {
-                numero = value;
+                return _numero;
             }
         }
 
@@ -46,25 +47,15 @@ namespace TelasSharpWare.Model
         {
             get
             {
-                return complemento;
-            }
-
-            set
-            {
-                complemento = value;
+                return _complemento;
             }
         }
 
-        public int CEP
+        public int Cep
         {
             get
             {
-                return cep;
-            }
-
-            set
-            {
-                cep = value;
+                return _cep;
             }
         }
 
@@ -72,25 +63,15 @@ namespace TelasSharpWare.Model
         {
             get
             {
-                return bairro;
-            }
-
-            set
-            {
-                bairro = value;
+                return _bairro;
             }
         }
 
-        public string UF
+        public string Uf
         {
             get
             {
-                return uf;
-            }
-
-            set
-            {
-                uf = value;
+                return _uf;
             }
         }
 
@@ -98,13 +79,9 @@ namespace TelasSharpWare.Model
         {
             get
             {
-                return cidade;
-            }
-
-            set
-            {
-                cidade = value;
+                return _cidade;
             }
         }
+
     }
 }
