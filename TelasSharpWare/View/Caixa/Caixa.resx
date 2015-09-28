@@ -1309,7 +1309,7 @@
         +RVYptHNhzThkL7Cf6HNbwdsay2Ql+hIkydBukyUWu+UX5H63/b/Aftz4DnSHGeAAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="botaoCancelarVenda1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="cancelarVendaBtn.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABRYAAAFUCAYAAABRBGCqAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
         DwAAjA8AAP1SAACBQAAAfXkAAOmLAAA85QAAGcxzPIV3AAAKNWlDQ1BzUkdCIElFQzYxOTY2LTIuMQAA
@@ -1907,7 +1907,7 @@
         JMcYR7ujwVHm+PeO/wUAAAAAAAC2Xfhf/v81yI7KIOr7GwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="botaoAdicionarClienteCaixa1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="adicionarClienteBtn.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABRIAAAFUCAYAAABY78DQAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
         DwAAjA8AAP1SAACBQAAAfXkAAOmLAAA85QAAGcxzPIV3AAAKNWlDQ1BzUkdCIElFQzYxOTY2LTIuMQAA
@@ -2386,7 +2386,7 @@
         f9N7GgAAAAAAAEmy6+n/H/fOEIQ1YjEaAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="botaoFinalizarVenda2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="finalizarVenda.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABRYAAAFUCAYAAABRBGCqAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
         DwAAjA8AAP1SAACBQAAAfXkAAOmLAAA85QAAGcxzPIV3AAAKL2lDQ1BJQ0MgUHJvZmlsZQAASMedlndU

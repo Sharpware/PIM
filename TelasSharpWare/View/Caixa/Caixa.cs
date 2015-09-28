@@ -33,5 +33,15 @@ namespace TelasSharpWare
         {
             this.Close();
         }
+
+        private void atalhosBtn_Click(object sender, EventArgs e)
+        {
+            if (atalhosPnl.Visible == false)
+            {
+                atalhosPnl.Visible = true;
+            }
+            else
+                atalhosPnl.Visible = false;
+        }
     }
 }

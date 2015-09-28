@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEntrada));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.botaoPesquisar1 = new TelasSharpWare.BotaoPesquisar();
-            this.botaoCaixa1 = new TelasSharpWare.BotaoCaixa();
+            this.pesquisarBtn = new TelasSharpWare.BotaoPesquisar();
+            this.caixaBtn = new TelasSharpWare.BotaoCaixa();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -68,31 +68,31 @@
             this.label1.Text = "label1";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // botaoPesquisar1
+            // pesquisarBtn
             // 
-            this.botaoPesquisar1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botaoPesquisar1.BackgroundImage")));
-            this.botaoPesquisar1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.botaoPesquisar1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.botaoPesquisar1.Location = new System.Drawing.Point(226, 57);
-            this.botaoPesquisar1.Name = "botaoPesquisar1";
-            this.botaoPesquisar1.Size = new System.Drawing.Size(150, 150);
-            this.botaoPesquisar1.TabIndex = 1;
-            this.botaoPesquisar1.Click += new System.EventHandler(this.botaoPesquisar1_Click);
-            this.botaoPesquisar1.MouseEnter += new System.EventHandler(this.botaoPesquisar1_MouseEnter);
-            this.botaoPesquisar1.MouseLeave += new System.EventHandler(this.botaoPesquisar1_MouseLeave);
+            this.pesquisarBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pesquisarBtn.BackgroundImage")));
+            this.pesquisarBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pesquisarBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pesquisarBtn.Location = new System.Drawing.Point(226, 57);
+            this.pesquisarBtn.Name = "pesquisarBtn";
+            this.pesquisarBtn.Size = new System.Drawing.Size(150, 150);
+            this.pesquisarBtn.TabIndex = 1;
+            this.pesquisarBtn.Click += new System.EventHandler(this.botaoPesquisar1_Click);
+            this.pesquisarBtn.MouseEnter += new System.EventHandler(this.botaoPesquisar1_MouseEnter);
+            this.pesquisarBtn.MouseLeave += new System.EventHandler(this.botaoPesquisar1_MouseLeave);
             // 
-            // botaoCaixa1
+            // caixaBtn
             // 
-            this.botaoCaixa1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botaoCaixa1.BackgroundImage")));
-            this.botaoCaixa1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.botaoCaixa1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.botaoCaixa1.Location = new System.Drawing.Point(54, 57);
-            this.botaoCaixa1.Name = "botaoCaixa1";
-            this.botaoCaixa1.Size = new System.Drawing.Size(150, 150);
-            this.botaoCaixa1.TabIndex = 0;
-            this.botaoCaixa1.Click += new System.EventHandler(this.botaoCaixa1_Click);
-            this.botaoCaixa1.MouseEnter += new System.EventHandler(this.botaoCaixa1_MouseEnter);
-            this.botaoCaixa1.MouseLeave += new System.EventHandler(this.botaoCaixa1_MouseLeave);
+            this.caixaBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("caixaBtn.BackgroundImage")));
+            this.caixaBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.caixaBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.caixaBtn.Location = new System.Drawing.Point(54, 57);
+            this.caixaBtn.Name = "caixaBtn";
+            this.caixaBtn.Size = new System.Drawing.Size(150, 150);
+            this.caixaBtn.TabIndex = 0;
+            this.caixaBtn.Click += new System.EventHandler(this.botaoCaixa1_Click);
+            this.caixaBtn.MouseEnter += new System.EventHandler(this.botaoCaixa1_MouseEnter);
+            this.caixaBtn.MouseLeave += new System.EventHandler(this.botaoCaixa1_MouseLeave);
             // 
             // panel3
             // 
@@ -150,8 +150,8 @@
             this.ClientSize = new System.Drawing.Size(435, 290);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.botaoPesquisar1);
-            this.Controls.Add(this.botaoCaixa1);
+            this.Controls.Add(this.pesquisarBtn);
+            this.Controls.Add(this.caixaBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -169,8 +169,8 @@
 
         #endregion
 
-        private BotaoCaixa botaoCaixa1;
-        private BotaoPesquisar botaoPesquisar1;
+        private BotaoCaixa caixaBtn;
+        private BotaoPesquisar pesquisarBtn;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;

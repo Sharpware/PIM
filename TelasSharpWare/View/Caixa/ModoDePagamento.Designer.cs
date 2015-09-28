@@ -32,9 +32,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.ModoLbl = new System.Windows.Forms.Label();
-            this.botaoDinheiro1 = new TelasSharpWare.Botoes.BotaoDinheiro();
-            this.botaoCartao1 = new TelasSharpWare.Botoes.BotaoCartao();
-            this.button1 = new System.Windows.Forms.Button();
+            this.fecharBtn = new System.Windows.Forms.Button();
+            this.dinheiroBtn = new TelasSharpWare.Botoes.BotaoDinheiro();
+            this.cartaoBtn = new TelasSharpWare.Botoes.BotaoCartao();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,44 +71,44 @@
             this.ModoLbl.TabIndex = 0;
             this.ModoLbl.Text = "lbl";
             // 
-            // botaoDinheiro1
+            // fecharBtn
             // 
-            this.botaoDinheiro1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botaoDinheiro1.BackgroundImage")));
-            this.botaoDinheiro1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.botaoDinheiro1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.botaoDinheiro1.Location = new System.Drawing.Point(200, 70);
-            this.botaoDinheiro1.Name = "botaoDinheiro1";
-            this.botaoDinheiro1.Size = new System.Drawing.Size(120, 120);
-            this.botaoDinheiro1.TabIndex = 1;
-            this.botaoDinheiro1.Click += new System.EventHandler(this.botaoDinheiro1_Click);
-            this.botaoDinheiro1.MouseEnter += new System.EventHandler(this.botaoDinheiro1_MouseEnter);
-            this.botaoDinheiro1.MouseLeave += new System.EventHandler(this.botaoDinheiro1_MouseLeave);
+            this.fecharBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.fecharBtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fecharBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.fecharBtn.Location = new System.Drawing.Point(344, 2);
+            this.fecharBtn.Name = "fecharBtn";
+            this.fecharBtn.Size = new System.Drawing.Size(38, 32);
+            this.fecharBtn.TabIndex = 6;
+            this.fecharBtn.Text = "X";
+            this.fecharBtn.UseVisualStyleBackColor = true;
+            this.fecharBtn.Click += new System.EventHandler(this.button1_Click);
             // 
-            // botaoCartao1
+            // dinheiroBtn
             // 
-            this.botaoCartao1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botaoCartao1.BackgroundImage")));
-            this.botaoCartao1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.botaoCartao1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.botaoCartao1.Location = new System.Drawing.Point(49, 70);
-            this.botaoCartao1.Name = "botaoCartao1";
-            this.botaoCartao1.Size = new System.Drawing.Size(120, 120);
-            this.botaoCartao1.TabIndex = 0;
-            this.botaoCartao1.Click += new System.EventHandler(this.botaoCartao1_Click);
-            this.botaoCartao1.MouseEnter += new System.EventHandler(this.botaoCartao1_MouseEnter);
-            this.botaoCartao1.MouseLeave += new System.EventHandler(this.botaoCartao1_MouseLeave);
+            this.dinheiroBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("dinheiroBtn.BackgroundImage")));
+            this.dinheiroBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.dinheiroBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dinheiroBtn.Location = new System.Drawing.Point(202, 70);
+            this.dinheiroBtn.Name = "dinheiroBtn";
+            this.dinheiroBtn.Size = new System.Drawing.Size(120, 120);
+            this.dinheiroBtn.TabIndex = 1;
+            this.dinheiroBtn.Click += new System.EventHandler(this.botaoDinheiro1_Click);
+            this.dinheiroBtn.MouseEnter += new System.EventHandler(this.botaoDinheiro1_MouseEnter);
+            this.dinheiroBtn.MouseLeave += new System.EventHandler(this.botaoDinheiro1_MouseLeave);
             // 
-            // button1
+            // cartaoBtn
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(344, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(38, 32);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "X";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.cartaoBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cartaoBtn.BackgroundImage")));
+            this.cartaoBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cartaoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cartaoBtn.Location = new System.Drawing.Point(49, 70);
+            this.cartaoBtn.Name = "cartaoBtn";
+            this.cartaoBtn.Size = new System.Drawing.Size(120, 120);
+            this.cartaoBtn.TabIndex = 0;
+            this.cartaoBtn.Click += new System.EventHandler(this.botaoCartao1_Click);
+            this.cartaoBtn.MouseEnter += new System.EventHandler(this.botaoCartao1_MouseEnter);
+            this.cartaoBtn.MouseLeave += new System.EventHandler(this.botaoCartao1_MouseLeave);
             // 
             // ModoDePagamento
             // 
@@ -116,11 +116,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(224)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(384, 261);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.fecharBtn);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.botaoDinheiro1);
-            this.Controls.Add(this.botaoCartao1);
+            this.Controls.Add(this.dinheiroBtn);
+            this.Controls.Add(this.cartaoBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -138,11 +138,11 @@
 
         #endregion
 
-        private Botoes.BotaoCartao botaoCartao1;
-        private Botoes.BotaoDinheiro botaoDinheiro1;
+        private Botoes.BotaoCartao cartaoBtn;
+        private Botoes.BotaoDinheiro dinheiroBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label ModoLbl;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button fecharBtn;
     }
 }
