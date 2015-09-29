@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\VendaController.cs" />
     <Compile Include="Model\Cliente.cs" />
     <Compile Include="Model\Email.cs" />
     <Compile Include="Model\Endereco.cs" />
@@ -56,8 +57,9 @@
     <Compile Include="Model\TipoFuncionario.cs" />
     <Compile Include="Model\TipoProduto.cs" />
     <Compile Include="Model\TipoTelefone.cs" />
+    <Compile Include="Model\TipoVenda.cs" />
     <Compile Include="Model\Venda.cs" />
-    <Compile Include="Model\VendaProdutos.cs" />
+    <Compile Include="Model\VendaProduto.cs" />
     <Compile Include="View\Botoes\BotaoAdicionarClienteVenda.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -601,6 +603,7 @@
     <EmbeddedResource Include="View\Caixa\Cliente\EditarCliente.resx">
       <DependentUpon>EditarCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -926,9 +929,7 @@
   <ItemGroup>
     <None Include="Resources\BotaoInativarUsuario2.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controller\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\BotaoAdicionarClienteVenda1.png" />
   </ItemGroup>

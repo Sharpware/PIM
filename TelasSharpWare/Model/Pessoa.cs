@@ -18,8 +18,16 @@ namespace TelasSharpWare.Model
         private Endereco _endereco;
         private Lazy<IList<Telefone>> _lazyTelefones;
         
-        public Pessoa()
+        public Pessoa(long id, String nome, long cpf, DateTime dataNascimento, 
+                        String observacao, Status status, Endereco endereco)
         {
+            _id = id;
+            _nome = nome;
+            _cpf = cpf;
+            _dataNascimento = dataNascimento;
+            _observacao = observacao;
+            _status = status;
+            _endereco = endereco;
             _lazyTelefones = new Lazy<IList<Telefone>>(() => new List<Telefone>());
         }
 

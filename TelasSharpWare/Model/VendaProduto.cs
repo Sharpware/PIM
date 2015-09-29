@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TelasSharpWare.Model
 {
-    public class VendaProdutos
+    public class VendaProduto
     {
         private int id;
 

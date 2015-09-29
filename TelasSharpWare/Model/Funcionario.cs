@@ -8,47 +8,46 @@ namespace TelasSharpWare.Model
 {
     public class Funcionario : Pessoa
     {
-        private String login;
-        private String senha;
-        private TipoFuncionario tipoFuncionario;
+        private String _login;
+        private String _senha;
+        private TipoFuncionario _tipoFuncionario;
+
+        public Funcionario(long id, String nome, long cpf, DateTime dataNascimento,
+                        String observacao, Status status, Endereco endereco,
+                        String login, String senha, TipoFuncionario tipoFuncionario) :
+            base(id, nome, cpf, dataNascimento, observacao, status, endereco)
+        {
+            _login = login;
+            _senha = senha;
+            _tipoFuncionario = tipoFuncionario;
+
+        }
 
         public string Login
         {
             get
             {
-                return login;
+                return _login;
             }
 
-            set
-            {
-                login = value;
-            }
         }
 
         public string Senha
         {
             get
             {
-                return senha;
+                return _senha;
             }
 
-            set
-            {
-                senha = value;
-            }
         }
 
         public TipoFuncionario TipoFuncionario
         {
             get
             {
-                return tipoFuncionario;
+                return _tipoFuncionario;
             }
 
-            set
-            {
-                tipoFuncionario = value;
-            }
         }
     }
 }
