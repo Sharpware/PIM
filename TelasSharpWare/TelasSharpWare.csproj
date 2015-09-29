@@ -53,11 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Compile Include="Controller\VendaController.cs" />
-=======
     <Compile Include="DAO\ClienteDao.cs" />
->>>>>>> 2a720bbf80130c8a1af25551066d6b40a1ed679d
     <Compile Include="Model\Cliente.cs" />
     <Compile Include="Model\Email.cs" />
     <Compile Include="Model\Endereco.cs" />
@@ -73,11 +70,8 @@
     <Compile Include="Model\TipoTelefone.cs" />
     <Compile Include="Model\TipoVenda.cs" />
     <Compile Include="Model\Venda.cs" />
-<<<<<<< HEAD
     <Compile Include="Model\VendaProduto.cs" />
-=======
     <Compile Include="Model\ProdutoVenda.cs" />
->>>>>>> 2a720bbf80130c8a1af25551066d6b40a1ed679d
     <Compile Include="View\Botoes\BotaoAdicionarClienteVenda.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -621,11 +615,8 @@
     <EmbeddedResource Include="View\Caixa\Cliente\EditarCliente.resx">
       <DependentUpon>EditarCliente.cs</DependentUpon>
     </EmbeddedResource>
-<<<<<<< HEAD
     <None Include="ClassDiagram1.cd" />
-=======
     <None Include="packages.config" />
->>>>>>> 2a720bbf80130c8a1af25551066d6b40a1ed679d
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
