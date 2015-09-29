@@ -32,7 +32,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,10 +53,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="Controller\VendaController.cs" />
+=======
+    <Compile Include="DAO\ClienteDao.cs" />
+>>>>>>> 2a720bbf80130c8a1af25551066d6b40a1ed679d
     <Compile Include="Model\Cliente.cs" />
     <Compile Include="Model\Email.cs" />
     <Compile Include="Model\Endereco.cs" />
+    <Compile Include="DAO\EntidadesContext.cs" />
     <Compile Include="Model\Fornecedor.cs" />
     <Compile Include="Model\Funcionario.cs" />
     <Compile Include="Model\Pessoa.cs" />
@@ -59,7 +73,11 @@
     <Compile Include="Model\TipoTelefone.cs" />
     <Compile Include="Model\TipoVenda.cs" />
     <Compile Include="Model\Venda.cs" />
+<<<<<<< HEAD
     <Compile Include="Model\VendaProduto.cs" />
+=======
+    <Compile Include="Model\ProdutoVenda.cs" />
+>>>>>>> 2a720bbf80130c8a1af25551066d6b40a1ed679d
     <Compile Include="View\Botoes\BotaoAdicionarClienteVenda.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -603,7 +621,11 @@
     <EmbeddedResource Include="View\Caixa\Cliente\EditarCliente.resx">
       <DependentUpon>EditarCliente.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <None Include="ClassDiagram1.cd" />
+=======
+    <None Include="packages.config" />
+>>>>>>> 2a720bbf80130c8a1af25551066d6b40a1ed679d
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
