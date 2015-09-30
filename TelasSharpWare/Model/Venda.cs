@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,21 +9,47 @@ namespace TelasSharpWare.Model
 {
     public class Venda
     {
-        private long id;
-        private DateTime data;
-        private double valorTotal;
-        private Cliente cliente;
+        private long _id;
+        private DateTime _data;
+        private double _valorTotal;
+        private Cliente _cliente;
+        private TipoVenda tipoVenda;
+        private Lazy<IList<Produto>> _lazyProdutos;
+
+        public Venda(long id, double valorTotal, Cliente cliente)
+        {
+            _id = id;
+            _data = DateTime.Now;
+            _valorTotal = valorTotal;
+            _cliente = cliente;
+            _lazyProdutos = new Lazy<IList<Produto>>(() => new List<Produto>());
+        }
+
+        public void AddProduto(Produto produto)
+        {
+            _lazyProdutos.Value.Add(produto);
+            _valorTotal += produto.PrecoVenda;
+        }
+
+        public void AddQtdProduto(Produto produto, int quantidade)
+        {
+            for (int i = 0; i < quantidade; i++)
+            {
+                AddProduto(produto);
+            }
+        }
+
+        public void RmvProduto(int posicao)
+        {
+           _valorTotal -= _lazyProdutos.Value[posicao].PrecoVenda;
+            _lazyProdutos.Value.RemoveAt(posicao);
+        }
 
         public long Id
         {
             get
             {
-                return id;
-            }
-
-            set
-            {
-                id = value;
+                return _id;
             }
         }
 
@@ -30,12 +57,7 @@ namespace TelasSharpWare.Model
         {
             get
             {
-                return data;
-            }
-
-            set
-            {
-                data = value;
+                return _data;
             }
         }
 
@@ -43,12 +65,7 @@ namespace TelasSharpWare.Model
         {
             get
             {
-                return valorTotal;
-            }
-
-            set
-            {
-                valorTotal = value;
+                return _valorTotal;
             }
         }
 
@@ -56,12 +73,28 @@ namespace TelasSharpWare.Model
         {
             get
             {
-                return cliente;
+                return _cliente;
+            }
+        }
+
+        public IReadOnlyCollection<Produto> Produtos
+        {
+            get
+            {
+                return new ReadOnlyCollection<Produto>(_lazyProdutos.Value);
+            }
+        }
+
+        public TipoVenda TipoVenda
+        {
+            get
+            {
+                return tipoVenda;
             }
 
             set
             {
-                cliente = value;
+                tipoVenda = value;
             }
         }
     }
