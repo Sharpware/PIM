@@ -55,8 +55,8 @@
   <ItemGroup>
     <Compile Include="Controller\VendaController.cs" />
     <Compile Include="DAO\ClienteDao.cs" />
+    <Compile Include="DAO\VendaDao.cs" />
     <Compile Include="Model\Cliente.cs" />
-    <Compile Include="Model\Email.cs" />
     <Compile Include="Model\Endereco.cs" />
     <Compile Include="DAO\EntidadesContext.cs" />
     <Compile Include="Model\Fornecedor.cs" />

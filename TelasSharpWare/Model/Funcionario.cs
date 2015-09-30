@@ -13,14 +13,13 @@ namespace TelasSharpWare.Model
         private TipoFuncionario _tipoFuncionario;
 
         public Funcionario(long id, String nome, long cpf, DateTime dataNascimento,
-                        String observacao, Status status, Endereco endereco,
+                        String email, String observacao, Status status, Endereco endereco,
                         String login, String senha, TipoFuncionario tipoFuncionario) :
-            base(id, nome, cpf, dataNascimento, observacao, status, endereco)
+            base(id, nome, cpf, dataNascimento, email, observacao, status, endereco)
         {
             _login = login;
             _senha = senha;
             _tipoFuncionario = tipoFuncionario;
-
         }
 
         public string Login
@@ -29,7 +28,6 @@ namespace TelasSharpWare.Model
             {
                 return _login;
             }
-
         }
 
         public string Senha
@@ -38,7 +36,6 @@ namespace TelasSharpWare.Model
             {
                 return _senha;
             }
-
         }
 
         public TipoFuncionario TipoFuncionario
@@ -47,7 +44,6 @@ namespace TelasSharpWare.Model
             {
                 return _tipoFuncionario;
             }
-
         }
     }
 }

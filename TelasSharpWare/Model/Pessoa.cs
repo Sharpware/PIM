@@ -13,18 +13,20 @@ namespace TelasSharpWare.Model
         private String _nome;
         private long _cpf;
         private DateTime _dataNascimento;
-        private String _observacao;
+        private String _email;
         private Status _status;
+        private String _observacao;
         private Endereco _endereco;
         private Lazy<IList<Telefone>> _lazyTelefones;
         
         public Pessoa(long id, String nome, long cpf, DateTime dataNascimento, 
-                        String observacao, Status status, Endereco endereco)
+                      String email, String observacao, Status status, Endereco endereco)
         {
             _id = id;
             _nome = nome;
             _cpf = cpf;
             _dataNascimento = dataNascimento;
+            _email = email;
             _observacao = observacao;
             _status = status;
             _endereco = endereco;
@@ -37,11 +39,6 @@ namespace TelasSharpWare.Model
             {
                 return _id;
             }
-
-            set
-            {
-                _id = value;
-            }
         }
 
         public string Nome
@@ -49,11 +46,6 @@ namespace TelasSharpWare.Model
             get
             {
                 return _nome;
-            }
-
-            set
-            {
-                _nome = value;
             }
         }
 
@@ -63,11 +55,6 @@ namespace TelasSharpWare.Model
             {
                 return _cpf;
             }
-
-            set
-            {
-                _cpf = value;
-            }
         }
 
         public DateTime DataNascimento
@@ -76,10 +63,13 @@ namespace TelasSharpWare.Model
             {
                 return _dataNascimento;
             }
+        }
 
-            set
+        public string Email
+        {
+            get
             {
-                _dataNascimento = value;
+                return _email;
             }
         }
 
@@ -89,11 +79,6 @@ namespace TelasSharpWare.Model
             {
                 return _observacao;
             }
-
-            set
-            {
-                _observacao = value;
-            }
         }
 
         public Status Status
@@ -102,11 +87,6 @@ namespace TelasSharpWare.Model
             {
                 return _status;
             }
-
-            set
-            {
-                _status = value;
-            }
         }
 
         public Endereco Endereco
@@ -114,11 +94,6 @@ namespace TelasSharpWare.Model
             get
             {
                 return _endereco;
-            }
-
-            set
-            {
-                _endereco = value;
             }
         }
 
@@ -129,5 +104,6 @@ namespace TelasSharpWare.Model
                 return new ReadOnlyCollection<Telefone>(_lazyTelefones.Value);
             }
         }
+
     }
 }
