@@ -7,14 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TelasSharpWare.Controller;
+using TelasSharpWare.Model;
 
 namespace TelasSharpWare
 {
     public partial class Caixa : Form
     {
+        private Venda _venda;
+        private Cliente _cliente;
+        private Funcionario _funcionario;
+        private Produto _produto;
+        private VendaController vendaController;
+
         public Caixa()
         {
             InitializeComponent();
+            vendaController = new VendaController();
         }
 
         private void botaoFinalizarVenda2_Click(object sender, EventArgs e)
@@ -42,6 +51,11 @@ namespace TelasSharpWare
             }
             else
                 atalhosPnl.Visible = false;
+        }
+
+        private void adicionarProdutoBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

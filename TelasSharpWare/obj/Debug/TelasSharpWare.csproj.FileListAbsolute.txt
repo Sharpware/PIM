@@ -549,3 +549,7 @@ C:\Users\Usuario\Documents\repositorios\GitHub\PIM\TelasSharpWare\obj\Debug\Tela
 C:\Users\Usuario\Documents\repositorios\GitHub\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.Properties.Resources.resources
 C:\Users\Usuario\Documents\repositorios\GitHub\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.EditarCliente.resources
 C:\Users\Usuario\Documents\repositorios\GitHub\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.csproj.GenerateResource.Cache
+C:\Users\Usuario\Documents\repositorios\GitHub\PIM\TelasSharpWare\bin\Debug\EntityFramework.dll
+C:\Users\Usuario\Documents\repositorios\GitHub\PIM\TelasSharpWare\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Usuario\Documents\repositorios\GitHub\PIM\TelasSharpWare\bin\Debug\EntityFramework.xml
+C:\Users\Usuario\Documents\repositorios\GitHub\PIM\TelasSharpWare\bin\Debug\EntityFramework.SqlServer.xml

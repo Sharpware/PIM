@@ -13,11 +13,6 @@ namespace TelasSharpWare.Controller
         private Venda _venda;
         private VendaDao _vendaDao;
 
-        public VendaController(Venda venda)
-        {
-            _venda = venda;
-        }
-
         public void AddProduto(Produto produto)
         {
             _venda.AddProduto(produto);
