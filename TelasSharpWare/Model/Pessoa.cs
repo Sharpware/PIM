@@ -13,18 +13,20 @@ namespace TelasSharpWare.Model
         private String _nome;
         private long _cpf;
         private DateTime _dataNascimento;
-        private String _observacao;
+        private String _email;
         private Status _status;
+        private String _observacao;
         private Endereco _endereco;
         private Lazy<IList<Telefone>> _lazyTelefones;
         
         public Pessoa(long id, String nome, long cpf, DateTime dataNascimento, 
-                        String observacao, Status status, Endereco endereco)
+                      String email, String observacao, Status status, Endereco endereco)
         {
             _id = id;
             _nome = nome;
             _cpf = cpf;
             _dataNascimento = dataNascimento;
+            _email = email;
             _observacao = observacao;
             _status = status;
             _endereco = endereco;
@@ -45,11 +47,6 @@ namespace TelasSharpWare.Model
             {
                 return _nome;
             }
-
-            set
-            {
-                _nome = value;
-            }
         }
 
         public long Cpf
@@ -66,6 +63,17 @@ namespace TelasSharpWare.Model
             {
                 return _dataNascimento;
             }
+<<<<<<< HEAD
+=======
+        }
+
+        public string Email
+        {
+            get
+            {
+                return _email;
+            }
+>>>>>>> 800e8db0129d355446b6271c4b75e82b8f155bb8
         }
 
         public string Observacao
@@ -99,5 +107,6 @@ namespace TelasSharpWare.Model
                 return new ReadOnlyCollection<Telefone>(_lazyTelefones.Value);
             }
         }
+
     }
 }

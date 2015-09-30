@@ -13,15 +13,15 @@ namespace TelasSharpWare.Model
         private DateTime _data;
         private double _valorTotal;
         private Cliente _cliente;
+        private Funcionario _funcionario;
         private TipoVenda tipoVenda;
         private Lazy<IList<Produto>> _lazyProdutos;
 
-        public Venda(long id, double valorTotal, Cliente cliente)
+        public Venda(Cliente cliente, Funcionario funcionario)
         {
-            _id = id;
-            _data = DateTime.Now;
-            _valorTotal = valorTotal;
             _cliente = cliente;
+            _funcionario = funcionario;
+            _data = DateTime.Now;
             _lazyProdutos = new Lazy<IList<Produto>>(() => new List<Produto>());
         }
 

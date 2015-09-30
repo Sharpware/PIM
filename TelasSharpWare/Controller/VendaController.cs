@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TelasSharpWare.DAO;
 using TelasSharpWare.Model;
 
 namespace TelasSharpWare.Controller
@@ -10,11 +11,7 @@ namespace TelasSharpWare.Controller
     public class VendaController
     {
         private Venda _venda;
-
-        public VendaController(Venda venda)
-        {
-            _venda = venda;
-        }
+        private VendaDao _vendaDao;
 
         public void AddProduto(Produto produto)
         {
@@ -34,7 +31,7 @@ namespace TelasSharpWare.Controller
         public void ConcluirVenda(TipoVenda tipoVenda)
         {
             _venda.TipoVenda = tipoVenda;
-            //Salvar no banco de dados
+            _vendaDao.Salvar(_venda);
         }
     }
 }

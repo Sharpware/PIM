@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TelasSharpWare.Model;
 
-namespace TelasSharpWare.Model
+namespace TelasSharpWare.DAO
 {
-    public class Email
+    public class VendaDao
     {
-        private String _email;
-
-        public Email(String email)
+        public void Salvar(Venda venda)
         {
-            _email = email;
+
         }
     }
 }

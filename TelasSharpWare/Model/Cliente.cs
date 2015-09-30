@@ -9,8 +9,8 @@ namespace TelasSharpWare.Model
     public class Cliente : Pessoa
     {
         public Cliente(long id, String nome, long cpf, DateTime dataNascimento,
-                        String observacao, Status status, Endereco endereco) :
-            base(id, nome, cpf, dataNascimento, observacao, status, endereco)
+                       String email, String observacao, Status status, Endereco endereco) :
+            base(id, nome, cpf, dataNascimento, email, observacao, status, endereco)
         {
 
         }
