@@ -63,8 +63,6 @@ namespace TelasSharpWare.Model
             {
                 return _dataNascimento;
             }
-<<<<<<< HEAD
-=======
         }
 
         public string Email
@@ -73,7 +71,6 @@ namespace TelasSharpWare.Model
             {
                 return _email;
             }
->>>>>>> 800e8db0129d355446b6271c4b75e82b8f155bb8
         }
 
         public string Observacao

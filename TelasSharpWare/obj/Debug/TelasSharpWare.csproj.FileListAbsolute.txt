@@ -624,3 +624,6 @@ C:\Users\Usuario\Documents\repositorios\GitHub\PIM\TelasSharpWare\bin\Debug\Enti
 C:\Users\Usuario\Documents\repositorios\GitHub\PIM\TelasSharpWare\bin\Debug\EntityFramework.xml
 C:\Users\Usuario\Documents\repositorios\GitHub\PIM\TelasSharpWare\bin\Debug\EntityFramework.SqlServer.xml
 >>>>>>> 800e8db0129d355446b6271c4b75e82b8f155bb8
+C:\Users\ATOM\Desktop\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.View.Caixa.PagamentoDinheiro.resources
+C:\Users\ATOM\Desktop\PIM\TelasSharpWare\bin\Debug\MySql.Data.dll
+C:\Users\ATOM\Desktop\PIM\TelasSharpWare\bin\Debug\MySql.Data.Entity.EF6.dll
