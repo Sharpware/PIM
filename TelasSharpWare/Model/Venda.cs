@@ -31,14 +31,6 @@ namespace TelasSharpWare.Model
             _valorTotal += produto.PrecoVenda;
         }
 
-        public void AddQtdProduto(Produto produto, int quantidade)
-        {
-            for (int i = 0; i < quantidade; i++)
-            {
-                AddProduto(produto);
-            }
-        }
-
         public void RmvProduto(int posicao)
         {
            _valorTotal -= _lazyProdutos.Value[posicao].PrecoVenda;

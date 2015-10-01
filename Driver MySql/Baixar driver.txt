@@ -1,0 +1,2 @@
+https://dev.mysql.com/downloads/windows/visualstudio/1.2.html
+https://dev.mysql.com/downloads/connector/net/6.9.html
