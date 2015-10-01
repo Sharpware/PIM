@@ -65,8 +65,9 @@
   <ItemGroup>
     <Compile Include="Controller\VendaController.cs" />
     <Compile Include="DAO\ClienteDao.cs" />
+    <Compile Include="DAO\ProdutoDao.cs" />
     <Compile Include="DAO\VendaDao.cs" />
-    <Compile Include="ModelDao.cs" />
+    <Compile Include="DAO\ModelDao.cs" />
     <Compile Include="Model\Cliente.cs" />
     <Compile Include="Model\Endereco.cs" />
     <Compile Include="Model\Fornecedor.cs" />
@@ -80,7 +81,7 @@
     <Compile Include="Model\TipoTelefone.cs" />
     <Compile Include="Model\TipoVenda.cs" />
     <Compile Include="Model\Venda.cs" />
-    <Compile Include="Model\VendaProduto.cs" />
+    <Compile Include="Model\ItensVenda.cs" />
     <Compile Include="Model\ProdutoVenda.cs" />
     <Compile Include="View\Botoes\BotaoAdicionarClienteVenda.cs">
       <SubType>UserControl</SubType>
@@ -647,7 +648,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\BotaoAdicionarCliente1.png" />
