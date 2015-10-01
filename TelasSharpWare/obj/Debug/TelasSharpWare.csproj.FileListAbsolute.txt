@@ -553,3 +553,4 @@ C:\Users\Usuario\Documents\repositorios\GitHub\PIM\TelasSharpWare\bin\Debug\Enti
 C:\Users\Usuario\Documents\repositorios\GitHub\PIM\TelasSharpWare\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Usuario\Documents\repositorios\GitHub\PIM\TelasSharpWare\bin\Debug\EntityFramework.xml
 C:\Users\Usuario\Documents\repositorios\GitHub\PIM\TelasSharpWare\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Usuario\Documents\repositorios\GitHub\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.View.Caixa.PagamentoDinheiro.resources
