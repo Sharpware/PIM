@@ -18,11 +18,6 @@ namespace TelasSharpWare.Controller
             _venda.AddProduto(produto);
         }
 
-        public void AddQtdProduto(Produto produto, int quantidade)
-        {
-            _venda.AddQtdProduto(produto, quantidade);
-        }
-
         public void RmvProduto(int posicao)
         {
             _venda.RmvProduto(posicao);

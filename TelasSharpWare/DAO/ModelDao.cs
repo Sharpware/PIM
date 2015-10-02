@@ -18,7 +18,7 @@ namespace TelasSharpWare
         public virtual DbSet<Fornecedor> Fornecedores { get; set; }
         public virtual DbSet<Venda> Vendas { get; set; }
         public virtual DbSet<Produto> Produtos { get; set; }
-        public virtual DbSet<ProdutoVenda> ProdutosVendas { get; set; }
+        public virtual DbSet<ItensVenda> ItensVendas { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

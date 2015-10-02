@@ -82,7 +82,6 @@
     <Compile Include="Model\TipoVenda.cs" />
     <Compile Include="Model\Venda.cs" />
     <Compile Include="Model\ItensVenda.cs" />
-    <Compile Include="Model\ProdutoVenda.cs" />
     <Compile Include="View\Botoes\BotaoAdicionarClienteVenda.cs">
       <SubType>UserControl</SubType>
     </Compile>
