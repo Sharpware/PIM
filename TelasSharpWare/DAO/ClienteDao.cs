@@ -9,9 +9,12 @@ namespace TelasSharpWare.DAO
 {
     public class ClienteDao
     {
-        public void Salvar(Cliente cliente)
-        {
+        ModelDao modelDao = new ModelDao();
 
+        public void AddCliente(Cliente cliente)
+        {
+            modelDao.Clientes.Add(cliente);
+            modelDao.SaveChanges();
         }
     }
 }
