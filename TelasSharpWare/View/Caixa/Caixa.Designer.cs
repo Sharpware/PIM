@@ -38,6 +38,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.valorTotalLbl = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.quantidadeItensLbl = new System.Windows.Forms.Label();
@@ -55,32 +59,29 @@
             this.CaixaSsl = new System.Windows.Forms.ToolStripStatusLabel();
             this.vendedorVendaCbx = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.adicionarProdutoBtn = new TelasSharpWare.Botoes.BotaoAdProduto();
             this.label11 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.clienteVendaTbx = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.atalhosBtn = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.fecharBtn = new System.Windows.Forms.Button();
             this.atalhosPnl = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             this.cancelarVendaBtn = new TelasSharpWare.Botoes.BotaoCancelarVenda();
             this.adicionarClienteBtn = new TelasSharpWare.Botoes.BotaoAdicionarClienteCaixa();
             this.finalizarVenda = new TelasSharpWare.Botoes.BotaoFinalizarVenda();
-            this.adicionarProdutoBtn = new TelasSharpWare.Botoes.BotaoAdProduto();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.modoPagamentoBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.vendaProdutosDgv)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -181,6 +182,42 @@
             this.groupBox2.Size = new System.Drawing.Size(432, 203);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(144, 150);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(71, 33);
+            this.label21.TabIndex = 7;
+            this.label21.Text = "0,00";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(314, 111);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(71, 33);
+            this.label20.TabIndex = 6;
+            this.label20.Text = "0,00";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(6, 111);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(312, 33);
+            this.label19.TabIndex = 5;
+            this.label19.Text = "Pagamento cliente: R$";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(6, 150);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(141, 33);
+            this.label18.TabIndex = 4;
+            this.label18.Text = "Troco: R$";
             // 
             // valorTotalLbl
             // 
@@ -361,6 +398,17 @@
             this.panel3.Size = new System.Drawing.Size(526, 270);
             this.panel3.TabIndex = 15;
             // 
+            // adicionarProdutoBtn
+            // 
+            this.adicionarProdutoBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("adicionarProdutoBtn.BackgroundImage")));
+            this.adicionarProdutoBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.adicionarProdutoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.adicionarProdutoBtn.Location = new System.Drawing.Point(313, 201);
+            this.adicionarProdutoBtn.Name = "adicionarProdutoBtn";
+            this.adicionarProdutoBtn.Size = new System.Drawing.Size(200, 66);
+            this.adicionarProdutoBtn.TabIndex = 24;
+            this.adicionarProdutoBtn.Click += new System.EventHandler(this.adicionarProdutoBtn_Click);
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -402,17 +450,6 @@
             this.label12.TabIndex = 19;
             this.label12.Text = "Cliente:";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Silver;
-            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Location = new System.Drawing.Point(12, 62);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(466, 297);
-            this.panel1.TabIndex = 0;
             // 
             // panel4
             // 
@@ -480,6 +517,26 @@
             this.atalhosPnl.TabIndex = 23;
             this.atalhosPnl.Visible = false;
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(8, 157);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(143, 21);
+            this.label17.TabIndex = 7;
+            this.label17.Text = "F11 - Fechar Venda";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(8, 136);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(132, 21);
+            this.label16.TabIndex = 6;
+            this.label16.Text = "F10 - Abrir Venda";
+            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -540,26 +597,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "F1 - Adicionar Cliente";
             // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(8, 136);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(132, 21);
-            this.label16.TabIndex = 6;
-            this.label16.Text = "F10 - Abrir Venda";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(8, 157);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(143, 21);
-            this.label17.TabIndex = 7;
-            this.label17.Text = "F11 - Fechar Venda";
-            // 
             // cancelarVendaBtn
             // 
             this.cancelarVendaBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cancelarVendaBtn.BackgroundImage")));
@@ -590,54 +627,28 @@
             this.finalizarVenda.Name = "finalizarVenda";
             this.finalizarVenda.Size = new System.Drawing.Size(230, 80);
             this.finalizarVenda.TabIndex = 17;
-            this.finalizarVenda.Click += new System.EventHandler(this.botaoFinalizarVenda2_Click);
+            this.finalizarVenda.Visible = false;
             // 
-            // adicionarProdutoBtn
+            // panel1
             // 
-            this.adicionarProdutoBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("adicionarProdutoBtn.BackgroundImage")));
-            this.adicionarProdutoBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.adicionarProdutoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.adicionarProdutoBtn.Location = new System.Drawing.Point(313, 201);
-            this.adicionarProdutoBtn.Name = "adicionarProdutoBtn";
-            this.adicionarProdutoBtn.Size = new System.Drawing.Size(200, 66);
-            this.adicionarProdutoBtn.TabIndex = 24;
-            this.adicionarProdutoBtn.Click += new System.EventHandler(this.adicionarProdutoBtn_Click);
+            this.panel1.BackColor = System.Drawing.Color.Silver;
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Location = new System.Drawing.Point(12, 62);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(466, 297);
+            this.panel1.TabIndex = 0;
             // 
-            // label18
+            // modoPagamentoBtn
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(6, 150);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(141, 33);
-            this.label18.TabIndex = 4;
-            this.label18.Text = "Troco: R$";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(6, 111);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(312, 33);
-            this.label19.TabIndex = 5;
-            this.label19.Text = "Pagamento cliente: R$";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(314, 111);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(71, 33);
-            this.label20.TabIndex = 6;
-            this.label20.Text = "0,00";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(144, 150);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(71, 33);
-            this.label21.TabIndex = 7;
-            this.label21.Text = "0,00";
+            this.modoPagamentoBtn.Location = new System.Drawing.Point(1143, 628);
+            this.modoPagamentoBtn.Name = "modoPagamentoBtn";
+            this.modoPagamentoBtn.Size = new System.Drawing.Size(211, 80);
+            this.modoPagamentoBtn.TabIndex = 24;
+            this.modoPagamentoBtn.Text = "button1";
+            this.modoPagamentoBtn.UseVisualStyleBackColor = true;
+            this.modoPagamentoBtn.Click += new System.EventHandler(this.modoPagamentoBtn_Click_1);
             // 
             // Caixa
             // 
@@ -645,6 +656,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(224)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(1368, 758);
+            this.Controls.Add(this.modoPagamentoBtn);
             this.Controls.Add(this.atalhosPnl);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.cancelarVendaBtn);
@@ -736,5 +748,6 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button modoPagamentoBtn;
     }
 }

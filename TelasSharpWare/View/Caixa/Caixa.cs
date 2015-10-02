@@ -17,19 +17,12 @@ namespace TelasSharpWare
         private Venda _venda;
         private Cliente _cliente;
         private Funcionario _funcionario;
-        private Produto _produto;
         private VendaController vendaController;
 
         public Caixa()
         {
             InitializeComponent();
             vendaController = new VendaController();
-        }
-
-        private void botaoFinalizarVenda2_Click(object sender, EventArgs e)
-        {
-            ModoDePagamento pagamento = new ModoDePagamento();
-            pagamento.ShowDialog();
         }
 
         private void botaoAdicionarClienteCaixa1_Click(object sender, EventArgs e)
@@ -56,6 +49,17 @@ namespace TelasSharpWare
         private void adicionarProdutoBtn_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void botaoFinalizarVenda2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void modoPagamentoBtn_Click_1(object sender, EventArgs e)
+        {
+            ModoDePagamento pagamento = new ModoDePagamento();
+            pagamento.ShowDialog();
         }
     }
 }

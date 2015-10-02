@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TelasSharpWare.View.Caixa;
 
 namespace TelasSharpWare
 {
@@ -39,7 +40,9 @@ namespace TelasSharpWare
 
         private void botaoDinheiro1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            PagamentoDinheiro pagamentoDinheiro = new PagamentoDinheiro();
+            pagamentoDinheiro.ShowDialog();
+            
         }
 
         private void botaoDinheiro1_MouseEnter(object sender, EventArgs e)
