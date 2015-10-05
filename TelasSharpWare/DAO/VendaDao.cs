@@ -9,7 +9,14 @@ namespace TelasSharpWare.DAO
 {
     public class VendaDao
     {
-        public void Salvar(Venda venda)
+        private ModelDao _modelDao;
+
+        public VendaDao()
+        {
+            _modelDao = new ModelDao();
+        }
+
+        public void AddVenda(Venda venda)
         {
 
         }

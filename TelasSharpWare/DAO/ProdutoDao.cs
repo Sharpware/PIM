@@ -9,11 +9,16 @@ namespace TelasSharpWare.DAO
 {
     public class ProdutoDao
     {
-        ModelDao modelDao = new ModelDao();
+        ModelDao _modelDao;
 
-        public Produto BuscarProduto(int id)
+        public ProdutoDao()
         {
-            return modelDao.Produtos.Find(id);
+            _modelDao = new ModelDao();
+        }
+
+        public Produto BuscarProduto(Produto produto)
+        {
+            return _modelDao.Produtos.Find(produto.Id);
         }
     }
 }

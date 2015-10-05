@@ -18,15 +18,15 @@ namespace TelasSharpWare.Controller
             _venda.AddProduto(produto);
         }
 
-        public void RmvProduto(int posicao)
+        public void RemoverProduto(int posicao)
         {
-            _venda.RmvProduto(posicao);
+            _venda.RemoverProduto(posicao);
         }
 
         public void ConcluirVenda(TipoVenda tipoVenda)
         {
             _venda.TipoVenda = tipoVenda;
-            _vendaDao.Salvar(_venda);
+            _vendaDao.AddVenda(_venda);
         }
     }
 }
