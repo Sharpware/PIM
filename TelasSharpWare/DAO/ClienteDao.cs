@@ -24,6 +24,13 @@ namespace TelasSharpWare.DAO
             _modelDao.Dispose();
         }
 
+        public void RemoverCliente(Cliente cliente)
+        {
+            _modelDao.Clientes.Remove(cliente);
+            _modelDao.SaveChanges();
+            _modelDao.Dispose();
+        }
+
         public Cliente BuscarCliente(Cliente cliente)
         {
             return _modelDao.Clientes.Find(cliente.Id);

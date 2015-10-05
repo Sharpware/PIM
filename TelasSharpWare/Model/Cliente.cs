@@ -6,13 +6,8 @@ using System.Threading.Tasks;
 
 namespace TelasSharpWare.Model
 {
-    public class Cliente : Pessoa
+    public class Cliente : Pessoa<Cliente>
     {
-        public Cliente(long id, String nome, long cpf, DateTime dataNascimento,
-                       String email, String observacao, Status status, Endereco endereco) :
-            base(id, nome, cpf, dataNascimento, email, observacao, status, endereco)
-        {
-
-        }
+        
     }
 }

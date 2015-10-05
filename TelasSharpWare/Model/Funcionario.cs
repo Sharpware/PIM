@@ -6,21 +6,11 @@ using System.Threading.Tasks;
 
 namespace TelasSharpWare.Model
 {
-    public class Funcionario : Pessoa
+    public class Funcionario : Pessoa<Funcionario>
     {
         private String _login;
         private String _senha;
         private TipoFuncionario _tipoFuncionario;
-
-        public Funcionario(long id, String nome, long cpf, DateTime dataNascimento,
-                        String email, String observacao, Status status, Endereco endereco,
-                        String login, String senha, TipoFuncionario tipoFuncionario) :
-            base(id, nome, cpf, dataNascimento, email, observacao, status, endereco)
-        {
-            _login = login;
-            _senha = senha;
-            _tipoFuncionario = tipoFuncionario;
-        }
 
         public string Login
         {
@@ -28,6 +18,11 @@ namespace TelasSharpWare.Model
             {
                 return _login;
             }
+        }
+        public Funcionario SetLoging(String login)
+        {
+            _login = login;
+            return this;
         }
 
         public string Senha
@@ -37,6 +32,11 @@ namespace TelasSharpWare.Model
                 return _senha;
             }
         }
+        public Funcionario SetSenha(String senha)
+        {
+            _senha = senha;
+            return this;
+        }
 
         public TipoFuncionario TipoFuncionario
         {
@@ -44,6 +44,11 @@ namespace TelasSharpWare.Model
             {
                 return _tipoFuncionario;
             }
+        }
+        public Funcionario SetTipoFuncionario(TipoFuncionario tipoFuncionario)
+        {
+            _tipoFuncionario = tipoFuncionario;
+            return this;
         }
     }
 }

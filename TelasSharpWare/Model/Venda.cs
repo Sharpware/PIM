@@ -34,7 +34,7 @@ namespace TelasSharpWare.Model
         public void RemoverProduto(int posicao)
         {
            _valorTotal -= _lazyProdutos.Value[posicao].PrecoVenda;
-            _lazyProdutos.Value.RemoveAt(posicao);
+           _lazyProdutos.Value.RemoveAt(posicao);
         }
 
         public long Id
@@ -82,6 +82,11 @@ namespace TelasSharpWare.Model
             get
             {
                 return tipoVenda;
+            }
+
+            set
+            {
+                tipoVenda = value;
             }
         }
     }

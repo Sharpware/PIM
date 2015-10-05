@@ -13,7 +13,7 @@ namespace TelasSharpWare.Controller
         private Venda _venda;
         private VendaDao _vendaDao;
 
-        public void AddProduto(Produto produto)
+        public void Add(Produto produto)
         {
             _venda.AddProduto(produto);
         }
