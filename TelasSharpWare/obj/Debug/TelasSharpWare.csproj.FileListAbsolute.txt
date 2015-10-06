@@ -108,7 +108,6 @@ C:\Users\A-IKASORUK\Desktop\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.Botoes.B
 C:\Users\A-IKASORUK\Desktop\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.Botoes.BotaoCadCliente.resources
 C:\Users\A-IKASORUK\Desktop\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.BotaoCaixa.resources
 C:\Users\A-IKASORUK\Desktop\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.Botoes.BotaoCancelarCad.resources
-C:\Users\A-IKASORUK\Desktop\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.Botoes.BotaoCancelarVenda.resources
 C:\Users\A-IKASORUK\Desktop\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.Botoes.BotaoCartao.resources
 C:\Users\A-IKASORUK\Desktop\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.BotaoCliente.resources
 C:\Users\A-IKASORUK\Desktop\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.BotaoCompras.resources
@@ -222,3 +221,7 @@ C:\Users\RodrigoFelipe\Documents\repositorios\GitHub\PIM\TelasSharpWare\obj\Debu
 C:\Users\RodrigoFelipe\Documents\repositorios\GitHub\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.View.Botoes.BotaoRealizarPagamento.resources
 C:\Users\RodrigoFelipe\Documents\repositorios\GitHub\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.View.Botoes.BotaoModoCancelarVenda.resources
 C:\Users\RodrigoFelipe\Documents\repositorios\GitHub\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.View.Botoes.BotaoCancelarVenda.resources
+C:\Users\A-IKASORUK\Desktop\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.View.Botoes.BotaoCancelarVenda.resources
+C:\Users\A-IKASORUK\Desktop\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.View.Botoes.BotaoModoCancelarVenda.resources
+C:\Users\A-IKASORUK\Desktop\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.View.Botoes.BotaoRealizarPagamento.resources
+C:\Users\A-IKASORUK\Desktop\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.View.Botoes.BotaoModoDePagamento.resources
