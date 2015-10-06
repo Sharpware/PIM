@@ -1,4 +1,4 @@
-﻿namespace TelasSharpWare.Botoes
+﻿namespace TelasSharpWare.View.Botoes
 {
     partial class BotaoCancelarVenda
     {
@@ -36,6 +36,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::TelasSharpWare.Properties.Resources.BotaoCancelarVenda1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DoubleBuffered = true;
             this.Name = "BotaoCancelarVenda";
             this.Size = new System.Drawing.Size(230, 80);

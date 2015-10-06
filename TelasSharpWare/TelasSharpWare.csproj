@@ -94,6 +94,12 @@
     <Compile Include="View\Botoes\BotaoCadUsuario.Designer.cs">
       <DependentUpon>BotaoCadUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Botoes\BotaoCancelarVenda.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Botoes\BotaoCancelarVenda.Designer.cs">
+      <DependentUpon>BotaoCancelarVenda.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Botoes\BotaoCancelPedido.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -129,6 +135,12 @@
     </Compile>
     <Compile Include="View\Botoes\BotaoInserirItem.Designer.cs">
       <DependentUpon>BotaoInserirItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Botoes\BotaoModoCancelarVenda.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Botoes\BotaoModoCancelarVenda.Designer.cs">
+      <DependentUpon>BotaoModoCancelarVenda.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Botoes\BotaoObterRelatorio.cs">
       <SubType>UserControl</SubType>
@@ -231,12 +243,6 @@
     </Compile>
     <Compile Include="View\Botoes\BotaoCancelarCad.Designer.cs">
       <DependentUpon>BotaoCancelarCad.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Botoes\BotaoCancelarVenda.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\Botoes\BotaoCancelarVenda.Designer.cs">
-      <DependentUpon>BotaoCancelarVenda.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Botoes\BotaoCartao.cs">
       <SubType>UserControl</SubType>
@@ -358,6 +364,12 @@
     <Compile Include="View\Botoes\BotaoProduto.Designer.cs">
       <DependentUpon>BotaoProduto.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Botoes\BotaoRealizarPagamento.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Botoes\BotaoRealizarPagamento.Designer.cs">
+      <DependentUpon>BotaoRealizarPagamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Botoes\BotaoRelatorioDeDespesas.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -387,6 +399,12 @@
     </Compile>
     <Compile Include="View\Botoes\BotaoSistema.Designer.cs">
       <DependentUpon>BotaoSistema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Botoes\BotaoModoDePagamento.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Botoes\BotaoModoDePagamento.Designer.cs">
+      <DependentUpon>BotaoModoDePagamento.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Caixa\Cliente\CadastrarCliente.cs">
       <SubType>Form</SubType>
@@ -450,6 +468,9 @@
     <EmbeddedResource Include="View\Botoes\BotaoCadUsuario.resx">
       <DependentUpon>BotaoCadUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Botoes\BotaoCancelarVenda.resx">
+      <DependentUpon>BotaoCancelarVenda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Botoes\BotaoCancelPedido.resx">
       <DependentUpon>BotaoCancelPedido.cs</DependentUpon>
     </EmbeddedResource>
@@ -467,6 +488,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Botoes\BotaoInserirItem.resx">
       <DependentUpon>BotaoInserirItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Botoes\BotaoModoCancelarVenda.resx">
+      <DependentUpon>BotaoModoCancelarVenda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Botoes\BotaoObterRelatorio.resx">
       <DependentUpon>BotaoObterRelatorio.cs</DependentUpon>
@@ -518,9 +542,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Botoes\BotaoCancelarCad.resx">
       <DependentUpon>BotaoCancelarCad.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Botoes\BotaoCancelarVenda.resx">
-      <DependentUpon>BotaoCancelarVenda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Botoes\BotaoCartao.resx">
       <DependentUpon>BotaoCartao.cs</DependentUpon>
@@ -582,6 +603,9 @@
     <EmbeddedResource Include="View\Botoes\BotaoProduto.resx">
       <DependentUpon>BotaoProduto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Botoes\BotaoRealizarPagamento.resx">
+      <DependentUpon>BotaoRealizarPagamento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Botoes\BotaoRelatorioDeDespesas.resx">
       <DependentUpon>BotaoRelatorioDeDespesas.cs</DependentUpon>
     </EmbeddedResource>
@@ -596,6 +620,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Botoes\BotaoSistema.resx">
       <DependentUpon>BotaoSistema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Botoes\BotaoModoDePagamento.resx">
+      <DependentUpon>BotaoModoDePagamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Caixa\Cliente\CadastrarCliente.resx">
       <DependentUpon>CadastrarCliente.cs</DependentUpon>
@@ -963,12 +990,29 @@
   <ItemGroup>
     <None Include="Resources\BotaoInativarUsuario2.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\BotaoCancelarPagamento1.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\BotaoAdicionarClienteVenda1.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\BotaoAdicionarClienteVenda2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BotaoCancelarPagamento2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BotaoModoDePagamento1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BotaoModoDePagamento2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BotaoSalvarPagamento1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BotaoSalvarPagamento2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
