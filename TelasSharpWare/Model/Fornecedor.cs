@@ -12,25 +12,17 @@ namespace TelasSharpWare.Model
         private long _id;
         private String _nomeFantasia;
         private String _razaoSocial;
-        private long _cnpj;
-        private String _email;
+        private String _cnpj;
         private String _observacao;
         private Endereco _endereco;
         private Status _status;
+        private Lazy<IList<String>> _lazyEmails;
         private Lazy<IList<Produto>> _lazyProdutos;
         private Lazy<IList<Telefone>> _lazyTelefones;
 
-        public Fornecedor(long id, String nomeFantasia, String razaoSocial, long cnpj,
-                         String email, String observacao, Endereco endereco, Status status)
+        public Fornecedor()
         {
-            _id = id;
-            _nomeFantasia = nomeFantasia;
-            _razaoSocial = razaoSocial;
-            _cnpj = cnpj;
-            _email = email;
-            _observacao = observacao;
-            _endereco = endereco;
-            _status = status;
+            _lazyEmails = new Lazy<IList<String>>(() => new List<String>());
             _lazyProdutos = new Lazy<IList<Produto>>(() => new List<Produto>());
             _lazyTelefones = new Lazy<IList<Telefone>>(() => new List<Telefone>());
         }
@@ -50,6 +42,11 @@ namespace TelasSharpWare.Model
                 return _nomeFantasia;
             }
         }
+        public Fornecedor SetNomeFantasia(String nomeFantasia)
+        {
+            _nomeFantasia = nomeFantasia;
+            return this;
+        }
 
         public string RazaoSocial
         {
@@ -58,21 +55,23 @@ namespace TelasSharpWare.Model
                 return _razaoSocial;
             }
         }
+        public Fornecedor SetRazaoSocial(String razaoSocial)
+        {
+            _razaoSocial = razaoSocial;
+            return this;
+        }
 
-        public long Cnpj
+        public string CNPJ
         {
             get
             {
                 return _cnpj;
             }
         }
-
-        public string Email
+        public Fornecedor SetCNPJ(String cnpj)
         {
-            get
-            {
-                return _email;
-            }
+            _cnpj = cnpj;
+            return this;
         }
 
         public string Observacao
@@ -82,6 +81,11 @@ namespace TelasSharpWare.Model
                 return _observacao;
             }
         }
+        public Fornecedor SetObservacao(String observacao)
+        {
+            _observacao = observacao;
+            return this;
+        }
 
         public Endereco Endereco
         {
@@ -89,6 +93,11 @@ namespace TelasSharpWare.Model
             {
                 return _endereco;
             }
+        }
+        public Fornecedor SetEndereco(Endereco endereco)
+        {
+            _endereco = endereco;
+            return this;
         }
 
         public Status Status
@@ -98,6 +107,24 @@ namespace TelasSharpWare.Model
                 return _status;
             }
         }
+        public Fornecedor SetStatus(Status status)
+        {
+            _status = status;
+            return this;
+        }
+
+        public IReadOnlyCollection<String> Emails
+        {
+            get
+            {
+                return new ReadOnlyCollection<String>(_lazyEmails.Value);
+            }
+        }
+        public Fornecedor AddEmail(String email)
+        {
+            _lazyEmails.Value.Add(email);
+            return this;
+        }
 
         public IReadOnlyCollection<Produto> Produtos
         {
@@ -105,6 +132,11 @@ namespace TelasSharpWare.Model
             {
                 return new ReadOnlyCollection<Produto>(_lazyProdutos.Value);
             }
+        }
+        public Fornecedor AddProdutos(Produto produto)
+        {
+            _lazyProdutos.Value.Add(produto);
+            return this;
         }
 
         public IReadOnlyCollection<Telefone> Telefones
@@ -114,7 +146,10 @@ namespace TelasSharpWare.Model
                 return new ReadOnlyCollection<Telefone>(_lazyTelefones.Value);
             }
         }
-
-
+        public Fornecedor AddTelefones(Telefone telefone)
+        {
+            _lazyTelefones.Value.Add(telefone);
+            return this;
+        }
     }
 }

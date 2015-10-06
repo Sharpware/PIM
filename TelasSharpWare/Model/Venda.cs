@@ -31,10 +31,10 @@ namespace TelasSharpWare.Model
             _valorTotal += produto.PrecoVenda;
         }
 
-        public void RmvProduto(int posicao)
+        public void RemoverProduto(int posicao)
         {
            _valorTotal -= _lazyProdutos.Value[posicao].PrecoVenda;
-            _lazyProdutos.Value.RemoveAt(posicao);
+           _lazyProdutos.Value.RemoveAt(posicao);
         }
 
         public long Id

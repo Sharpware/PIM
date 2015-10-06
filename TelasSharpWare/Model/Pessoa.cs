@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace TelasSharpWare.Model
 {
-    public abstract class Pessoa
+    public abstract class Pessoa<T>
     {
         private long _id;
         private String _nome;
-        private long _cpf;
+        private String _cpf;
         private DateTime _dataNascimento;
         private String _email;
         private Status _status;
@@ -19,17 +19,8 @@ namespace TelasSharpWare.Model
         private Endereco _endereco;
         private Lazy<IList<Telefone>> _lazyTelefones;
         
-        public Pessoa(long id, String nome, long cpf, DateTime dataNascimento, 
-                      String email, String observacao, Status status, Endereco endereco)
+        public Pessoa()
         {
-            _id = id;
-            _nome = nome;
-            _cpf = cpf;
-            _dataNascimento = dataNascimento;
-            _email = email;
-            _observacao = observacao;
-            _status = status;
-            _endereco = endereco;
             _lazyTelefones = new Lazy<IList<Telefone>>(() => new List<Telefone>());
         }
 
@@ -48,13 +39,23 @@ namespace TelasSharpWare.Model
                 return _nome;
             }
         }
+        public Pessoa<T> SetNome(String nome)
+        {
+            _nome = nome;
+            return this;
+        }
 
-        public long Cpf
+        public String CPF
         {
             get
             {
                 return _cpf;
             }
+        }
+        public Pessoa<T> SetCPF(String cpf)
+        {
+            _cpf = cpf;
+            return this;
         }
 
         public DateTime DataNascimento
@@ -64,6 +65,11 @@ namespace TelasSharpWare.Model
                 return _dataNascimento;
             }
         }
+        public Pessoa<T> SetDataNascimento(DateTime dataNascimento)
+        {
+            _dataNascimento = dataNascimento;
+            return this;
+        }
 
         public string Email
         {
@@ -72,13 +78,23 @@ namespace TelasSharpWare.Model
                 return _email;
             }
         }
+        public Pessoa<T> SetEmail(String email)
+        {
+            _email = email;
+            return this;
+        }
 
-        public string Observacao
+        public String Observacao
         {
             get
             {
                 return _observacao;
             }
+        }
+        public Pessoa<T> SetObservacao(String observacao)
+        {
+            _observacao = observacao;
+            return this;
         }
 
         public Status Status
@@ -88,6 +104,11 @@ namespace TelasSharpWare.Model
                 return _status;
             }
         }
+        public Pessoa<T> SetStatus(Status status)
+        {
+            _status = status;
+            return this;
+        }
 
         public Endereco Endereco
         {
@@ -95,6 +116,11 @@ namespace TelasSharpWare.Model
             {
                 return _endereco;
             }
+        }
+        public Pessoa<T> SetEndereco(Endereco endereco)
+        {
+            _endereco = endereco;
+            return this;
         }
 
         public IReadOnlyCollection<Telefone> Telefones
@@ -104,6 +130,10 @@ namespace TelasSharpWare.Model
                 return new ReadOnlyCollection<Telefone>(_lazyTelefones.Value);
             }
         }
-
+        public Pessoa<T> AddTelefone(Telefone telefone)
+        {
+            _lazyTelefones.Value.Add(telefone);
+            return this;
+        }
     }
 }

@@ -59,7 +59,6 @@
             this.CaixaSsl = new System.Windows.Forms.ToolStripStatusLabel();
             this.vendedorVendaCbx = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.adicionarProdutoBtn = new TelasSharpWare.Botoes.BotaoAdProduto();
             this.label11 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.clienteVendaTbx = new System.Windows.Forms.TextBox();
@@ -77,11 +76,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.cancelarVendaBtn = new TelasSharpWare.Botoes.BotaoCancelarVenda();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.botaoCancelarVenda1 = new TelasSharpWare.View.Botoes.BotaoCancelarVenda();
+            this.modoDePagamentoBtn = new TelasSharpWare.View.Botoes.BotaoModoDePagamento();
             this.adicionarClienteBtn = new TelasSharpWare.Botoes.BotaoAdicionarClienteCaixa();
             this.finalizarVenda = new TelasSharpWare.Botoes.BotaoFinalizarVenda();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.modoPagamentoBtn = new System.Windows.Forms.Button();
+            this.adicionarProdutoBtn = new TelasSharpWare.Botoes.BotaoAdProduto();
             ((System.ComponentModel.ISupportInitialize)(this.vendaProdutosDgv)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -398,17 +398,6 @@
             this.panel3.Size = new System.Drawing.Size(526, 270);
             this.panel3.TabIndex = 15;
             // 
-            // adicionarProdutoBtn
-            // 
-            this.adicionarProdutoBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("adicionarProdutoBtn.BackgroundImage")));
-            this.adicionarProdutoBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.adicionarProdutoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.adicionarProdutoBtn.Location = new System.Drawing.Point(313, 201);
-            this.adicionarProdutoBtn.Name = "adicionarProdutoBtn";
-            this.adicionarProdutoBtn.Size = new System.Drawing.Size(200, 66);
-            this.adicionarProdutoBtn.TabIndex = 24;
-            this.adicionarProdutoBtn.Click += new System.EventHandler(this.adicionarProdutoBtn_Click);
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -597,15 +586,37 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "F1 - Adicionar Cliente";
             // 
-            // cancelarVendaBtn
+            // panel1
             // 
-            this.cancelarVendaBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cancelarVendaBtn.BackgroundImage")));
-            this.cancelarVendaBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.cancelarVendaBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cancelarVendaBtn.Location = new System.Drawing.Point(1124, 540);
-            this.cancelarVendaBtn.Name = "cancelarVendaBtn";
-            this.cancelarVendaBtn.Size = new System.Drawing.Size(230, 80);
-            this.cancelarVendaBtn.TabIndex = 21;
+            this.panel1.BackColor = System.Drawing.Color.Silver;
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Location = new System.Drawing.Point(12, 62);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(466, 297);
+            this.panel1.TabIndex = 0;
+            // 
+            // botaoCancelarVenda1
+            // 
+            this.botaoCancelarVenda1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botaoCancelarVenda1.BackgroundImage")));
+            this.botaoCancelarVenda1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.botaoCancelarVenda1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.botaoCancelarVenda1.Location = new System.Drawing.Point(1124, 541);
+            this.botaoCancelarVenda1.Name = "botaoCancelarVenda1";
+            this.botaoCancelarVenda1.Size = new System.Drawing.Size(230, 80);
+            this.botaoCancelarVenda1.TabIndex = 26;
+            // 
+            // modoDePagamentoBtn
+            // 
+            this.modoDePagamentoBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("modoDePagamentoBtn.BackgroundImage")));
+            this.modoDePagamentoBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.modoDePagamentoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.modoDePagamentoBtn.Location = new System.Drawing.Point(1124, 628);
+            this.modoDePagamentoBtn.Name = "modoDePagamentoBtn";
+            this.modoDePagamentoBtn.Size = new System.Drawing.Size(230, 80);
+            this.modoDePagamentoBtn.TabIndex = 25;
+            this.modoDePagamentoBtn.Click += new System.EventHandler(this.botaoModoDePagamento1_Click);
             // 
             // adicionarClienteBtn
             // 
@@ -629,26 +640,16 @@
             this.finalizarVenda.TabIndex = 17;
             this.finalizarVenda.Visible = false;
             // 
-            // panel1
+            // adicionarProdutoBtn
             // 
-            this.panel1.BackColor = System.Drawing.Color.Silver;
-            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Location = new System.Drawing.Point(12, 62);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(466, 297);
-            this.panel1.TabIndex = 0;
-            // 
-            // modoPagamentoBtn
-            // 
-            this.modoPagamentoBtn.Location = new System.Drawing.Point(1143, 628);
-            this.modoPagamentoBtn.Name = "modoPagamentoBtn";
-            this.modoPagamentoBtn.Size = new System.Drawing.Size(211, 80);
-            this.modoPagamentoBtn.TabIndex = 24;
-            this.modoPagamentoBtn.Text = "button1";
-            this.modoPagamentoBtn.UseVisualStyleBackColor = true;
-            this.modoPagamentoBtn.Click += new System.EventHandler(this.modoPagamentoBtn_Click_1);
+            this.adicionarProdutoBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("adicionarProdutoBtn.BackgroundImage")));
+            this.adicionarProdutoBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.adicionarProdutoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.adicionarProdutoBtn.Location = new System.Drawing.Point(313, 201);
+            this.adicionarProdutoBtn.Name = "adicionarProdutoBtn";
+            this.adicionarProdutoBtn.Size = new System.Drawing.Size(200, 66);
+            this.adicionarProdutoBtn.TabIndex = 24;
+            this.adicionarProdutoBtn.Click += new System.EventHandler(this.adicionarProdutoBtn_Click);
             // 
             // Caixa
             // 
@@ -656,10 +657,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(224)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(1368, 758);
-            this.Controls.Add(this.modoPagamentoBtn);
+            this.Controls.Add(this.botaoCancelarVenda1);
+            this.Controls.Add(this.modoDePagamentoBtn);
             this.Controls.Add(this.atalhosPnl);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.cancelarVendaBtn);
             this.Controls.Add(this.adicionarClienteBtn);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.clienteVendaTbx);
@@ -724,7 +725,6 @@
         private System.Windows.Forms.TextBox clienteVendaTbx;
         private System.Windows.Forms.Label label12;
         private Botoes.BotaoAdicionarClienteCaixa adicionarClienteBtn;
-        private Botoes.BotaoCancelarVenda cancelarVendaBtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodigoProduto;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomeProduto;
         private System.Windows.Forms.DataGridViewTextBoxColumn DescricaoPrdouto;
@@ -748,6 +748,7 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Button modoPagamentoBtn;
+        private View.Botoes.BotaoModoDePagamento modoDePagamentoBtn;
+        private View.Botoes.BotaoCancelarVenda botaoCancelarVenda1;
     }
 }

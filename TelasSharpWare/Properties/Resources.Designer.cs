@@ -343,6 +343,26 @@ namespace TelasSharpWare.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BotaoCancelarPagamento1 {
+            get {
+                object obj = ResourceManager.GetObject("BotaoCancelarPagamento1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BotaoCancelarPagamento2 {
+            get {
+                object obj = ResourceManager.GetObject("BotaoCancelarPagamento2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BotaoCancelarVenda1 {
             get {
                 object obj = ResourceManager.GetObject("BotaoCancelarVenda1", resourceCulture);
@@ -683,6 +703,26 @@ namespace TelasSharpWare.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BotaoModoDePagamento1 {
+            get {
+                object obj = ResourceManager.GetObject("BotaoModoDePagamento1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BotaoModoDePagamento2 {
+            get {
+                object obj = ResourceManager.GetObject("BotaoModoDePagamento2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BotaoObterRelatorio1 {
             get {
                 object obj = ResourceManager.GetObject("BotaoObterRelatorio1", resourceCulture);
@@ -976,6 +1016,26 @@ namespace TelasSharpWare.Properties {
         internal static System.Drawing.Bitmap BotaoSair21 {
             get {
                 object obj = ResourceManager.GetObject("BotaoSair21", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BotaoSalvarPagamento1 {
+            get {
+                object obj = ResourceManager.GetObject("BotaoSalvarPagamento1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BotaoSalvarPagamento2 {
+            get {
+                object obj = ResourceManager.GetObject("BotaoSalvarPagamento2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

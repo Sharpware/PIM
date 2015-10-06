@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TelasSharpWare.Botoes
+namespace TelasSharpWare.View.Botoes
 {
     public partial class BotaoCancelarVenda : UserControl
     {

@@ -56,7 +56,7 @@ namespace TelasSharpWare
 
         }
 
-        private void modoPagamentoBtn_Click_1(object sender, EventArgs e)
+        private void botaoModoDePagamento1_Click(object sender, EventArgs e)
         {
             ModoDePagamento pagamento = new ModoDePagamento();
             pagamento.ShowDialog();
