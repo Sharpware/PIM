@@ -63,6 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\ClienteController.cs" />
     <Compile Include="Controller\VendaController.cs" />
     <Compile Include="DAO\ClienteDao.cs" />
     <Compile Include="DAO\ProdutoDao.cs" />

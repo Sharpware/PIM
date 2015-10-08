@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,11 +26,17 @@ namespace TelasSharpWare.Model
             _lazyTelefones = new Lazy<IList<Telefone>>(() => new List<Telefone>());
         }
 
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long Id
         {
             get
             {
                 return _id;
+            }
+            set
+            {
+                _id = value;
             }
         }
 
@@ -135,5 +143,7 @@ namespace TelasSharpWare.Model
             _lazyTelefones.Value.Add(telefone);
             return this;
         }
+
+
     }
 }

@@ -14,14 +14,15 @@ namespace TelasSharpWare
         }
 
         public virtual DbSet<Cliente> Clientes { get; set; }
-        public virtual DbSet<Funcionario> Funcionarios { get; set; }
-        public virtual DbSet<Fornecedor> Fornecedores { get; set; }
-        public virtual DbSet<Venda> Vendas { get; set; }
-        public virtual DbSet<Produto> Produtos { get; set; }
-        public virtual DbSet<ItensVenda> ItensVendas { get; set; }
+        //public virtual DbSet<Funcionario> Funcionarios { get; set; }
+        //public virtual DbSet<Fornecedor> Fornecedores { get; set; }
+        //public virtual DbSet<Venda> Vendas { get; set; }
+        //public virtual DbSet<Produto> Produtos { get; set; }
+        //public virtual DbSet<ItensVenda> ItensVendas { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Cliente>().Property(cliente => cliente.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
         }
     }
 }

@@ -16,9 +16,9 @@ namespace TelasSharpWare.DAO
             _modelDao = new ModelDao();
         }
 
-        public Produto Buscar(Produto produto)
+        /*public Produto Buscar(Produto produto)
         {
             return _modelDao.Produtos.Find(produto.Id);
-        }
+        }*/
     }
 }
