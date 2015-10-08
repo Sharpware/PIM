@@ -9,18 +9,11 @@ namespace TelasSharpWare.DAO
 {
     public class ProdutoDao
     {
+        private ModelDao _modelDao;
+
         public ProdutoDao()
         {
-<<<<<<< HEAD
             _modelDao = new ModelDao();
         }
-
-        /*public Produto Buscar(Produto produto)
-        {
-            return _modelDao.Produtos.Find(produto.Id);
-        }*/
-=======
-        }
->>>>>>> 2bb5c8ffa385b41d1f1b5f2bcd38906b489ea533
     }
 }

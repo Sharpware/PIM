@@ -12,16 +12,5 @@ namespace TelasSharpWare.DAO
         public VendaDao()
         {
         }
-
-        /*public void Add(Venda venda)
-        {
-<<<<<<< HEAD
-            _modelDao.Vendas.Add(venda);
-            _modelDao.SaveChanges();
-            _modelDao.Dispose();
-        }*/
-=======
-        }
->>>>>>> 2bb5c8ffa385b41d1f1b5f2bcd38906b489ea533
     }
 }

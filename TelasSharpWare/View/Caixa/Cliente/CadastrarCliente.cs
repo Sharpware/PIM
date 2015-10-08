@@ -45,13 +45,13 @@ namespace TelasSharpWare
         private void botaoCadCliente1_Click(object sender, System.EventArgs e)
         {
             Cliente cliente = new Cliente();
-            cliente.Nome = nomeTbx.Text;
-            /*.SetEmail(emailTbx.Text)
+            cliente.SetNome(nomeTbx.Text)
+            .SetEmail(emailTbx.Text)
             .SetCPF(cpfTbx.Text)
             .SetDataNascimento(Convert.ToDateTime(dataNascimentoTbx.Text))
             .SetObservacao(observacaoTbx.Text);
 
-            _clienteController.CadastrarCliente(cliente);*/
+            _clienteController.CadastrarCliente(cliente);
             MessageBox.Show("Filha da puta cadastrado");
         }
 

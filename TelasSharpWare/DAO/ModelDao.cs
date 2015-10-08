@@ -9,7 +9,7 @@ namespace TelasSharpWare.DAO
 {
     public class ModelDao
     {
-        private string _str = @"server=localhost;database=sharpware;userid=root;password=";
+        private string _str = @"server=localhost;database=sharpware;userid=root;password=admin";
         private MySqlConnection _con = null;
 
         public ModelDao()
@@ -17,14 +17,6 @@ namespace TelasSharpWare.DAO
 
         }
 
-<<<<<<< HEAD
-        public virtual DbSet<Cliente> Clientes { get; set; }
-        //public virtual DbSet<Funcionario> Funcionarios { get; set; }
-        //public virtual DbSet<Fornecedor> Fornecedores { get; set; }
-        //public virtual DbSet<Venda> Vendas { get; set; }
-        //public virtual DbSet<Produto> Produtos { get; set; }
-        //public virtual DbSet<ItensVenda> ItensVendas { get; set; }
-=======
         public MySqlConnection IniciarConexao()
         {
             try
@@ -45,16 +37,6 @@ namespace TelasSharpWare.DAO
             {
                 _con.Close();
             }
-        }
->>>>>>> 2bb5c8ffa385b41d1f1b5f2bcd38906b489ea533
-
-        ~ModelDao()
-        {
-<<<<<<< HEAD
-            modelBuilder.Entity<Cliente>().Property(cliente => cliente.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-=======
-            FinalizarConexao();
->>>>>>> 2bb5c8ffa385b41d1f1b5f2bcd38906b489ea533
         }
     }
 }
