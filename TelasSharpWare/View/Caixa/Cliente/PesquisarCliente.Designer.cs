@@ -30,12 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PesquisarCliente));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pesquisarBtn = new System.Windows.Forms.Button();
             this.cpfTbx = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pesquisaClienteDgv = new System.Windows.Forms.DataGridView();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tipoPesquisaGbx = new System.Windows.Forms.GroupBox();
@@ -54,6 +52,9 @@
             this.editarCliente = new TelasSharpWare.Botoes.BotaoEditarCliente();
             this.cadastrarClienteBtn = new TelasSharpWare.Botoes.BotaoCadCliente();
             this.adicionarClienteBtn = new TelasSharpWare.View.Botoes.BotaoAdicionarClienteVenda();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pesquisaClienteDgv)).BeginInit();
             this.tipoPesquisaGbx.SuspendLayout();
@@ -65,6 +66,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(164)))), ((int)(((byte)(180)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.pesquisarBtn);
             this.panel1.Controls.Add(this.cpfTbx);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.pesquisaClienteDgv);
@@ -79,6 +81,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(681, 473);
             this.panel1.TabIndex = 1;
+            // 
+            // pesquisarBtn
+            // 
+            this.pesquisarBtn.Location = new System.Drawing.Point(336, 151);
+            this.pesquisarBtn.Name = "pesquisarBtn";
+            this.pesquisarBtn.Size = new System.Drawing.Size(87, 26);
+            this.pesquisarBtn.TabIndex = 17;
+            this.pesquisarBtn.Text = "Pesquisar";
+            this.pesquisarBtn.UseVisualStyleBackColor = true;
+            this.pesquisarBtn.Click += new System.EventHandler(this.pesquisarBtn_Click);
             // 
             // cpfTbx
             // 
@@ -103,33 +115,13 @@
             this.pesquisaClienteDgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.pesquisaClienteDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.pesquisaClienteDgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Codigo,
+            this.id,
             this.Nome,
             this.CPF});
             this.pesquisaClienteDgv.Location = new System.Drawing.Point(17, 184);
             this.pesquisaClienteDgv.Name = "pesquisaClienteDgv";
             this.pesquisaClienteDgv.Size = new System.Drawing.Size(654, 262);
             this.pesquisaClienteDgv.TabIndex = 13;
-            // 
-            // Codigo
-            // 
-            this.Codigo.HeaderText = "Codigo";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            // 
-            // Nome
-            // 
-            this.Nome.HeaderText = "Nome";
-            this.Nome.Name = "Nome";
-            this.Nome.ReadOnly = true;
-            this.Nome.Width = 300;
-            // 
-            // CPF
-            // 
-            this.CPF.HeaderText = "CPF";
-            this.CPF.Name = "CPF";
-            this.CPF.ReadOnly = true;
-            this.CPF.Width = 200;
             // 
             // label3
             // 
@@ -331,6 +323,26 @@
             this.adicionarClienteBtn.Size = new System.Drawing.Size(150, 50);
             this.adicionarClienteBtn.TabIndex = 11;
             // 
+            // id
+            // 
+            this.id.HeaderText = "Id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // Nome
+            // 
+            this.Nome.HeaderText = "Nome";
+            this.Nome.Name = "Nome";
+            this.Nome.ReadOnly = true;
+            this.Nome.Width = 300;
+            // 
+            // CPF
+            // 
+            this.CPF.HeaderText = "CPF";
+            this.CPF.Name = "CPF";
+            this.CPF.ReadOnly = true;
+            this.CPF.Width = 200;
+            // 
             // PesquisarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -378,9 +390,6 @@
         private System.Windows.Forms.DataGridView pesquisaClienteDgv;
         private Botoes.BotaoCadCliente cadastrarClienteBtn;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CPF;
         private Botoes.BotaoEditarCliente editarCliente;
         private Botoes.BotaoInativarCliente inativarClienteBtn;
         private Botoes.BotaoSair sairBtn;
@@ -388,5 +397,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RadioButton cpfRb;
         private View.Botoes.BotaoAdicionarClienteVenda adicionarClienteBtn;
+        private System.Windows.Forms.Button pesquisarBtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CPF;
     }
 }

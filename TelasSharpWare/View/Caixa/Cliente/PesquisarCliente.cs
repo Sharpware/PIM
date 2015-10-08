@@ -7,16 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TelasSharpWare.Controller;
+using TelasSharpWare.Model;
 
 namespace TelasSharpWare
 {
     public partial class PesquisarCliente : Form
     {
+        private ClienteController _clienteController;
         public PesquisarCliente()
         {
             InitializeComponent();
-
-
+            _clienteController = new ClienteController();
         }
 
         // Define the CS_DROPSHADOW constant
@@ -70,6 +72,18 @@ namespace TelasSharpWare
             editarCliente.Show();
         }
 
-
+        private void pesquisarBtn_Click(object sender, EventArgs e)
+        {
+           
+                List<Cliente> clientes = _clienteController.PesquisarTodosClientes();
+                foreach(Cliente cliente in clientes)
+                {
+                    int index = pesquisaClienteDgv.Rows.Add();
+                    DataGridViewRow linha = pesquisaClienteDgv.Rows[index];
+                    linha.Cells["id"].Value = cliente.Id;
+                    linha.Cells["nome"].Value = cliente.Nome;
+                    linha.Cells["cpf"].Value = cliente.CPF;
+                }
+        }
     }
 }

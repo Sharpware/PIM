@@ -40,6 +40,12 @@ namespace TelasSharpWare.Model
             }
         }
 
+        public Pessoa<T> SetId(long id)
+        {
+            _id = id;
+            return this;
+        }
+
         public string Nome
         {
             get

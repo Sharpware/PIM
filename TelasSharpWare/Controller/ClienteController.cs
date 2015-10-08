@@ -22,5 +22,10 @@ namespace TelasSharpWare.Controller
         {
             _clienteDao.Add(cliente);
         }
+
+        public List<Cliente> PesquisarTodosClientes()
+        {
+            return _clienteDao.BuscarTodos();
+        }
     }
 }
