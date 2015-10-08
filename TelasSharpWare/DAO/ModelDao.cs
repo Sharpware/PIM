@@ -1,27 +1,47 @@
-namespace TelasSharpWare
-{
-    using System;
-    using System.Data.Entity;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Linq;
-    using Model;
+﻿using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-    public partial class ModelDao : DbContext
+namespace TelasSharpWare.DAO
+{
+    public class ModelDao
     {
+        private string _str = @"server=localhost;database=sharpware;userid=root;password=";
+        private MySqlConnection _con = null;
+
         public ModelDao()
-            : base("name=ModelDao")
         {
+
         }
 
-        public virtual DbSet<Cliente> Clientes { get; set; }
-        public virtual DbSet<Funcionario> Funcionarios { get; set; }
-        public virtual DbSet<Fornecedor> Fornecedores { get; set; }
-        public virtual DbSet<Venda> Vendas { get; set; }
-        public virtual DbSet<Produto> Produtos { get; set; }
-        public virtual DbSet<ItensVenda> ItensVendas { get; set; }
-
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        public MySqlConnection IniciarConexao()
         {
+            try
+            {
+                _con = new MySqlConnection(_str);
+                _con.Open();
+            }
+            catch (MySqlException err)
+            {
+                Console.WriteLine("Error: " + err.ToString());
+            }
+            return _con;
+        }
+
+        public void FinalizarConexao()
+        {
+            if (_con != null)
+            {
+                _con.Close();
+            }
+        }
+
+        ~ModelDao()
+        {
+            FinalizarConexao();
         }
     }
 }
