@@ -74,9 +74,11 @@ namespace TelasSharpWare
 
         private void pesquisarBtn_Click(object sender, EventArgs e)
         {
-           
-                List<Cliente> clientes = _clienteController.PesquisarTodosClientes();
-                foreach(Cliente cliente in clientes)
+            pesquisaClienteDgv.Rows.Clear();
+            if(nomeTbx.Text != "" && nomeRb.Checked == true)
+            {
+                Cliente cliente = _clienteController.PesquisarPorNome(nomeTbx.Text);
+                if (cliente.Id != 0)
                 {
                     int index = pesquisaClienteDgv.Rows.Add();
                     DataGridViewRow linha = pesquisaClienteDgv.Rows[index];
@@ -84,6 +86,26 @@ namespace TelasSharpWare
                     linha.Cells["nome"].Value = cliente.Nome;
                     linha.Cells["cpf"].Value = cliente.CPF;
                 }
+                else
+                    MessageBox.Show("Cliente não encontrado");
+            }
+
+
+
+            if (nomeTbx.Text == "" &&
+                idTbx.Text == "" &&
+                cpfTbx.Text == "")
+            {
+                List<Cliente> clientes = _clienteController.PesquisarTodosClientes();
+                foreach (Cliente cliente in clientes)
+                {
+                    int index = pesquisaClienteDgv.Rows.Add();
+                    DataGridViewRow linha = pesquisaClienteDgv.Rows[index];
+                    linha.Cells["id"].Value = cliente.Id;
+                    linha.Cells["nome"].Value = cliente.Nome;
+                    linha.Cells["cpf"].Value = cliente.CPF;
+                }
+            }
         }
     }
 }

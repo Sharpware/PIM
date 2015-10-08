@@ -27,5 +27,11 @@ namespace TelasSharpWare.Controller
         {
             return _clienteDao.BuscarTodos();
         }
+
+        public Cliente PesquisarPorNome(string nome)
+        {
+            return _clienteDao.BuscarPorNome(nome);
+        }
+
     }
 }

@@ -71,7 +71,29 @@ namespace TelasSharpWare.DAO
             return clientes;
         }
 
-        public void Remover(Cliente cliente)
+        public Cliente BuscarPorNome(string nome)
+        {
+            MySqlConnection con = null;
+            MySqlDataReader reader = null;
+            Cliente cliente = null;
+            con = modelDao.IniciarConexao();
+            string cmdText = "SELECT id, nome, cpf FROM cliente WHERE nome=@nome";
+            MySqlCommand cmd = new MySqlCommand(cmdText, con);
+            cmd.Prepare();
+            cmd.Parameters.AddWithValue("@nome", nome);
+            reader = cmd.ExecuteReader();
+            cliente = new Cliente();
+            while (reader.Read())
+            {
+                cliente.SetId(reader.GetInt64("id"))
+                .SetNome(reader.GetString("nome"))
+                .SetCPF(reader.GetString("cpf"));
+            }
+            modelDao.FinalizarConexao();
+            return cliente;
+        }
+
+        public void Inativacao(Cliente cliente)
         {
         }
     }

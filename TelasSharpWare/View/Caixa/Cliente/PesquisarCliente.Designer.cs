@@ -34,6 +34,9 @@
             this.cpfTbx = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pesquisaClienteDgv = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tipoPesquisaGbx = new System.Windows.Forms.GroupBox();
@@ -42,7 +45,6 @@
             this.idRb = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.idTbx = new System.Windows.Forms.TextBox();
-            this.nomeCbx = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.minimizarBtn = new System.Windows.Forms.Button();
@@ -52,9 +54,7 @@
             this.editarCliente = new TelasSharpWare.Botoes.BotaoEditarCliente();
             this.cadastrarClienteBtn = new TelasSharpWare.Botoes.BotaoCadCliente();
             this.adicionarClienteBtn = new TelasSharpWare.View.Botoes.BotaoAdicionarClienteVenda();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomeTbx = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pesquisaClienteDgv)).BeginInit();
             this.tipoPesquisaGbx.SuspendLayout();
@@ -66,6 +66,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(164)))), ((int)(((byte)(180)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.nomeTbx);
             this.panel1.Controls.Add(this.pesquisarBtn);
             this.panel1.Controls.Add(this.cpfTbx);
             this.panel1.Controls.Add(this.label4);
@@ -75,7 +76,6 @@
             this.panel1.Controls.Add(this.tipoPesquisaGbx);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.idTbx);
-            this.panel1.Controls.Add(this.nomeCbx);
             this.panel1.Location = new System.Drawing.Point(72, 61);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
@@ -122,6 +122,26 @@
             this.pesquisaClienteDgv.Name = "pesquisaClienteDgv";
             this.pesquisaClienteDgv.Size = new System.Drawing.Size(654, 262);
             this.pesquisaClienteDgv.TabIndex = 13;
+            // 
+            // id
+            // 
+            this.id.HeaderText = "Id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // Nome
+            // 
+            this.Nome.HeaderText = "Nome";
+            this.Nome.Name = "Nome";
+            this.Nome.ReadOnly = true;
+            this.Nome.Width = 300;
+            // 
+            // CPF
+            // 
+            this.CPF.HeaderText = "CPF";
+            this.CPF.Name = "CPF";
+            this.CPF.ReadOnly = true;
+            this.CPF.Width = 200;
             // 
             // label3
             // 
@@ -206,14 +226,6 @@
             this.idTbx.Name = "idTbx";
             this.idTbx.Size = new System.Drawing.Size(80, 25);
             this.idTbx.TabIndex = 2;
-            // 
-            // nomeCbx
-            // 
-            this.nomeCbx.FormattingEnabled = true;
-            this.nomeCbx.Location = new System.Drawing.Point(17, 100);
-            this.nomeCbx.Name = "nomeCbx";
-            this.nomeCbx.Size = new System.Drawing.Size(291, 25);
-            this.nomeCbx.TabIndex = 1;
             // 
             // panel3
             // 
@@ -323,25 +335,12 @@
             this.adicionarClienteBtn.Size = new System.Drawing.Size(150, 50);
             this.adicionarClienteBtn.TabIndex = 11;
             // 
-            // id
+            // nomeTbx
             // 
-            this.id.HeaderText = "Id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // Nome
-            // 
-            this.Nome.HeaderText = "Nome";
-            this.Nome.Name = "Nome";
-            this.Nome.ReadOnly = true;
-            this.Nome.Width = 300;
-            // 
-            // CPF
-            // 
-            this.CPF.HeaderText = "CPF";
-            this.CPF.Name = "CPF";
-            this.CPF.ReadOnly = true;
-            this.CPF.Width = 200;
+            this.nomeTbx.Location = new System.Drawing.Point(17, 100);
+            this.nomeTbx.Name = "nomeTbx";
+            this.nomeTbx.Size = new System.Drawing.Size(291, 25);
+            this.nomeTbx.TabIndex = 18;
             // 
             // PesquisarCliente
             // 
@@ -383,7 +382,6 @@
         private System.Windows.Forms.RadioButton idRb;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox idTbx;
-        private System.Windows.Forms.ComboBox nomeCbx;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button minimizarBtn;
         private System.Windows.Forms.Button fecharBtn;
@@ -401,5 +399,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn CPF;
+        private System.Windows.Forms.TextBox nomeTbx;
     }
 }
