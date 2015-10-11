@@ -7,19 +7,93 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TelasSharpWare.Controller;
+using TelasSharpWare.Model;
 
 namespace TelasSharpWare
 {
     public partial class PesquisarProduto : Form
     {
+        PesquisaProdutoController _pesquisaProdutoController;
+
         public PesquisarProduto()
         {
+            _pesquisaProdutoController = new PesquisaProdutoController();
             InitializeComponent();
+        }
+
+        //Metodo recebe uma lista de produtos para popular a grid
+        private void PopularGrid(List<Produto> Iprodutos)
+        {
+            List<Produto> produtos = Iprodutos;
+            foreach (Produto produto in produtos)
+            {
+                int index = pesquisaProdutosDgv.Rows.Add();
+                DataGridViewRow linha = pesquisaProdutosDgv.Rows[index];
+                linha.Cells["id"].Value = produto.Id;
+                linha.Cells["marca"].Value = produto.Marca;
+                linha.Cells["nome"].Value = produto.Nome;
+                linha.Cells["observacao"].Value = produto.Observacao;
+                linha.Cells["tamanho"].Value = produto.Tamanho;
+                linha.Cells["valor"].Value = produto.PrecoVenda;
+                linha.Cells["quant"].Value = produto.Quantidade;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        private void pesquisarProdutosBtn_Click(object sender, EventArgs e)
+        {
+            pesquisaProdutosDgv.Rows.Clear();
+
+            if (idProdutoTbx.Text != "" && codigoRb.Checked == true)
+            {
+                PopularGrid(_pesquisaProdutoController.PesquisarPorId(Convert.ToInt32(idProdutoTbx.Text)));
+                if (pesquisaProdutosDgv.Rows[0].Cells["id"].Value == null)
+                {
+                    MessageBox.Show("Nenhum produto encontrado");
+                }
+            }
+            /*if(tipoProdutoCbx.Text != "" && tipoRb.Checked == true)
+            {
+                PopularGrid(_pesquisaProdutoController.PesquisarPorTipo(tipoProdutoCbx.Text));
+            }*/
+
+            if (marcaProdutoTbx.Text != "" && marcaRb.Checked == true)
+            {
+                PopularGrid(_pesquisaProdutoController.PesquisarPorMarca(marcaProdutoTbx.Text));
+                if(pesquisaProdutosDgv.Rows[0].Cells["id"].Value == null)
+                {
+                    MessageBox.Show("Nenhum produto encontrado");
+                }
+            }
+
+            if (nomeProdutoTbx.Text != "" && nomeProdutoRb.Checked == true)
+            {
+                PopularGrid(_pesquisaProdutoController.PesquisarPorNome(nomeProdutoTbx.Text));
+                if (pesquisaProdutosDgv.Rows[0].Cells["id"].Value == null)
+                {
+                    MessageBox.Show("Nenhum produto encontrado");
+                }
+            }
+
+            if (idProdutoTbx.Text == "" &&
+                nomeProdutoTbx.Text == "" &&
+                marcaProdutoTbx.Text == "" &&
+                tipoProdutoCbx.Text == ""
+                )
+            {
+                PopularGrid(_pesquisaProdutoController.PesquisarTodos());
+                if (pesquisaProdutosDgv.Rows[0].Cells["id"].Value == null)
+                {
+                    MessageBox.Show("Nenhum produto encontrado");
+                }
+            }
+        }
+
+
     }
 }
