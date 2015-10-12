@@ -30,7 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PesquisarCliente));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pesquisarBtn = new System.Windows.Forms.Button();
+            this.botaoAcessarPesquisaCliente1 = new TelasSharpWare.View.Botoes.BotaoAcessarPesquisaCliente();
+            this.nomeTbx = new System.Windows.Forms.TextBox();
             this.cpfTbx = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pesquisaClienteDgv = new System.Windows.Forms.DataGridView();
@@ -49,12 +50,11 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.minimizarBtn = new System.Windows.Forms.Button();
             this.fecharBtn = new System.Windows.Forms.Button();
+            this.adicionarClienteBtn = new TelasSharpWare.View.Botoes.BotaoAdicionarClienteVenda();
             this.sairBtn = new TelasSharpWare.Botoes.BotaoSair();
             this.inativarClienteBtn = new TelasSharpWare.Botoes.BotaoInativarCliente();
             this.editarCliente = new TelasSharpWare.Botoes.BotaoEditarCliente();
             this.cadastrarClienteBtn = new TelasSharpWare.Botoes.BotaoCadCliente();
-            this.adicionarClienteBtn = new TelasSharpWare.View.Botoes.BotaoAdicionarClienteVenda();
-            this.nomeTbx = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pesquisaClienteDgv)).BeginInit();
             this.tipoPesquisaGbx.SuspendLayout();
@@ -66,8 +66,8 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(164)))), ((int)(((byte)(180)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.botaoAcessarPesquisaCliente1);
             this.panel1.Controls.Add(this.nomeTbx);
-            this.panel1.Controls.Add(this.pesquisarBtn);
             this.panel1.Controls.Add(this.cpfTbx);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.pesquisaClienteDgv);
@@ -82,15 +82,24 @@
             this.panel1.Size = new System.Drawing.Size(681, 473);
             this.panel1.TabIndex = 1;
             // 
-            // pesquisarBtn
+            // botaoAcessarPesquisaCliente1
             // 
-            this.pesquisarBtn.Location = new System.Drawing.Point(336, 151);
-            this.pesquisarBtn.Name = "pesquisarBtn";
-            this.pesquisarBtn.Size = new System.Drawing.Size(87, 26);
-            this.pesquisarBtn.TabIndex = 17;
-            this.pesquisarBtn.Text = "Pesquisar";
-            this.pesquisarBtn.UseVisualStyleBackColor = true;
-            this.pesquisarBtn.Click += new System.EventHandler(this.pesquisarBtn_Click);
+            this.botaoAcessarPesquisaCliente1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botaoAcessarPesquisaCliente1.BackgroundImage")));
+            this.botaoAcessarPesquisaCliente1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.botaoAcessarPesquisaCliente1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.botaoAcessarPesquisaCliente1.Location = new System.Drawing.Point(328, 153);
+            this.botaoAcessarPesquisaCliente1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.botaoAcessarPesquisaCliente1.Name = "botaoAcessarPesquisaCliente1";
+            this.botaoAcessarPesquisaCliente1.Size = new System.Drawing.Size(102, 28);
+            this.botaoAcessarPesquisaCliente1.TabIndex = 19;
+            this.botaoAcessarPesquisaCliente1.Click += new System.EventHandler(this.botaoAcessarPesquisaCliente1_Click);
+            // 
+            // nomeTbx
+            // 
+            this.nomeTbx.Location = new System.Drawing.Point(17, 100);
+            this.nomeTbx.Name = "nomeTbx";
+            this.nomeTbx.Size = new System.Drawing.Size(291, 25);
+            this.nomeTbx.TabIndex = 18;
             // 
             // cpfTbx
             // 
@@ -275,6 +284,17 @@
             this.fecharBtn.UseVisualStyleBackColor = true;
             this.fecharBtn.Click += new System.EventHandler(this.button1_Click);
             // 
+            // adicionarClienteBtn
+            // 
+            this.adicionarClienteBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("adicionarClienteBtn.BackgroundImage")));
+            this.adicionarClienteBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.adicionarClienteBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.adicionarClienteBtn.Location = new System.Drawing.Point(34, 564);
+            this.adicionarClienteBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.adicionarClienteBtn.Name = "adicionarClienteBtn";
+            this.adicionarClienteBtn.Size = new System.Drawing.Size(150, 50);
+            this.adicionarClienteBtn.TabIndex = 11;
+            // 
             // sairBtn
             // 
             this.sairBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sairBtn.BackgroundImage")));
@@ -323,24 +343,6 @@
             this.cadastrarClienteBtn.Size = new System.Drawing.Size(150, 50);
             this.cadastrarClienteBtn.TabIndex = 6;
             this.cadastrarClienteBtn.Click += new System.EventHandler(this.botaoCadCliente1_Click);
-            // 
-            // adicionarClienteBtn
-            // 
-            this.adicionarClienteBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("adicionarClienteBtn.BackgroundImage")));
-            this.adicionarClienteBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.adicionarClienteBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.adicionarClienteBtn.Location = new System.Drawing.Point(34, 564);
-            this.adicionarClienteBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.adicionarClienteBtn.Name = "adicionarClienteBtn";
-            this.adicionarClienteBtn.Size = new System.Drawing.Size(150, 50);
-            this.adicionarClienteBtn.TabIndex = 11;
-            // 
-            // nomeTbx
-            // 
-            this.nomeTbx.Location = new System.Drawing.Point(17, 100);
-            this.nomeTbx.Name = "nomeTbx";
-            this.nomeTbx.Size = new System.Drawing.Size(291, 25);
-            this.nomeTbx.TabIndex = 18;
             // 
             // PesquisarCliente
             // 
@@ -395,10 +397,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RadioButton cpfRb;
         private View.Botoes.BotaoAdicionarClienteVenda adicionarClienteBtn;
-        private System.Windows.Forms.Button pesquisarBtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn CPF;
         private System.Windows.Forms.TextBox nomeTbx;
+        private View.Botoes.BotaoAcessarPesquisaCliente botaoAcessarPesquisaCliente1;
     }
 }

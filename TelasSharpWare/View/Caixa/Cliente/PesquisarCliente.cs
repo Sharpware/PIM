@@ -72,10 +72,11 @@ namespace TelasSharpWare
             editarCliente.Show();
         }
 
-        private void pesquisarBtn_Click(object sender, EventArgs e)
+
+        private void botaoAcessarPesquisaCliente1_Click(object sender, EventArgs e)
         {
             pesquisaClienteDgv.Rows.Clear();
-            if(nomeTbx.Text != "" && nomeRb.Checked == true)
+            if (nomeTbx.Text != "" && nomeRb.Checked == true)
             {
                 Cliente cliente = _clienteController.PesquisarPorNome(nomeTbx.Text);
                 if (cliente.Id != 0)

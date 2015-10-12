@@ -72,6 +72,12 @@
     <Compile Include="Model\TipoVenda.cs" />
     <Compile Include="Model\Venda.cs" />
     <Compile Include="Model\ItensVenda.cs" />
+    <Compile Include="View\Botoes\BotaoAcessarPesquisaCliente.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Botoes\BotaoAcessarPesquisaCliente.Designer.cs">
+      <DependentUpon>BotaoAcessarPesquisaCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Botoes\BotaoAdicionarClienteVenda.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -452,6 +458,9 @@
     <Compile Include="View\Caixa\Cliente\EditarCliente.Designer.cs">
       <DependentUpon>EditarCliente.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Botoes\BotaoAcessarPesquisaCliente.resx">
+      <DependentUpon>BotaoAcessarPesquisaCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Botoes\BotaoAdicionarClienteVenda.resx">
       <DependentUpon>BotaoAdicionarClienteVenda.cs</DependentUpon>
     </EmbeddedResource>
@@ -1002,6 +1011,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\BotaoSalvarPagamento2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BotaoAcessarPesquisaCliente1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BotaoAcessarPesquisaCliente2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
