@@ -23,9 +23,9 @@ namespace TelasSharpWare
         }
 
         //Metodo recebe uma lista de produtos para popular a grid
-        private void PopularGrid(List<Produto> Iprodutos)
+        private void PopularGrid(List<Produto> insertProdutos)
         {
-            List<Produto> produtos = Iprodutos;
+            List<Produto> produtos = insertProdutos;
             foreach (Produto produto in produtos)
             {
                 int index = pesquisaProdutosDgv.Rows.Add();
@@ -57,6 +57,7 @@ namespace TelasSharpWare
                     MessageBox.Show("Nenhum produto encontrado");
                 }
             }
+
             /*if(tipoProdutoCbx.Text != "" && tipoRb.Checked == true)
             {
                 PopularGrid(_pesquisaProdutoController.PesquisarPorTipo(tipoProdutoCbx.Text));
