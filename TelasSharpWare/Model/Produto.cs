@@ -18,7 +18,7 @@ namespace TelasSharpWare.Model
         private double precoVenda;
         private String observacao;
         private TipoProduto tipoFuncionario;
-        private Status status;
+        private Situacao status;
 
         public long Id
         {
@@ -150,7 +150,7 @@ namespace TelasSharpWare.Model
             }
         }
 
-        public Status Status
+        public Situacao Status
         {
             get
             {

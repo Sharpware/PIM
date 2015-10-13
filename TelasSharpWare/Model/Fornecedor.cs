@@ -15,7 +15,7 @@ namespace TelasSharpWare.Model
         private String _cnpj;
         private String _observacao;
         private Endereco _endereco;
-        private Status _status;
+        private Situacao _fornecedor;
         private Lazy<IList<String>> _lazyEmails;
         private Lazy<IList<Produto>> _lazyProdutos;
         private Lazy<IList<Telefone>> _lazyTelefones;
@@ -100,16 +100,16 @@ namespace TelasSharpWare.Model
             return this;
         }
 
-        public Status Status
+        public Situacao Status
         {
             get
             {
-                return _status;
+                return _fornecedor;
             }
         }
-        public Fornecedor SetStatus(Status status)
+        public Fornecedor SetStatus(Situacao status)
         {
-            _status = status;
+            _fornecedor = status;
             return this;
         }
 

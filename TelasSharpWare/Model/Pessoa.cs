@@ -16,7 +16,7 @@ namespace TelasSharpWare.Model
         private String _cpf;
         private DateTime _dataNascimento;
         private String _email;
-        private Status _status;
+        private Situacao _situacao;
         private String _observacao;
         private Endereco _endereco;
         private Lazy<IList<Telefone>> _lazyTelefones;
@@ -104,16 +104,16 @@ namespace TelasSharpWare.Model
             return this;
         }
 
-        public Status Status
+        public Situacao Status
         {
             get
             {
-                return _status;
+                return _situacao;
             }
         }
-        public Pessoa<T> SetStatus(Status status)
+        public Pessoa<T> SetStatus(Situacao status)
         {
-            _status = status;
+            _situacao = status;
             return this;
         }
 

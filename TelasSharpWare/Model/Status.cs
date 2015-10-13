@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TelasSharpWare.Model
 {
-    public enum Status
+    public enum Situacao
     {
         Ativo,
         Inativo

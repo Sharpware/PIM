@@ -8,23 +8,30 @@ namespace TelasSharpWare.Model
 {
     public class Endereco
     {
+        private long _id;
         private String _rua;
-        private int _numero;
+        private String _numero;
         private String _complemento;
-        private int _cep;
+        private String _cep;
         private String _bairro;
-        private string _uf;
+        private String _uf;
         private String _cidade;
 
-        public Endereco(String rua, int numero, String complemento, int cep, String bairro, String uf, String cidade)
+        public Endereco()
         {
-            _rua = rua;
-            _numero = numero;
-            _complemento = complemento;
-            _cep = cep;
-            _bairro = bairro;
-            _uf = uf;
-            _cidade = cidade;
+        }
+
+        public long Id
+        {
+            get
+            {
+                return _id;
+            }
+        }
+        public Endereco SetId(long id)
+        {
+            _id = id;
+            return this;
         }
 
         public string Rua
@@ -34,13 +41,23 @@ namespace TelasSharpWare.Model
                 return _rua;
             }
         }
+        public Endereco SetRua(string rua)
+        {
+            _rua = rua;
+            return this;
+        }
 
-        public int Numero
+        public string Numero
         {
             get
             {
                 return _numero;
             }
+        }
+        public Endereco SetNumero(string numero)
+        {
+            _numero = numero;
+            return this;
         }
 
         public string Complemento
@@ -50,13 +67,23 @@ namespace TelasSharpWare.Model
                 return _complemento;
             }
         }
+        public Endereco SetComplemento(string complemento)
+        {
+            _complemento = complemento;
+            return this;
+        }
 
-        public int Cep
+        public string Cep
         {
             get
             {
                 return _cep;
             }
+        }
+        public Endereco SetCep(string cep)
+        {
+            _cep = cep;
+            return this;
         }
 
         public string Bairro
@@ -66,6 +93,11 @@ namespace TelasSharpWare.Model
                 return _bairro;
             }
         }
+        public Endereco SetBairro(string bairro)
+        {
+            _bairro = bairro;
+            return this;
+        }
 
         public string Uf
         {
@@ -73,6 +105,11 @@ namespace TelasSharpWare.Model
             {
                 return _uf;
             }
+        }
+        public Endereco SetUf(string uf)
+        {
+            _uf = uf;
+            return this;
         }
 
         public string Cidade
@@ -82,6 +119,10 @@ namespace TelasSharpWare.Model
                 return _cidade;
             }
         }
-
+        public Endereco SetCidade(string cidade)
+        {
+            _cidade = cidade;
+            return this;
+        }
     }
 }
