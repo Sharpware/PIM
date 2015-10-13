@@ -30,10 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PesquisarCliente));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.botaoAcessarPesquisaCliente1 = new TelasSharpWare.View.Botoes.BotaoAcessarPesquisaCliente();
+            this.nomeTbx = new System.Windows.Forms.TextBox();
             this.cpfTbx = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pesquisaClienteDgv = new System.Windows.Forms.DataGridView();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,16 +46,15 @@
             this.idRb = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.idTbx = new System.Windows.Forms.TextBox();
-            this.nomeCbx = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.minimizarBtn = new System.Windows.Forms.Button();
             this.fecharBtn = new System.Windows.Forms.Button();
+            this.adicionarClienteBtn = new TelasSharpWare.View.Botoes.BotaoAdicionarClienteVenda();
             this.sairBtn = new TelasSharpWare.Botoes.BotaoSair();
             this.inativarClienteBtn = new TelasSharpWare.Botoes.BotaoInativarCliente();
             this.editarCliente = new TelasSharpWare.Botoes.BotaoEditarCliente();
             this.cadastrarClienteBtn = new TelasSharpWare.Botoes.BotaoCadCliente();
-            this.adicionarClienteBtn = new TelasSharpWare.View.Botoes.BotaoAdicionarClienteVenda();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pesquisaClienteDgv)).BeginInit();
             this.tipoPesquisaGbx.SuspendLayout();
@@ -65,6 +66,8 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(164)))), ((int)(((byte)(180)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.botaoAcessarPesquisaCliente1);
+            this.panel1.Controls.Add(this.nomeTbx);
             this.panel1.Controls.Add(this.cpfTbx);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.pesquisaClienteDgv);
@@ -73,12 +76,30 @@
             this.panel1.Controls.Add(this.tipoPesquisaGbx);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.idTbx);
-            this.panel1.Controls.Add(this.nomeCbx);
             this.panel1.Location = new System.Drawing.Point(72, 61);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(681, 473);
             this.panel1.TabIndex = 1;
+            // 
+            // botaoAcessarPesquisaCliente1
+            // 
+            this.botaoAcessarPesquisaCliente1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botaoAcessarPesquisaCliente1.BackgroundImage")));
+            this.botaoAcessarPesquisaCliente1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.botaoAcessarPesquisaCliente1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.botaoAcessarPesquisaCliente1.Location = new System.Drawing.Point(328, 153);
+            this.botaoAcessarPesquisaCliente1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.botaoAcessarPesquisaCliente1.Name = "botaoAcessarPesquisaCliente1";
+            this.botaoAcessarPesquisaCliente1.Size = new System.Drawing.Size(102, 28);
+            this.botaoAcessarPesquisaCliente1.TabIndex = 19;
+            this.botaoAcessarPesquisaCliente1.Click += new System.EventHandler(this.botaoAcessarPesquisaCliente1_Click);
+            // 
+            // nomeTbx
+            // 
+            this.nomeTbx.Location = new System.Drawing.Point(17, 100);
+            this.nomeTbx.Name = "nomeTbx";
+            this.nomeTbx.Size = new System.Drawing.Size(291, 25);
+            this.nomeTbx.TabIndex = 18;
             // 
             // cpfTbx
             // 
@@ -103,7 +124,7 @@
             this.pesquisaClienteDgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.pesquisaClienteDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.pesquisaClienteDgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Codigo,
+            this.id,
             this.Nome,
             this.CPF});
             this.pesquisaClienteDgv.Location = new System.Drawing.Point(17, 184);
@@ -111,11 +132,11 @@
             this.pesquisaClienteDgv.Size = new System.Drawing.Size(654, 262);
             this.pesquisaClienteDgv.TabIndex = 13;
             // 
-            // Codigo
+            // id
             // 
-            this.Codigo.HeaderText = "Codigo";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
+            this.id.HeaderText = "Id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
             // 
             // Nome
             // 
@@ -215,14 +236,6 @@
             this.idTbx.Size = new System.Drawing.Size(80, 25);
             this.idTbx.TabIndex = 2;
             // 
-            // nomeCbx
-            // 
-            this.nomeCbx.FormattingEnabled = true;
-            this.nomeCbx.Location = new System.Drawing.Point(17, 100);
-            this.nomeCbx.Name = "nomeCbx";
-            this.nomeCbx.Size = new System.Drawing.Size(291, 25);
-            this.nomeCbx.TabIndex = 1;
-            // 
             // panel3
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -270,6 +283,17 @@
             this.fecharBtn.Text = "X";
             this.fecharBtn.UseVisualStyleBackColor = true;
             this.fecharBtn.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // adicionarClienteBtn
+            // 
+            this.adicionarClienteBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("adicionarClienteBtn.BackgroundImage")));
+            this.adicionarClienteBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.adicionarClienteBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.adicionarClienteBtn.Location = new System.Drawing.Point(34, 564);
+            this.adicionarClienteBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.adicionarClienteBtn.Name = "adicionarClienteBtn";
+            this.adicionarClienteBtn.Size = new System.Drawing.Size(150, 50);
+            this.adicionarClienteBtn.TabIndex = 11;
             // 
             // sairBtn
             // 
@@ -320,17 +344,6 @@
             this.cadastrarClienteBtn.TabIndex = 6;
             this.cadastrarClienteBtn.Click += new System.EventHandler(this.botaoCadCliente1_Click);
             // 
-            // adicionarClienteBtn
-            // 
-            this.adicionarClienteBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("adicionarClienteBtn.BackgroundImage")));
-            this.adicionarClienteBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.adicionarClienteBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.adicionarClienteBtn.Location = new System.Drawing.Point(34, 564);
-            this.adicionarClienteBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.adicionarClienteBtn.Name = "adicionarClienteBtn";
-            this.adicionarClienteBtn.Size = new System.Drawing.Size(150, 50);
-            this.adicionarClienteBtn.TabIndex = 11;
-            // 
             // PesquisarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -371,16 +384,12 @@
         private System.Windows.Forms.RadioButton idRb;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox idTbx;
-        private System.Windows.Forms.ComboBox nomeCbx;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button minimizarBtn;
         private System.Windows.Forms.Button fecharBtn;
         private System.Windows.Forms.DataGridView pesquisaClienteDgv;
         private Botoes.BotaoCadCliente cadastrarClienteBtn;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CPF;
         private Botoes.BotaoEditarCliente editarCliente;
         private Botoes.BotaoInativarCliente inativarClienteBtn;
         private Botoes.BotaoSair sairBtn;
@@ -388,5 +397,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RadioButton cpfRb;
         private View.Botoes.BotaoAdicionarClienteVenda adicionarClienteBtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CPF;
+        private System.Windows.Forms.TextBox nomeTbx;
+        private View.Botoes.BotaoAcessarPesquisaCliente botaoAcessarPesquisaCliente1;
     }
 }

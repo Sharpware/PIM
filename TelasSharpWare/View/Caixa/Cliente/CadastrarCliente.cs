@@ -1,17 +1,22 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TelasSharpWare.Controller;
+using TelasSharpWare.Model;
 
 namespace TelasSharpWare
 {
     public partial class CadastrarCliente : Form
     {
+        ClienteController _clienteController;
         public CadastrarCliente()
         {
             InitializeComponent();
+            _clienteController = new ClienteController();
         }
 
         // Define the CS_DROPSHADOW constant
@@ -39,7 +44,15 @@ namespace TelasSharpWare
 
         private void botaoCadCliente1_Click(object sender, System.EventArgs e)
         {
-             MessageBox.Show("Cadastro adicionado com sucesso!!");
+            Cliente cliente = new Cliente();
+            cliente.SetNome(nomeTbx.Text)
+            .SetEmail(emailTbx.Text)
+            .SetCPF(cpfTbx.Text)
+            .SetDataNascimento(Convert.ToDateTime(dataNascimentoTbx.Text))
+            .SetObservacao(observacaoTbx.Text);
+
+            _clienteController.CadastrarCliente(cliente);
+            MessageBox.Show("Filha da puta cadastrado");
         }
 
         private void botaoSair1_Click(object sender, System.EventArgs e)

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +11,7 @@ namespace TelasSharpWare.Model
 {
     public abstract class Pessoa<T>
     {
-        public long Id { get; set; }
+        public long _id;
         private String _nome;
         private String _cpf;
         private DateTime _dataNascimento;
@@ -22,6 +24,19 @@ namespace TelasSharpWare.Model
         public Pessoa()
         {
             _lazyTelefones = new Lazy<IList<Telefone>>(() => new List<Telefone>());
+        }
+
+        public long Id
+        {
+            get
+            {
+                return _id;
+            }
+        }
+        public Pessoa<T> SetId(long id)
+        {
+            _id = id;
+            return this;
         }
 
         public string Nome

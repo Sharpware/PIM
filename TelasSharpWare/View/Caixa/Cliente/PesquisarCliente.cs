@@ -7,16 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TelasSharpWare.Controller;
+using TelasSharpWare.Model;
 
 namespace TelasSharpWare
 {
     public partial class PesquisarCliente : Form
     {
+        private ClienteController _clienteController;
         public PesquisarCliente()
         {
             InitializeComponent();
-
-
+            _clienteController = new ClienteController();
         }
 
         // Define the CS_DROPSHADOW constant
@@ -71,5 +73,40 @@ namespace TelasSharpWare
         }
 
 
+        private void botaoAcessarPesquisaCliente1_Click(object sender, EventArgs e)
+        {
+            pesquisaClienteDgv.Rows.Clear();
+            if (nomeTbx.Text != "" && nomeRb.Checked == true)
+            {
+                Cliente cliente = _clienteController.PesquisarPorNome(nomeTbx.Text);
+                if (cliente.Id != 0)
+                {
+                    int index = pesquisaClienteDgv.Rows.Add();
+                    DataGridViewRow linha = pesquisaClienteDgv.Rows[index];
+                    linha.Cells["id"].Value = cliente.Id;
+                    linha.Cells["nome"].Value = cliente.Nome;
+                    linha.Cells["cpf"].Value = cliente.CPF;
+                }
+                else
+                    MessageBox.Show("Cliente não encontrado");
+            }
+
+
+
+            if (nomeTbx.Text == "" &&
+                idTbx.Text == "" &&
+                cpfTbx.Text == "")
+            {
+                List<Cliente> clientes = _clienteController.PesquisarTodosClientes();
+                foreach (Cliente cliente in clientes)
+                {
+                    int index = pesquisaClienteDgv.Rows.Add();
+                    DataGridViewRow linha = pesquisaClienteDgv.Rows[index];
+                    linha.Cells["id"].Value = cliente.Id;
+                    linha.Cells["nome"].Value = cliente.Nome;
+                    linha.Cells["cpf"].Value = cliente.CPF;
+                }
+            }
+        }
     }
 }

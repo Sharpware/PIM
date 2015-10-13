@@ -23,10 +23,10 @@ namespace TelasSharpWare.Controller
             _venda.RemoverProduto(posicao);
         }
 
-        public void ConcluirVenda(TipoVenda tipoVenda)
+        /*public void ConcluirVenda(TipoVenda tipoVenda)
         {
             _venda.TipoVenda = tipoVenda;
-            _vendaDao.AddVenda(_venda);
-        }
+            _vendaDao.Add(_venda);
+        }*/
     }
 }
