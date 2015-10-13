@@ -5,6 +5,7 @@ namespace TelasSharpWare
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
     using Model;
+    using System.Data.Entity.ModelConfiguration;
 
     public partial class ModelDao : DbContext
     {
@@ -19,9 +20,12 @@ namespace TelasSharpWare
         public virtual DbSet<Venda> Vendas { get; set; }
         public virtual DbSet<Produto> Produtos { get; set; }
         public virtual DbSet<ItensVenda> ItensVendas { get; set; }
+        public virtual DbSet<Telefone> Telefones { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            EntityTypeConfiguration<Cliente> configuracaoCliente = modelBuilder.Entity<Cliente>();
+            configuracaoCliente.HasMany(cliente => cliente.Telefones);                           
         }
     }
 }

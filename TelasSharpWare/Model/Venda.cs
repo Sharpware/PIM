@@ -9,7 +9,7 @@ namespace TelasSharpWare.Model
 {
     public class Venda
     {
-        private long _id;
+        public long Id { get; set; }
         private DateTime _data;
         private double _valorTotal;
         private Cliente _cliente;
@@ -35,14 +35,6 @@ namespace TelasSharpWare.Model
         {
            _valorTotal -= _lazyProdutos.Value[posicao].PrecoVenda;
            _lazyProdutos.Value.RemoveAt(posicao);
-        }
-
-        public long Id
-        {
-            get
-            {
-                return _id;
-            }
         }
 
         public DateTime Data

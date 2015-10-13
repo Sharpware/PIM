@@ -9,7 +9,7 @@ namespace TelasSharpWare.Model
 {
     public abstract class Pessoa<T>
     {
-        private long _id;
+        public long Id { get; set; }
         private String _nome;
         private String _cpf;
         private DateTime _dataNascimento;
@@ -22,14 +22,6 @@ namespace TelasSharpWare.Model
         public Pessoa()
         {
             _lazyTelefones = new Lazy<IList<Telefone>>(() => new List<Telefone>());
-        }
-
-        public long Id
-        {
-            get
-            {
-                return _id;
-            }
         }
 
         public string Nome
@@ -123,7 +115,7 @@ namespace TelasSharpWare.Model
             return this;
         }
 
-        public IReadOnlyCollection<Telefone> Telefones
+        public virtual IReadOnlyCollection<Telefone> Telefones
         {
             get
             {

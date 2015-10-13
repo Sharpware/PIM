@@ -8,6 +8,7 @@ namespace TelasSharpWare.Model
 {
     public class Telefone
     {
+        public long Id { get; set; }
         private String _numero;
         private TipoTelefone _tipoTelefone;
 
