@@ -157,7 +157,7 @@
             // cpfTbx
             // 
             this.cpfTbx.Location = new System.Drawing.Point(22, 96);
-            this.cpfTbx.Mask = "000.000.000-00";
+            this.cpfTbx.Mask = "000,000,000-00";
             this.cpfTbx.Name = "cpfTbx";
             this.cpfTbx.Size = new System.Drawing.Size(100, 25);
             this.cpfTbx.TabIndex = 81;

@@ -36,6 +36,20 @@ namespace TelasSharpWare
         }
 
 
+        private void PopularGrid(List<Cliente> insertClientes)
+        {
+            List<Cliente> clientes = insertClientes;
+
+            foreach(Cliente cliente in clientes)
+            {
+                int index = pesquisaClienteDgv.Rows.Add();
+                DataGridViewRow linha = pesquisaClienteDgv.Rows[index];
+                linha.Cells["id"].Value = cliente.Id;
+                linha.Cells["nome"].Value = cliente.Nome;
+                linha.Cells["cpf"].Value = cliente.CPF;
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -78,35 +92,62 @@ namespace TelasSharpWare
             pesquisaClienteDgv.Rows.Clear();
             if (nomeTbx.Text != "" && nomeRb.Checked == true)
             {
-                Cliente cliente = _clienteController.PesquisarPorNome(nomeTbx.Text);
-                if (cliente.Id != 0)
+                PopularGrid(_clienteController.PesquisarPorNome(nomeTbx.Text));
+                if (pesquisaClienteDgv.Rows[0].Cells["id"].Value == null)
                 {
-                    int index = pesquisaClienteDgv.Rows.Add();
-                    DataGridViewRow linha = pesquisaClienteDgv.Rows[index];
-                    linha.Cells["id"].Value = cliente.Id;
-                    linha.Cells["nome"].Value = cliente.Nome;
-                    linha.Cells["cpf"].Value = cliente.CPF;
-                }
-                else
                     MessageBox.Show("Cliente não encontrado");
+                }    
             }
 
+            if(idTbx.Text != "" && idRb.Checked == true)
+            {
+                PopularGrid(_clienteController.PesquisarPorId(Convert.ToInt32(idTbx.Text)));
+                if(pesquisaClienteDgv.Rows[0].Cells["id"].Value == null)
+                {
+                    MessageBox.Show("Cliente não encontrado");
+                }
+            }
 
+            if(cpfMbx.Text != "   ,   ,   -" && cpfRb.Checked == true)
+            {
+                PopularGrid(_clienteController.PesquisarPorCPF(cpfMbx.Text));
+                if (pesquisaClienteDgv.Rows[0].Cells["id"].Value == null)
+                {
+                    MessageBox.Show("Cliente não encontrado");
+                }
+            }
 
             if (nomeTbx.Text == "" &&
                 idTbx.Text == "" &&
-                cpfTbx.Text == "")
+                cpfMbx.Text == "   ,   ,   -")
             {
-                List<Cliente> clientes = _clienteController.PesquisarTodosClientes();
-                foreach (Cliente cliente in clientes)
-                {
-                    int index = pesquisaClienteDgv.Rows.Add();
-                    DataGridViewRow linha = pesquisaClienteDgv.Rows[index];
-                    linha.Cells["id"].Value = cliente.Id;
-                    linha.Cells["nome"].Value = cliente.Nome;
-                    linha.Cells["cpf"].Value = cliente.CPF;
-                }
+                PopularGrid(_clienteController.PesquisarTodosClientes());
             }
+            nomeTbx.Text = "";
+            idTbx.Text = "";
+            cpfMbx.Text = "";
+
+        }
+
+        private void nomeRb_CheckedChanged(object sender, EventArgs e)
+        {
+            nomeTbx.Enabled = true;
+            idTbx.Enabled = false;
+            cpfMbx.Enabled = false;
+        }
+
+        private void idRb_CheckedChanged(object sender, EventArgs e)
+        {
+            nomeTbx.Enabled = false;
+            idTbx.Enabled = true;
+            cpfMbx.Enabled = false;
+        }
+
+        private void cpfRb_CheckedChanged(object sender, EventArgs e)
+        {
+            nomeTbx.Enabled = false;
+            idTbx.Enabled = false;
+            cpfMbx.Enabled = true;
         }
     }
 }
