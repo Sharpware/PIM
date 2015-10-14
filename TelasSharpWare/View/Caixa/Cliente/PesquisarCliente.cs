@@ -54,13 +54,12 @@ namespace TelasSharpWare
         private void PopularGrid(Cliente insertCliente)
         {
             Cliente cliente = insertCliente;
-            int index = pesquisaClienteDgv.Rows.Add();
-            DataGridViewRow linha = pesquisaClienteDgv.Rows[index];
-            linha.Cells["id"].Value = cliente.Id;
-            linha.Cells["nome"].Value = cliente.Nome;
-            linha.Cells["cpf"].Value = cliente.CPF;
-            linha.Cells["situacao"].Value = cliente._Situacao;
-
+                int index = pesquisaClienteDgv.Rows.Add();
+                DataGridViewRow linha = pesquisaClienteDgv.Rows[index];
+                linha.Cells["id"].Value = cliente.Id;
+                linha.Cells["nome"].Value = cliente.Nome;
+                linha.Cells["cpf"].Value = cliente.CPF;
+                linha.Cells["situacao"].Value = cliente._Situacao;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -95,9 +94,17 @@ namespace TelasSharpWare
 
         private void botaoEditarCliente1_Click(object sender, EventArgs e)
         {
-
-            EditarCliente editarCliente = new EditarCliente(new Cliente());
-            editarCliente.Show();
+            int row = pesquisaClienteDgv.Rows.GetRowCount(DataGridViewElementStates.Selected);
+            int id = 0;
+            string idText = "";
+            if (row == 1)
+            {
+                idText = pesquisaClienteDgv.SelectedRows[0].Cells[0].Value.ToString();
+                MessageBox.Show(idText);
+                /*EditarCliente editarCliente = new EditarCliente();
+                editarCliente.Show();*/
+            }
+            
         }
 
 
@@ -163,6 +170,5 @@ namespace TelasSharpWare
             idTbx.Enabled = false;
             cpfMbx.Enabled = true;
         }
-
     }
 }

@@ -12,6 +12,7 @@ namespace TelasSharpWare.Controller
     {
         private Cliente _cliente;
         private ClienteDao _clienteDao;
+        private TelefoneDao _telefoneDao;
         private ConnectionManager _connectionManager;
 
         public ClienteController()
@@ -49,7 +50,12 @@ namespace TelasSharpWare.Controller
         {
             using (_connectionManager.Open())
             {
-                return _clienteDao.BuscarPorId(id);
+                Cliente cliente = _clienteDao.BuscarPorId(id);
+                foreach(Telefone telefone in _telefoneDao.BuscarTelefonesCliente(id))
+                {
+                    cliente.AddTelefone(telefone);
+                }
+                return cliente;
             }
         }
 
