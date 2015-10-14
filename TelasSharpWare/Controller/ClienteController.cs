@@ -20,6 +20,7 @@ namespace TelasSharpWare.Controller
             var con = ConnectionFactory.GetConnection();
             _connectionManager = new ConnectionManager(con);
             _clienteDao = new ClienteDao(con);
+            _telefoneDao = new TelefoneDao(con);
         }
 
         public bool CadastrarCliente(Cliente cliente)
@@ -48,15 +49,18 @@ namespace TelasSharpWare.Controller
 
         public Cliente PesquisarPorId(int id)
         {
+            Cliente cliente = null;
             using (_connectionManager.Open())
             {
-                Cliente cliente = _clienteDao.BuscarPorId(id);
-                foreach(Telefone telefone in _telefoneDao.BuscarTelefonesCliente(id))
-                {
-                    cliente.AddTelefone(telefone);
-                }
-                return cliente;
+                cliente = _clienteDao.BuscarPorId(id);
             }
+            _connectionManager.Open();
+            foreach (Telefone telefone in _telefoneDao.BuscarTelefonesCliente(id))
+            {
+                cliente.AddTelefone(telefone);
+            }
+            _connectionManager.Close();
+            return cliente;
         }
 
         public List<Cliente> PesquisarPorCPF(string cpf)

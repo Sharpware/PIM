@@ -101,9 +101,8 @@ namespace TelasSharpWare
             {
                 idText = pesquisaClienteDgv.SelectedRows[0].Cells[0].Value.ToString();
                 id = Int32.Parse(idText);
-                _clienteController.PesquisarPorId(id);
-                /*EditarCliente editarCliente = new EditarCliente();
-                editarCliente.Show();*/
+                EditarCliente editarCliente = new EditarCliente(_clienteController.PesquisarPorId(id));
+                editarCliente.Show();
             }
             
         }
