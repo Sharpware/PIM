@@ -104,16 +104,25 @@ namespace TelasSharpWare.Model
             return this;
         }
 
-        public Situacao Status
+        public Situacao _Situacao
         {
             get
             {
                 return _situacao;
             }
         }
-        public Pessoa<T> SetStatus(Situacao status)
+        public Pessoa<T> SetSituacao(Situacao situacao)
         {
-            _situacao = status;
+            _situacao = situacao;
+            return this;
+        }
+
+        public Pessoa<T> SetSituacao(string situacao)
+        {
+            if (situacao == "ativo")
+                _situacao = Situacao.Ativo;
+            if (situacao == "inativo")
+                _situacao = Situacao.Inativo;
             return this;
         }
 

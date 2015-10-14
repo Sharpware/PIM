@@ -20,18 +20,20 @@ namespace TelasSharpWare.DAO
             _con = con;
         }
 
-        public MySqlConnection Open()
+        public ConnectionManager Open()
         {
             _con.Open();
-            return _con;
+            return this;
         }
 
-        public void Close()
+        public ConnectionManager Close()
         {
             if (_con != null)
             {
                 _con.Close();
             }
+
+            return this;
         }
 
         public void Dispose()

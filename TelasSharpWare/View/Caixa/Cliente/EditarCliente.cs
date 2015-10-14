@@ -7,13 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TelasSharpWare.Model;
 
 namespace TelasSharpWare
 {
     public partial class EditarCliente : Form
     {
-        public EditarCliente()
+        private Cliente _cliente;
+        public EditarCliente(Cliente cliente)
         {
+            _cliente = cliente;
             InitializeComponent();
         }
 

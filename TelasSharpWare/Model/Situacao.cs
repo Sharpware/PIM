@@ -10,5 +10,6 @@ namespace TelasSharpWare.Model
     {
         Ativo,
         Inativo
+
     }
 }

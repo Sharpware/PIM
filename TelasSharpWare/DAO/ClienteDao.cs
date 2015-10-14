@@ -56,7 +56,7 @@ namespace TelasSharpWare.DAO
                     cmd.Parameters.AddWithValue("@cpf", cliente.CPF);
                     cmd.Parameters.AddWithValue("@data_nascimento", cliente.DataNascimento);
                     cmd.Parameters.AddWithValue("@observacao", cliente.Observacao);
-                    cmd.Parameters.AddWithValue("@situacao", cliente.Status.ToString());
+                    cmd.Parameters.AddWithValue("@situacao", cliente._Situacao.ToString());
                     cmd.Parameters.AddWithValue("@email", cliente.Email);
                     cmd.Parameters.AddWithValue("@logradouro", cliente.Endereco.Logradouro);
                     cmd.Parameters.AddWithValue("@numero", cliente.Endereco.Numero);
@@ -82,7 +82,7 @@ namespace TelasSharpWare.DAO
         {
             MySqlDataReader reader = null;
             List<Cliente> clientes = new List<Cliente>();
-            string cmdText = "SELECT id, nome, cpf FROM cliente";
+            string cmdText = "SELECT id, nome, cpf, situacao FROM cliente";
             using (MySqlCommand cmd = new MySqlCommand(cmdText, _con))
             {
                 reader = cmd.ExecuteReader();
@@ -93,7 +93,8 @@ namespace TelasSharpWare.DAO
                         Cliente cliente = new Cliente();
                         cliente.SetId(reader.GetInt64("id"))
                         .SetNome(reader.GetString("nome"))
-                        .SetCPF(reader.GetString("cpf"));
+                        .SetCPF(reader.GetString("cpf"))
+                        .SetSituacao(reader.GetString("situacao"));
                         clientes.Add(cliente);
                     }
                 }

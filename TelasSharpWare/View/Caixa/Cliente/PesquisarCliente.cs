@@ -47,6 +47,7 @@ namespace TelasSharpWare
                 linha.Cells["id"].Value = cliente.Id;
                 linha.Cells["nome"].Value = cliente.Nome;
                 linha.Cells["cpf"].Value = cliente.CPF;
+                linha.Cells["situacao"].Value = cliente._Situacao;
             }
         }
 
@@ -82,7 +83,8 @@ namespace TelasSharpWare
 
         private void botaoEditarCliente1_Click(object sender, EventArgs e)
         {
-            EditarCliente editarCliente = new EditarCliente();
+
+            EditarCliente editarCliente = new EditarCliente(new Cliente());
             editarCliente.Show();
         }
 
@@ -119,7 +121,7 @@ namespace TelasSharpWare
 
             if (nomeTbx.Text == "" &&
                 idTbx.Text == "" &&
-                cpfMbx.Text == "   ,   ,   -")
+                cpfMbx.Text == "   .   .   -")
             {
                 PopularGrid(_clienteController.PesquisarTodosClientes());
             }
@@ -149,5 +151,6 @@ namespace TelasSharpWare
             idTbx.Enabled = false;
             cpfMbx.Enabled = true;
         }
+
     }
 }

@@ -12,7 +12,7 @@ namespace TelasSharpWare
 {
     public partial class CadastrarCliente : Form
     {
-        ClienteController _clienteController;
+        private readonly ClienteController _clienteController;
         public CadastrarCliente()
         {
             InitializeComponent();
@@ -50,7 +50,7 @@ namespace TelasSharpWare
             .SetCPF(cpfTbx.Text)
             .SetDataNascimento(Convert.ToDateTime(dataNascimentoTbx.Text))
             .SetObservacao(observacaoTbx.Text)
-            .SetStatus(Situacao.Ativo)
+            .SetSituacao(Situacao.Ativo)
             .SetEndereco(new Endereco()
             .SetLogradouro(logradouroTbx.Text)
             .SetNumero(numeroTbx.Text)

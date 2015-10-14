@@ -34,18 +34,13 @@ namespace TelasSharpWare.DAO
                                             @tipo_telefone,
                                             @id_cliente
                                             )";
-
-                    
                     using (MySqlCommand cmd = new MySqlCommand(cmdInsertTelefone, _con))
                     {
-                    
-                   
                             cmd.Prepare();
                             cmd.Parameters.AddWithValue("@numero", telefone.Numero);
                             cmd.Parameters.AddWithValue("@tipo_telefone", telefone.TipoTelefone.ToString());
                             cmd.Parameters.AddWithValue("@id_cliente", id);
-                            resQuery = cmd.ExecuteNonQuery()>0;
-                    
+                            resQuery = cmd.ExecuteNonQuery()>0; 
                     }
                 }
                 return resQuery;

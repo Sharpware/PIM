@@ -31,9 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PesquisarCliente));
             this.panel1 = new System.Windows.Forms.Panel();
             this.cpfMbx = new System.Windows.Forms.MaskedTextBox();
+            this.botaoAcessarPesquisaCliente1 = new TelasSharpWare.View.Botoes.BotaoAcessarPesquisaCliente();
             this.nomeTbx = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pesquisaClienteDgv = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.situacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tipoPesquisaGbx = new System.Windows.Forms.GroupBox();
@@ -46,16 +51,11 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.minimizarBtn = new System.Windows.Forms.Button();
             this.fecharBtn = new System.Windows.Forms.Button();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.adicionarClienteBtn = new TelasSharpWare.View.Botoes.BotaoAdicionarClienteVenda();
             this.sairBtn = new TelasSharpWare.Botoes.BotaoSair();
             this.inativarClienteBtn = new TelasSharpWare.Botoes.BotaoInativarCliente();
             this.editarCliente = new TelasSharpWare.Botoes.BotaoEditarCliente();
             this.cadastrarClienteBtn = new TelasSharpWare.Botoes.BotaoCadCliente();
-            this.botaoAcessarPesquisaCliente1 = new TelasSharpWare.View.Botoes.BotaoAcessarPesquisaCliente();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pesquisaClienteDgv)).BeginInit();
             this.tipoPesquisaGbx.SuspendLayout();
@@ -81,8 +81,7 @@
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(681, 473);
-            this.panel1.TabIndex = 1;
-            // 
+            this.panel1.TabIndex = 1;            // 
             // cpfMbx
             // 
             this.cpfMbx.Enabled = false;
@@ -91,6 +90,18 @@
             this.cpfMbx.Name = "cpfMbx";
             this.cpfMbx.Size = new System.Drawing.Size(291, 25);
             this.cpfMbx.TabIndex = 20;
+            // 
+            // botaoAcessarPesquisaCliente1
+            // 
+            this.botaoAcessarPesquisaCliente1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botaoAcessarPesquisaCliente1.BackgroundImage")));
+            this.botaoAcessarPesquisaCliente1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.botaoAcessarPesquisaCliente1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.botaoAcessarPesquisaCliente1.Location = new System.Drawing.Point(328, 153);
+            this.botaoAcessarPesquisaCliente1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.botaoAcessarPesquisaCliente1.Name = "botaoAcessarPesquisaCliente1";
+            this.botaoAcessarPesquisaCliente1.Size = new System.Drawing.Size(102, 28);
+            this.botaoAcessarPesquisaCliente1.TabIndex = 19;
+            this.botaoAcessarPesquisaCliente1.Click += new System.EventHandler(this.botaoAcessarPesquisaCliente1_Click);
             // 
             // nomeTbx
             // 
@@ -118,11 +129,36 @@
             this.id,
             this.Nome,
             this.CPF,
-            this.status});
+            this.situacao});
             this.pesquisaClienteDgv.Location = new System.Drawing.Point(17, 184);
             this.pesquisaClienteDgv.Name = "pesquisaClienteDgv";
             this.pesquisaClienteDgv.Size = new System.Drawing.Size(654, 262);
             this.pesquisaClienteDgv.TabIndex = 13;
+            // 
+            // id
+            // 
+            this.id.HeaderText = "Id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // Nome
+            // 
+            this.Nome.HeaderText = "Nome";
+            this.Nome.Name = "Nome";
+            this.Nome.ReadOnly = true;
+            this.Nome.Width = 250;
+            // 
+            // CPF
+            // 
+            this.CPF.HeaderText = "CPF";
+            this.CPF.Name = "CPF";
+            this.CPF.ReadOnly = true;
+            this.CPF.Width = 150;
+            // 
+            // situacao
+            // 
+            this.situacao.HeaderText = "Situacao";
+            this.situacao.Name = "situacao";
             // 
             // label3
             // 
@@ -259,31 +295,6 @@
             this.fecharBtn.UseVisualStyleBackColor = true;
             this.fecharBtn.Click += new System.EventHandler(this.button1_Click);
             // 
-            // id
-            // 
-            this.id.HeaderText = "Id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // Nome
-            // 
-            this.Nome.HeaderText = "Nome";
-            this.Nome.Name = "Nome";
-            this.Nome.ReadOnly = true;
-            this.Nome.Width = 250;
-            // 
-            // CPF
-            // 
-            this.CPF.HeaderText = "CPF";
-            this.CPF.Name = "CPF";
-            this.CPF.ReadOnly = true;
-            this.CPF.Width = 150;
-            // 
-            // status
-            // 
-            this.status.HeaderText = "Status";
-            this.status.Name = "status";
-            // 
             // adicionarClienteBtn
             // 
             this.adicionarClienteBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("adicionarClienteBtn.BackgroundImage")));
@@ -344,18 +355,6 @@
             this.cadastrarClienteBtn.TabIndex = 6;
             this.cadastrarClienteBtn.Click += new System.EventHandler(this.botaoCadCliente1_Click);
             // 
-            // botaoAcessarPesquisaCliente1
-            // 
-            this.botaoAcessarPesquisaCliente1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botaoAcessarPesquisaCliente1.BackgroundImage")));
-            this.botaoAcessarPesquisaCliente1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.botaoAcessarPesquisaCliente1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.botaoAcessarPesquisaCliente1.Location = new System.Drawing.Point(328, 153);
-            this.botaoAcessarPesquisaCliente1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.botaoAcessarPesquisaCliente1.Name = "botaoAcessarPesquisaCliente1";
-            this.botaoAcessarPesquisaCliente1.Size = new System.Drawing.Size(102, 28);
-            this.botaoAcessarPesquisaCliente1.TabIndex = 19;
-            this.botaoAcessarPesquisaCliente1.Click += new System.EventHandler(this.botaoAcessarPesquisaCliente1_Click);
-            // 
             // PesquisarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -414,6 +413,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn CPF;
-        private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn situacao;
     }
 }
