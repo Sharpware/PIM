@@ -49,10 +49,22 @@ namespace TelasSharpWare
             .SetEmail(emailTbx.Text)
             .SetCPF(cpfTbx.Text)
             .SetDataNascimento(Convert.ToDateTime(dataNascimentoTbx.Text))
-            .SetObservacao(observacaoTbx.Text);
+            .SetObservacao(observacaoTbx.Text)
+            .SetStatus(Situacao.Ativo)
+            .SetEndereco(new Endereco()
+            .SetLogradouro(logradouroTbx.Text)
+            .SetNumero(numeroTbx.Text)
+            .SetComplemento(complementoTbx.Text)
+            .SetCep(cepTbx.Text)
+            .SetBairro(bairroTbx.Text)
+            .SetUf(ufCbx.Text)
+            .SetCidade(cidadeTbx.Text));
+            cliente.AddTelefone(new Telefone(telefoneResidencialTbx.Text, TipoTelefone.Residencial));
+            cliente.AddTelefone(new Telefone(telefoneComercialTbx.Text, TipoTelefone.Trabalho));
+            cliente.AddTelefone(new Telefone(celularTbx.Text, TipoTelefone.Celular));
 
             _clienteController.CadastrarCliente(cliente);
-            MessageBox.Show("Filha da puta cadastrado");
+            MessageBox.Show("Cliente cadastrado");
         }
 
         private void botaoSair1_Click(object sender, System.EventArgs e)

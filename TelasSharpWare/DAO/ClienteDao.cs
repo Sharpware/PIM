@@ -25,7 +25,8 @@ namespace TelasSharpWare.DAO
                                             (nome, 
                                             cpf, 
                                             data_nascimento, 
-                                            observacao, 
+                                            observacao,
+                                            situacao, 
                                             email,
                                             logradouro,
                                             numero,
@@ -38,7 +39,8 @@ namespace TelasSharpWare.DAO
                                             (@nome, 
                                             @cpf, 
                                             @data_nascimento, 
-                                            @observacao, 
+                                            @observacao,
+                                            @situacao, 
                                             @email,
                                             @logradouro,
                                             @numero,
@@ -54,6 +56,7 @@ namespace TelasSharpWare.DAO
                     cmd.Parameters.AddWithValue("@cpf", cliente.CPF);
                     cmd.Parameters.AddWithValue("@data_nascimento", cliente.DataNascimento);
                     cmd.Parameters.AddWithValue("@observacao", cliente.Observacao);
+                    cmd.Parameters.AddWithValue("@situacao", cliente.Status.ToString());
                     cmd.Parameters.AddWithValue("@email", cliente.Email);
                     cmd.Parameters.AddWithValue("@logradouro", cliente.Endereco.Logradouro);
                     cmd.Parameters.AddWithValue("@numero", cliente.Endereco.Numero);
@@ -62,10 +65,10 @@ namespace TelasSharpWare.DAO
                     cmd.Parameters.AddWithValue("@bairro", cliente.Endereco.Bairro);
                     cmd.Parameters.AddWithValue("@uf", cliente.Endereco.Uf);
                     cmd.Parameters.AddWithValue("@cidade", cliente.Endereco.Cidade);
+                    bool resQueryEndereco = cmd.ExecuteNonQuery() > 0;
                     long lastId = cmd.LastInsertedId;
                     TelefoneDao telefoneDao = new TelefoneDao(_con);
                     telefoneDao.SalvarTelCliente(cliente, lastId);
-                    bool resQueryEndereco = cmd.ExecuteNonQuery() > 0;
                     return resQueryEndereco;
                 }
             }

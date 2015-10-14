@@ -20,7 +20,10 @@ namespace TelasSharpWare.DAO
         {
             try
             {
-                string cmdInsertTelefone = @"INSERT INTO telefone_cliente
+                bool resQuery = false;
+                foreach (Telefone telefone in cliente.Telefones)
+                {
+                    string cmdInsertTelefone = @"INSERT INTO telefone_cliente
                                             (
                                             numero, 
                                             tipo_telefone,
@@ -32,17 +35,17 @@ namespace TelasSharpWare.DAO
                                             @id_cliente
                                             )";
 
-                bool resQuery = false;
-                using (MySqlCommand cmd = new MySqlCommand(cmdInsertTelefone, _con))
-                {
                     
-                    foreach (Telefone telefone in cliente.Telefones)
+                    using (MySqlCommand cmd = new MySqlCommand(cmdInsertTelefone, _con))
                     {
-                        cmd.Prepare();
-                        cmd.Parameters.AddWithValue("@numero", telefone.Numero);
-                        cmd.Parameters.AddWithValue("@tipo_telefone", telefone.TipoTelefone.ToString());
-                        cmd.Parameters.AddWithValue("@id_cliente", id);
-                        resQuery = cmd.ExecuteNonQuery()>0;
+                    
+                   
+                            cmd.Prepare();
+                            cmd.Parameters.AddWithValue("@numero", telefone.Numero);
+                            cmd.Parameters.AddWithValue("@tipo_telefone", telefone.TipoTelefone.ToString());
+                            cmd.Parameters.AddWithValue("@id_cliente", id);
+                            resQuery = cmd.ExecuteNonQuery()>0;
+                    
                     }
                 }
                 return resQuery;
