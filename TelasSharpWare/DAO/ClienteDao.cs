@@ -132,7 +132,19 @@ namespace TelasSharpWare.DAO
         {
             MySqlDataReader reader = null;
             Cliente cliente = null;
-            string cmdText = "SELECT id, nome, cpf FROM cliente WHERE id=@id";
+            string cmdText = @"SELECT id, nome, 
+                                            cpf, 
+                                            data_nascimento, 
+                                            observacao,
+                                            situacao, 
+                                            email,
+                                            logradouro,
+                                            numero,
+                                            complemento,
+                                            cep,
+                                            bairro,
+                                            uf,
+                                            cidade FROM cliente WHERE id=@id";
             using (MySqlCommand cmd = new MySqlCommand(cmdText, _con))
             {
                 cmd.Prepare();
@@ -143,8 +155,19 @@ namespace TelasSharpWare.DAO
                 {
                     cliente.SetId(reader.GetInt64("id"))
                     .SetNome(reader.GetString("nome"))
+                    .SetEmail(reader.GetString("email"))
                     .SetCPF(reader.GetString("cpf"))
-                    .SetSituacao(reader.GetString("situacao"));
+                    .SetDataNascimento(reader.GetDateTime("data_nascimento"))
+                    .SetObservacao(reader.GetString("observacao"))
+                    .SetSituacao(reader.GetString("situacao"))
+                    .SetEndereco(new Endereco()
+                    .SetLogradouro(reader.GetString("logradouro"))
+                    .SetNumero(reader.GetString("numero"))
+                    .SetComplemento(reader.GetString("complemento"))
+                    .SetCep(reader.GetString("cep"))
+                    .SetBairro(reader.GetString("bairro"))
+                    .SetUf(reader.GetString("uf"))
+                    .SetCidade(reader.GetString("cidade")));
                 }
                 return cliente;
             }
