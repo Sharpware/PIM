@@ -68,7 +68,7 @@ namespace TelasSharpWare.DAO
                     bool resQueryEndereco = cmd.ExecuteNonQuery() > 0;
                     long lastId = cmd.LastInsertedId;
                     TelefoneDao telefoneDao = new TelefoneDao(_con);
-                    telefoneDao.SalvarTelCliente(cliente, lastId);
+                    telefoneDao.SalvarTelefoneCliente(cliente, lastId);
                     return resQueryEndereco;
                 }
             }
@@ -128,29 +128,48 @@ namespace TelasSharpWare.DAO
             }
         }
 
-        public List<Cliente> BuscarPorId(int id)
+        public Cliente BuscarPorId(int id)
         {
             MySqlDataReader reader = null;
-            List<Cliente> clientes = null;
-            string cmdText = "SELECT id, nome, cpf FROM cliente WHERE id=@id";
+            Cliente cliente = null;
+            string cmdText = @"SELECT id, nome, 
+                                            cpf, 
+                                            data_nascimento, 
+                                            observacao,
+                                            situacao, 
+                                            email,
+                                            logradouro,
+                                            numero,
+                                            complemento,
+                                            cep,
+                                            bairro,
+                                            uf,
+                                            cidade FROM cliente WHERE id=@id";
             using (MySqlCommand cmd = new MySqlCommand(cmdText, _con))
             {
                 cmd.Prepare();
                 cmd.Parameters.AddWithValue("@id", id);
                 reader = cmd.ExecuteReader();
-                clientes = new List<Cliente>();
-                if (reader.HasRows)
+                cliente = new Cliente();
+                while (reader.Read())
                 {
-                    while (reader.Read())
-                    {
-                        Cliente cliente = new Cliente();
-                        cliente.SetId(reader.GetInt64("id"))
-                        .SetNome(reader.GetString("nome"))
-                        .SetCPF(reader.GetString("cpf"));
-                        clientes.Add(cliente);
-                    }
+                    cliente.SetId(reader.GetInt64("id"))
+                    .SetNome(reader.GetString("nome"))
+                    .SetEmail(reader.GetString("email"))
+                    .SetCPF(reader.GetString("cpf"))
+                    .SetDataNascimento(reader.GetDateTime("data_nascimento"))
+                    .SetObservacao(reader.GetString("observacao"))
+                    .SetSituacao(reader.GetString("situacao"))
+                    .SetEndereco(new Endereco()
+                    .SetLogradouro(reader.GetString("logradouro"))
+                    .SetNumero(reader.GetString("numero"))
+                    .SetComplemento(reader.GetString("complemento"))
+                    .SetCep(reader.GetString("cep"))
+                    .SetBairro(reader.GetString("bairro"))
+                    .SetUf(reader.GetString("uf"))
+                    .SetCidade(reader.GetString("cidade")));
                 }
-                return clientes;
+                return cliente;
             }
         }
 

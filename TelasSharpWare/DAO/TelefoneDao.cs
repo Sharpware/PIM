@@ -16,7 +16,7 @@ namespace TelasSharpWare.DAO
             _con = con;
         }
 
-        public bool SalvarTelCliente(Cliente cliente, long id)
+        public bool SalvarTelefoneCliente(Cliente cliente, long id)
         {
             try
             {
@@ -48,6 +48,34 @@ namespace TelasSharpWare.DAO
             catch(Exception erro)
             {
                 throw new Exception("Ocorreu o seguinte erro: " + erro.ToString());
+            }
+        }
+
+        public List<Telefone> BuscarTelefonesCliente(long id)
+        {
+            try
+            {
+                MySqlDataReader reader = null;
+                string cmdBuscaTelefone = @"select numero, tipo_telefone from telefone_cliente
+                                            where id_cliente=@id";
+                using (MySqlCommand cmd = new MySqlCommand(cmdBuscaTelefone, _con)) 
+                {
+                    cmd.Prepare();
+                    cmd.Parameters.AddWithValue("@id", id);
+                    reader = cmd.ExecuteReader();
+                    List<Telefone> telefones = new List<Telefone>();
+                    while(reader.Read())
+                    {
+                        Telefone telefone = new Telefone(reader.GetString("numero"), 
+                        reader.GetString("tipo_telefone"));
+                        telefones.Add(telefone);
+                    }
+                    return telefones;
+                }
+            }
+            catch(Exception erro)
+            {
+                throw new Exception(erro.ToString());
             }
         }
     }

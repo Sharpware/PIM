@@ -45,7 +45,7 @@ namespace TelasSharpWare.Controller
             }
         }
 
-        public List<Cliente> PesquisarPorId(int id)
+        public Cliente PesquisarPorId(int id)
         {
             using (_connectionManager.Open())
             {

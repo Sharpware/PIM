@@ -51,6 +51,18 @@ namespace TelasSharpWare
             }
         }
 
+        private void PopularGrid(Cliente insertCliente)
+        {
+            Cliente cliente = insertCliente;
+            int index = pesquisaClienteDgv.Rows.Add();
+            DataGridViewRow linha = pesquisaClienteDgv.Rows[index];
+            linha.Cells["id"].Value = cliente.Id;
+            linha.Cells["nome"].Value = cliente.Nome;
+            linha.Cells["cpf"].Value = cliente.CPF;
+            linha.Cells["situacao"].Value = cliente._Situacao;
+
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();

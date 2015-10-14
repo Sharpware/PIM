@@ -18,6 +18,17 @@ namespace TelasSharpWare.Model
             _tipoTelefone = tipoTelefone;
         }
 
+        public Telefone(string numero, string tipoTelefone)
+        {
+            _numero = numero;
+            if (tipoTelefone == "Residencial")
+                _tipoTelefone = TipoTelefone.Residencial;
+            if (tipoTelefone == "Trabalho")
+                _tipoTelefone = TipoTelefone.Trabalho;
+            if (tipoTelefone == "Celular")
+                _tipoTelefone = TipoTelefone.Celular;
+        }
+
         public string Numero
         {
             get
