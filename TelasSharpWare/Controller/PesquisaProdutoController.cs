@@ -12,10 +12,13 @@ namespace TelasSharpWare.Controller
     {
         Produto _produto;
         ProdutoDao _produtoDao;
+        ConnectionManager _connectionManager;
 
         public PesquisaProdutoController()
         {
-            _produtoDao = new ProdutoDao();
+            var con = ConnectionFactory.GetConnection();
+            _produtoDao = new ProdutoDao(con);
+            _connectionManager = new ConnectionManager(con);
         }
 
         public List<Produto> PesquisarTodos()

@@ -10,155 +10,176 @@ namespace TelasSharpWare.DAO
 {
     public class ClienteDao
     {
-        private ModelDao modelDao;
+        MySqlConnection _con = null;
 
-        public ClienteDao()
+        public ClienteDao(MySqlConnection con)
         {
-            modelDao = new ModelDao();
+            _con = con;
         }
 
-        public void Add(Cliente cliente)
+        public bool SalvarCliente(Cliente cliente)
         {
-            MySqlConnection con = modelDao.IniciarConexao();
-
             try
             {
-                string cmdText = "INSERT INTO cliente (nome, cpf, dataNascimento, observacao, email) VALUES(@nome, @cpf, @dataNascimento, @observacao, @email)";
-                MySqlCommand cmd = new MySqlCommand(cmdText, con);
-
-                cmd.Prepare();
-                cmd.Parameters.AddWithValue("@nome", cliente.Nome);
-                cmd.Parameters.AddWithValue("@cpf", cliente.CPF);
-                cmd.Parameters.AddWithValue("@dataNascimento", cliente.DataNascimento);
-                cmd.Parameters.AddWithValue("@observacao", cliente.Observacao);
-                cmd.Parameters.AddWithValue("@email", cliente.Email);
-
-                cmd.ExecuteNonQuery();
+                string cmdInsertCliente = @"INSERT INTO cliente
+                                            (nome, 
+                                            cpf, 
+                                            data_nascimento, 
+                                            observacao, 
+                                            email,
+                                            logradouro,
+                                            numero,
+                                            complemento,
+                                            cep,
+                                            bairro,
+                                            uf,
+                                            cidade)
+                                            VALUES
+                                            (@nome, 
+                                            @cpf, 
+                                            @data_nascimento, 
+                                            @observacao, 
+                                            @email,
+                                            @logradouro,
+                                            @numero,
+                                            @complemento,
+                                            @cep,
+                                            @bairro,
+                                            @uf,
+                                            @cidade)";
+                using (var cmd = new MySqlCommand(cmdInsertCliente, _con))
+                {
+                    cmd.Prepare();
+                    cmd.Parameters.AddWithValue("@nome", cliente.Nome);
+                    cmd.Parameters.AddWithValue("@cpf", cliente.CPF);
+                    cmd.Parameters.AddWithValue("@data_nascimento", cliente.DataNascimento);
+                    cmd.Parameters.AddWithValue("@observacao", cliente.Observacao);
+                    cmd.Parameters.AddWithValue("@email", cliente.Email);
+                    cmd.Parameters.AddWithValue("@logradouro", cliente.Endereco.Logradouro);
+                    cmd.Parameters.AddWithValue("@numero", cliente.Endereco.Numero);
+                    cmd.Parameters.AddWithValue("@complemento", cliente.Endereco.Complemento);
+                    cmd.Parameters.AddWithValue("@cep", cliente.Endereco.Cep);
+                    cmd.Parameters.AddWithValue("@bairro", cliente.Endereco.Bairro);
+                    cmd.Parameters.AddWithValue("@uf", cliente.Endereco.Uf);
+                    cmd.Parameters.AddWithValue("@cidade", cliente.Endereco.Cidade);
+                    long lastId = cmd.LastInsertedId;
+                    TelefoneDao telefoneDao = new TelefoneDao(_con);
+                    telefoneDao.SalvarTelCliente(cliente, lastId);
+                    bool resQueryEndereco = cmd.ExecuteNonQuery() > 0;
+                    return resQueryEndereco;
+                }
             }
             catch(Exception erro)
             {
                 throw new Exception("ocorreu o seguinte erro: " + erro.ToString());
             }
-            finally
-            {
-                if (con != null)
-                {
-                    modelDao.FinalizarConexao();
-                }
-            }
         }
 
         public List<Cliente> BuscarTodos()
         {
-            MySqlConnection con = null;
             MySqlDataReader reader = null;
             List<Cliente> clientes = new List<Cliente>();
-
-            con = modelDao.IniciarConexao();
             string cmdText = "SELECT id, nome, cpf FROM cliente";
-            MySqlCommand cmd = new MySqlCommand(cmdText, con);
-            reader = cmd.ExecuteReader();
-            if (reader.HasRows)
+            using (MySqlCommand cmd = new MySqlCommand(cmdText, _con))
             {
-                while (reader.Read())
+                reader = cmd.ExecuteReader();
+                if (reader.HasRows)
                 {
-                    Cliente cliente = new Cliente();
-                    cliente.SetId(reader.GetInt64("id"))
-                    .SetNome(reader.GetString("nome"))
-                    .SetCPF(reader.GetString("cpf"));
-                    clientes.Add(cliente);
-                 }
+                    while (reader.Read())
+                    {
+                        Cliente cliente = new Cliente();
+                        cliente.SetId(reader.GetInt64("id"))
+                        .SetNome(reader.GetString("nome"))
+                        .SetCPF(reader.GetString("cpf"));
+                        clientes.Add(cliente);
+                    }
+                }
+                return clientes;
             }
-            modelDao.FinalizarConexao();
-            return clientes;
         }
 
         public List<Cliente> BuscarPorNome(string nome)
         {
-            MySqlConnection con = null;
             MySqlDataReader reader = null;
             List<Cliente> clientes = null;
-            con = modelDao.IniciarConexao();
             string cmdText = "SELECT id, nome, cpf FROM cliente WHERE nome=@nome";
-            MySqlCommand cmd = new MySqlCommand(cmdText, con);
-            cmd.Prepare();
-            cmd.Parameters.AddWithValue("@nome", nome);
-            reader = cmd.ExecuteReader();
-            clientes = new List<Cliente>();
-            if (reader.HasRows)
+            using (MySqlCommand cmd = new MySqlCommand(cmdText, _con))
             {
-                while (reader.Read())
+                cmd.Prepare();
+                cmd.Parameters.AddWithValue("@nome", nome);
+                reader = cmd.ExecuteReader();
+                clientes = new List<Cliente>();
+                if (reader.HasRows)
                 {
-                    Cliente cliente = new Cliente();
-                    cliente.SetId(reader.GetInt64("id"))
-                    .SetNome(reader.GetString("nome"))
-                    .SetCPF(reader.GetString("cpf"));
-                    clientes.Add(cliente);
+                    while (reader.Read())
+                    {
+                        Cliente cliente = new Cliente();
+                        cliente.SetId(reader.GetInt64("id"))
+                        .SetNome(reader.GetString("nome"))
+                        .SetCPF(reader.GetString("cpf"));
+                        clientes.Add(cliente);
+                    }
                 }
+                return clientes;
             }
-            modelDao.FinalizarConexao();
-            return clientes;
         }
 
         public List<Cliente> BuscarPorId(int id)
         {
-            MySqlConnection con = null;
             MySqlDataReader reader = null;
             List<Cliente> clientes = null;
-            con = modelDao.IniciarConexao();
             string cmdText = "SELECT id, nome, cpf FROM cliente WHERE id=@id";
-            MySqlCommand cmd = new MySqlCommand(cmdText, con);
-            cmd.Prepare();
-            cmd.Parameters.AddWithValue("@id", id);
-            reader = cmd.ExecuteReader();
-            clientes = new List<Cliente>();
-            if (reader.HasRows)
+            using (MySqlCommand cmd = new MySqlCommand(cmdText, _con))
             {
-                while (reader.Read())
+                cmd.Prepare();
+                cmd.Parameters.AddWithValue("@id", id);
+                reader = cmd.ExecuteReader();
+                clientes = new List<Cliente>();
+                if (reader.HasRows)
                 {
-                    Cliente cliente = new Cliente();
-                    cliente.SetId(reader.GetInt64("id"))
-                    .SetNome(reader.GetString("nome"))
-                    .SetCPF(reader.GetString("cpf"));
-                    clientes.Add(cliente);
+                    while (reader.Read())
+                    {
+                        Cliente cliente = new Cliente();
+                        cliente.SetId(reader.GetInt64("id"))
+                        .SetNome(reader.GetString("nome"))
+                        .SetCPF(reader.GetString("cpf"));
+                        clientes.Add(cliente);
+                    }
                 }
+                return clientes;
             }
-            modelDao.FinalizarConexao();
-            return clientes;
         }
 
         public List<Cliente> BuscarPorCPF(string cpf)
         {
-            MySqlConnection con = null;
             MySqlDataReader reader = null;
             List<Cliente> clientes = null;
-            con = modelDao.IniciarConexao();
             string cmdText = "SELECT id, nome, cpf FROM cliente WHERE cpf=@cpf";
-            MySqlCommand cmd = new MySqlCommand(cmdText, con);
-            cmd.Prepare();
-            cmd.Parameters.AddWithValue("@cpf", cpf);
-            reader = cmd.ExecuteReader();
-            clientes = new List<Cliente>();
-            if (reader.HasRows)
+            using (MySqlCommand cmd = new MySqlCommand(cmdText, _con))
             {
-                while (reader.Read())
+                cmd.Prepare();
+                cmd.Parameters.AddWithValue("@cpf", cpf);
+                reader = cmd.ExecuteReader();
+                clientes = new List<Cliente>();
+                if (reader.HasRows)
                 {
-                    Cliente cliente = new Cliente();
-                    cliente.SetId(reader.GetInt64("id"))
-                    .SetNome(reader.GetString("nome"))
-                    .SetCPF(reader.GetString("cpf"));
-                    clientes.Add(cliente);
+                    while (reader.Read())
+                    {
+                        Cliente cliente = new Cliente();
+                        cliente.SetId(reader.GetInt64("id"))
+                        .SetNome(reader.GetString("nome"))
+                        .SetCPF(reader.GetString("cpf"));
+                        clientes.Add(cliente);
+                    }
                 }
+                return clientes;
             }
-            modelDao.FinalizarConexao();
-            return clientes;
         }
 
-        public void Inativacao(Cliente cliente)
+        /*public void Inativacao(Cliente cliente)
         {
-            MySqlConnection con = modelDao.IniciarConexao();
             MySqlDataReader reader = null;
             string cmdText = @"ALTER TABLE cliente MODIFY COLUNM";
-        }
+        }*/
     }
 }

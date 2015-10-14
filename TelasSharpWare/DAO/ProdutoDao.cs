@@ -10,11 +10,11 @@ namespace TelasSharpWare.DAO
 {
     public class ProdutoDao
     {
-        private ModelDao _modelDao;
 
-        public ProdutoDao()
+        MySqlConnection _con;
+        public ProdutoDao(MySqlConnection con)
         {
-            _modelDao = new ModelDao();
+            _con = con;
         }
 
         public List<Produto> BuscarTodosProdutos()
@@ -23,9 +23,8 @@ namespace TelasSharpWare.DAO
             MySqlDataReader reader = null;
             List<Produto> produtos = new List<Produto>();
 
-            con = _modelDao.IniciarConexao();
             string cmdText = "SELECT id, nome, marca, observacao, tamanho, venda, quantidade FROM produto";
-            MySqlCommand cmd = new MySqlCommand(cmdText, con);
+            MySqlCommand cmd = new MySqlCommand(cmdText, _con);
             reader = cmd.ExecuteReader();
             if(reader.HasRows)
                 while (reader.Read())
@@ -40,7 +39,6 @@ namespace TelasSharpWare.DAO
                     produto.Quantidade = reader.GetInt32("quantidade");
                     produtos.Add(produto);
                 }
-            _modelDao.FinalizarConexao();
             return produtos;   
         }
 
@@ -49,9 +47,8 @@ namespace TelasSharpWare.DAO
             MySqlConnection con = null;
             MySqlDataReader reader = null;
             List<Produto> produtos = null;
-            con = _modelDao.IniciarConexao();
             string cmdText = "SELECT id, nome, marca, observacao, tamanho, venda, quantidade FROM produto WHERE id=@id";
-            MySqlCommand cmd = new MySqlCommand(cmdText, con);
+            MySqlCommand cmd = new MySqlCommand(cmdText, _con);
             cmd.Prepare();
             cmd.Parameters.AddWithValue("@id", id);
             produtos = new List<Produto>();
@@ -71,7 +68,6 @@ namespace TelasSharpWare.DAO
                     produtos.Add(produto);
                 }
             }
-            _modelDao.FinalizarConexao();
             return produtos;
         }
 
@@ -80,9 +76,8 @@ namespace TelasSharpWare.DAO
             MySqlConnection con = null;
             MySqlDataReader reader = null;
             List<Produto> produtos = null;
-            con = _modelDao.IniciarConexao();
             string cmdText = "SELECT id, nome, marca, observacao, tamanho, venda, quantidade FROM produto WHERE nome=@nome";
-            MySqlCommand cmd = new MySqlCommand(cmdText, con);
+            MySqlCommand cmd = new MySqlCommand(cmdText, _con);
             cmd.Prepare();
             cmd.Parameters.AddWithValue("@nome", nome);
             produtos = new List<Produto>();
@@ -102,7 +97,6 @@ namespace TelasSharpWare.DAO
                     produtos.Add(produto);
                 }
             }
-            _modelDao.FinalizarConexao();
             return produtos;
         }
 
@@ -111,9 +105,8 @@ namespace TelasSharpWare.DAO
             MySqlConnection con = null;
             MySqlDataReader reader = null;
             List<Produto> produtos = null;
-            con = _modelDao.IniciarConexao();
             string cmdText = "SELECT id, nome, marca, observacao, tamanho, venda, quantidade FROM produto WHERE marca=@marca";
-            MySqlCommand cmd = new MySqlCommand(cmdText, con);
+            MySqlCommand cmd = new MySqlCommand(cmdText, _con);
             cmd.Prepare();
             cmd.Parameters.AddWithValue("@marca", marca);
             produtos = new List<Produto>();
@@ -133,7 +126,6 @@ namespace TelasSharpWare.DAO
                     produtos.Add(produto);
                 }
             }
-            _modelDao.FinalizarConexao();
             return produtos;
         }
     }

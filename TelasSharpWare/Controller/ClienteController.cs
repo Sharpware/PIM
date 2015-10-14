@@ -12,35 +12,53 @@ namespace TelasSharpWare.Controller
     {
         private Cliente _cliente;
         private ClienteDao _clienteDao;
+        private ConnectionManager _connectionManager;
 
         public ClienteController()
         {
-            _clienteDao = new ClienteDao();
+            var con = ConnectionFactory.GetConnection();
+            _connectionManager = new ConnectionManager(con);
+            _clienteDao = new ClienteDao(con);
         }
 
-        public void CadastrarCliente(Cliente cliente)
+        public bool CadastrarCliente(Cliente cliente)
         {
-            _clienteDao.Add(cliente);
+            using (_connectionManager.Open())
+            {
+                return _clienteDao.SalvarCliente(cliente);
+            }
         }
 
         public List<Cliente> PesquisarTodosClientes()
         {
-            return _clienteDao.BuscarTodos();
+            using (_connectionManager.Open())
+            {
+                return _clienteDao.BuscarTodos();
+            }
         }
 
         public List<Cliente> PesquisarPorNome(string nome)
         {
-            return _clienteDao.BuscarPorNome(nome);
+            using (_connectionManager.Open())
+            {
+                return _clienteDao.BuscarPorNome(nome);
+            }
         }
 
         public List<Cliente> PesquisarPorId(int id)
         {
-            return _clienteDao.BuscarPorId(id);
+            using (_connectionManager.Open())
+            {
+                return _clienteDao.BuscarPorId(id);
+            }
         }
 
         public List<Cliente> PesquisarPorCPF(string cpf)
         {
-            return _clienteDao.BuscarPorCPF(cpf);
+            using (_connectionManager.Open())
+            {
+                return _clienteDao.BuscarPorCPF(cpf);
+            }
         }
     }
 }

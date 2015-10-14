@@ -9,7 +9,7 @@ namespace TelasSharpWare.Model
     public class Endereco
     {
         private long _id;
-        private String _rua;
+        private String _logradouro;
         private String _numero;
         private String _complemento;
         private String _cep;
@@ -34,16 +34,16 @@ namespace TelasSharpWare.Model
             return this;
         }
 
-        public string Rua
+        public string Logradouro
         {
             get
             {
-                return _rua;
+                return _logradouro;
             }
         }
-        public Endereco SetRua(string rua)
+        public Endereco SetLogradouro(string logradouro)
         {
-            _rua = rua;
+            _logradouro = logradouro;
             return this;
         }
 
