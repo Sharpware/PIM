@@ -95,6 +95,71 @@ namespace TelasSharpWare
             }
         }
 
+        private void codigoRb_CheckedChanged(object sender, EventArgs e)
+        {
+            idProdutoTbx.Enabled = true;
+            idProdutoTbx.Focus();
+            tipoProdutoCbx.Enabled = false;
+            tipoProdutoCbx.Text = "";
+            marcaProdutoTbx.Enabled = false;
+            marcaProdutoTbx.Text = "";
+            nomeProdutoTbx.Enabled = false;
+            nomeProdutoTbx.Text = "";
+        }
 
+        private void tipoRb_CheckedChanged(object sender, EventArgs e)
+        {
+            idProdutoTbx.Enabled = false;
+            idProdutoTbx.Text = "";
+            tipoProdutoCbx.Enabled = true;
+            tipoProdutoCbx.Focus();
+            marcaProdutoTbx.Enabled = false;
+            marcaProdutoTbx.Text = "";
+            nomeProdutoTbx.Enabled = false;
+            nomeProdutoTbx.Text = "";
+        }
+
+        private void marcaRb_CheckedChanged(object sender, EventArgs e)
+        {
+            idProdutoTbx.Enabled = false;
+            idProdutoTbx.Text = "";
+            tipoProdutoCbx.Enabled = false;
+            tipoProdutoCbx.Text = "";
+            marcaProdutoTbx.Enabled = true;
+            marcaProdutoTbx.Focus();
+            nomeProdutoTbx.Enabled = false;
+            nomeProdutoTbx.Text = "";
+        }
+
+        private void nomeProdutoRb_CheckedChanged(object sender, EventArgs e)
+        {
+            idProdutoTbx.Enabled = false;
+            idProdutoTbx.Text = "";
+            tipoProdutoCbx.Enabled = false;
+            tipoProdutoCbx.Text = "";
+            marcaProdutoTbx.Enabled = false;
+            marcaProdutoTbx.Text = "";
+            nomeProdutoTbx.Enabled = true;
+            nomeProdutoTbx.Focus();
+        }
+
+        private void finalizarPesquisaProdutoBtn_Click(object sender, EventArgs e)
+        {
+            pesquisaProdutosDgv.Rows.Clear();
+            idProdutoTbx.Text = "";
+            tipoProdutoCbx.Text = "";
+            marcaProdutoTbx.Text = "";
+            nomeProdutoTbx.Text = "";
+        }
+
+        private void PesquisarProduto_Load(object sender, EventArgs e)
+        {
+            idProdutoTbx.Enabled = true;
+            idProdutoTbx.Focus();
+            codigoRb.Checked = true;
+            tipoProdutoCbx.Enabled = false;
+            marcaProdutoTbx.Enabled = false;
+            nomeProdutoTbx.Enabled = false;
+        }
     }
 }

@@ -75,8 +75,7 @@ namespace TelasSharpWare
         private void botaoCadCliente1_Click(object sender, EventArgs e)
         {
             CadastrarCliente cadastroCliente = new CadastrarCliente();
-            cadastroCliente.Show();
-            this.Close();
+            cadastroCliente.ShowDialog();
         }
 
         private void botaoSair1_Click(object sender, EventArgs e)

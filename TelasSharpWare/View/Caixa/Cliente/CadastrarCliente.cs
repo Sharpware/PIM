@@ -38,33 +38,70 @@ namespace TelasSharpWare
         {
             if (MessageBox.Show("Deseja cancelar o cadastro?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                
+                this.Close();
             }
         }
 
         private void botaoCadCliente1_Click(object sender, System.EventArgs e)
         {
-            Cliente cliente = new Cliente();
-            cliente.SetNome(nomeTbx.Text)
-            .SetEmail(emailTbx.Text)
-            .SetCPF(cpfTbx.Text)
-            .SetDataNascimento(Convert.ToDateTime(dataNascimentoTbx.Text))
-            .SetObservacao(observacaoTbx.Text)
-            .SetSituacao(Situacao.Ativo)
-            .SetEndereco(new Endereco()
-            .SetLogradouro(logradouroTbx.Text)
-            .SetNumero(numeroTbx.Text)
-            .SetComplemento(complementoTbx.Text)
-            .SetCep(cepTbx.Text)
-            .SetBairro(bairroTbx.Text)
-            .SetUf(ufCbx.Text)
-            .SetCidade(cidadeTbx.Text));
-            cliente.AddTelefone(new Telefone(telefoneResidencialTbx.Text, TipoTelefone.Residencial));
-            cliente.AddTelefone(new Telefone(telefoneComercialTbx.Text, TipoTelefone.Trabalho));
-            cliente.AddTelefone(new Telefone(celularTbx.Text, TipoTelefone.Celular));
+            nomeTbx.BackColor = Color.White;
+            cpfTbx.BackColor = Color.White;
+            if (nomeTbx.Text == "" ||
+                cpfTbx.Text == "   .   .   -")
+            {
+                string nome = "";
+                string cpf = "";
+                if (nomeTbx.Text == "")
+                {
+                    nomeTbx.BackColor = Color.MistyRose;
+                    nome = "nome,";
+                }
+                if (cpfTbx.Text == "   .   .   -")
+                {
+                    cpfTbx.BackColor = Color.MistyRose;
+                    cpf = "cpf";
+                }
+                MessageBox.Show("Os seguintes campos não foram preenchidos: " + nome + cpf);
+            }
+            else
+            {
+                Cliente cliente = new Cliente();
+                cliente.SetNome(nomeTbx.Text)
+                .SetEmail(emailTbx.Text)
+                .SetCPF(cpfTbx.Text)
+                .SetDataNascimento(Convert.ToDateTime(dataNascimentoTbx.Text))
+                .SetObservacao(observacaoTbx.Text)
+                .SetSituacao(Situacao.Ativo)
+                .SetEndereco(new Endereco()
+                .SetLogradouro(logradouroTbx.Text)
+                .SetNumero(numeroTbx.Text)
+                .SetComplemento(complementoTbx.Text)
+                .SetCep(cepTbx.Text)
+                .SetBairro(bairroTbx.Text)
+                .SetUf(ufCbx.Text)
+                .SetCidade(cidadeTbx.Text));
+                cliente.AddTelefone(new Telefone(telefoneResidencialTbx.Text, TipoTelefone.Residencial));
+                cliente.AddTelefone(new Telefone(telefoneComercialTbx.Text, TipoTelefone.Trabalho));
+                cliente.AddTelefone(new Telefone(celularTbx.Text, TipoTelefone.Celular));
 
-            _clienteController.CadastrarCliente(cliente);
-            MessageBox.Show("Cliente cadastrado");
+                _clienteController.CadastrarCliente(cliente);
+                MessageBox.Show("Cliente cadastrado");
+
+                nomeTbx.Text = "";
+                emailTbx.Text = "";
+                cpfTbx.Text = "   .   .   -";
+                telefoneResidencialTbx.Text = "";
+                telefoneComercialTbx.Text = "";
+                celularTbx.Text = "";
+                logradouroTbx.Text = "";
+                numeroTbx.Text = "";
+                complementoTbx.Text = "";
+                bairroTbx.Text = "";
+                cidadeTbx.Text = "";
+                cepTbx.Text = "";
+                ufCbx.Text = "";
+                observacaoTbx.Text = "";
+            }
         }
 
         private void botaoSair1_Click(object sender, System.EventArgs e)

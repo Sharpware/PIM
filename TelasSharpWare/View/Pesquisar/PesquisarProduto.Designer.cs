@@ -114,6 +114,7 @@
             this.nomeProdutoRb.TabStop = true;
             this.nomeProdutoRb.Text = "Nome do produto";
             this.nomeProdutoRb.UseVisualStyleBackColor = true;
+            this.nomeProdutoRb.CheckedChanged += new System.EventHandler(this.nomeProdutoRb_CheckedChanged);
             // 
             // marcaRb
             // 
@@ -125,6 +126,7 @@
             this.marcaRb.TabStop = true;
             this.marcaRb.Text = "Marca";
             this.marcaRb.UseVisualStyleBackColor = true;
+            this.marcaRb.CheckedChanged += new System.EventHandler(this.marcaRb_CheckedChanged);
             // 
             // tipoRb
             // 
@@ -136,6 +138,7 @@
             this.tipoRb.TabStop = true;
             this.tipoRb.Text = "Tipo";
             this.tipoRb.UseVisualStyleBackColor = true;
+            this.tipoRb.CheckedChanged += new System.EventHandler(this.tipoRb_CheckedChanged);
             // 
             // codigoRb
             // 
@@ -147,6 +150,7 @@
             this.codigoRb.TabStop = true;
             this.codigoRb.Text = "Codigo";
             this.codigoRb.UseVisualStyleBackColor = true;
+            this.codigoRb.CheckedChanged += new System.EventHandler(this.codigoRb_CheckedChanged);
             // 
             // label6
             // 
@@ -360,6 +364,7 @@
             this.finalizarPesquisaProdutoBtn.Name = "finalizarPesquisaProdutoBtn";
             this.finalizarPesquisaProdutoBtn.Size = new System.Drawing.Size(220, 60);
             this.finalizarPesquisaProdutoBtn.TabIndex = 5;
+            this.finalizarPesquisaProdutoBtn.Click += new System.EventHandler(this.finalizarPesquisaProdutoBtn_Click);
             // 
             // PesquisarProduto
             // 
@@ -380,6 +385,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PesquisarProduto";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.PesquisarProduto_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.tipoPesquisaGbx.ResumeLayout(false);

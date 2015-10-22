@@ -10,7 +10,6 @@ namespace TelasSharpWare.Controller
 {
     class PesquisaProdutoController
     {
-        Produto _produto;
         ProdutoDao _produtoDao;
         ConnectionManager _connectionManager;
 
@@ -23,12 +22,18 @@ namespace TelasSharpWare.Controller
 
         public List<Produto> PesquisarTodos()
         {
-            return _produtoDao.BuscarTodosProdutos();
+            using (_connectionManager.Open())
+            {
+                return _produtoDao.BuscarTodosProdutos();
+            }
         }
 
         public List<Produto> PesquisarPorId(int id)
         {
-            return _produtoDao.BuscarPorId(id);
+            using (_connectionManager.Open())
+            {
+                return _produtoDao.BuscarPorId(id);
+            }
         }
 
         /*public List<Produto> PesquisarPorTipo(string tipo)
@@ -38,12 +43,18 @@ namespace TelasSharpWare.Controller
 
         public List<Produto> PesquisarPorNome(string nome)
         {
-            return _produtoDao.BuscarPorNome(nome);
+            using (_connectionManager.Open())
+            {
+                return _produtoDao.BuscarPorNome(nome);
+            }
         }
 
         public List<Produto> PesquisarPorMarca(string marca)
         {
-            return _produtoDao.BuscarPorMarca(marca);
+            using (_connectionManager.Open())
+            {
+                return _produtoDao.BuscarPorMarca(marca);
+            }
         }
     }
 }

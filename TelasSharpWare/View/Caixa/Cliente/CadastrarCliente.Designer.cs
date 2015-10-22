@@ -160,7 +160,7 @@
             this.cpfTbx.Mask = "000,000,000-00";
             this.cpfTbx.Name = "cpfTbx";
             this.cpfTbx.Size = new System.Drawing.Size(100, 25);
-            this.cpfTbx.TabIndex = 81;
+            this.cpfTbx.TabIndex = 26;
             // 
             // observacaoTbx
             // 
@@ -168,7 +168,7 @@
             this.observacaoTbx.Multiline = true;
             this.observacaoTbx.Name = "observacaoTbx";
             this.observacaoTbx.Size = new System.Drawing.Size(701, 87);
-            this.observacaoTbx.TabIndex = 79;
+            this.observacaoTbx.TabIndex = 38;
             // 
             // label16
             // 
@@ -187,7 +187,7 @@
             this.cepTbx.Mask = "00000-000";
             this.cepTbx.Name = "cepTbx";
             this.cepTbx.Size = new System.Drawing.Size(82, 25);
-            this.cepTbx.TabIndex = 77;
+            this.cepTbx.TabIndex = 36;
             // 
             // label15
             // 
@@ -214,21 +214,21 @@
             this.cidadeTbx.Location = new System.Drawing.Point(26, 285);
             this.cidadeTbx.Name = "cidadeTbx";
             this.cidadeTbx.Size = new System.Drawing.Size(158, 25);
-            this.cidadeTbx.TabIndex = 74;
+            this.cidadeTbx.TabIndex = 35;
             // 
             // numeroTbx
             // 
             this.numeroTbx.Location = new System.Drawing.Point(244, 225);
             this.numeroTbx.Name = "numeroTbx";
             this.numeroTbx.Size = new System.Drawing.Size(53, 25);
-            this.numeroTbx.TabIndex = 66;
+            this.numeroTbx.TabIndex = 32;
             // 
             // bairroTbx
             // 
             this.bairroTbx.Location = new System.Drawing.Point(491, 225);
             this.bairroTbx.Name = "bairroTbx";
             this.bairroTbx.Size = new System.Drawing.Size(156, 25);
-            this.bairroTbx.TabIndex = 68;
+            this.bairroTbx.TabIndex = 34;
             // 
             // label21
             // 
@@ -255,7 +255,7 @@
             this.logradouroTbx.Location = new System.Drawing.Point(23, 225);
             this.logradouroTbx.Name = "logradouroTbx";
             this.logradouroTbx.Size = new System.Drawing.Size(201, 25);
-            this.logradouroTbx.TabIndex = 64;
+            this.logradouroTbx.TabIndex = 31;
             // 
             // label22
             // 
@@ -293,14 +293,14 @@
             this.ufCbx.Location = new System.Drawing.Point(301, 284);
             this.ufCbx.Name = "ufCbx";
             this.ufCbx.Size = new System.Drawing.Size(65, 25);
-            this.ufCbx.TabIndex = 70;
+            this.ufCbx.TabIndex = 37;
             // 
             // complementoTbx
             // 
             this.complementoTbx.Location = new System.Drawing.Point(315, 225);
             this.complementoTbx.Name = "complementoTbx";
             this.complementoTbx.Size = new System.Drawing.Size(158, 25);
-            this.complementoTbx.TabIndex = 73;
+            this.complementoTbx.TabIndex = 33;
             // 
             // celularTbx
             // 
@@ -308,7 +308,7 @@
             this.celularTbx.Mask = "(99) 0-0000-0000";
             this.celularTbx.Name = "celularTbx";
             this.celularTbx.Size = new System.Drawing.Size(119, 25);
-            this.celularTbx.TabIndex = 54;
+            this.celularTbx.TabIndex = 30;
             // 
             // label14
             // 
@@ -326,7 +326,7 @@
             this.telefoneComercialTbx.Mask = "(99) 0000-0000";
             this.telefoneComercialTbx.Name = "telefoneComercialTbx";
             this.telefoneComercialTbx.Size = new System.Drawing.Size(119, 25);
-            this.telefoneComercialTbx.TabIndex = 52;
+            this.telefoneComercialTbx.TabIndex = 29;
             // 
             // label13
             // 
@@ -344,7 +344,7 @@
             this.telefoneResidencialTbx.Mask = "(99) 0000-0000";
             this.telefoneResidencialTbx.Name = "telefoneResidencialTbx";
             this.telefoneResidencialTbx.Size = new System.Drawing.Size(119, 25);
-            this.telefoneResidencialTbx.TabIndex = 50;
+            this.telefoneResidencialTbx.TabIndex = 28;
             // 
             // label12
             // 
@@ -374,7 +374,7 @@
             this.statusGbx.Location = new System.Drawing.Point(315, 81);
             this.statusGbx.Name = "statusGbx";
             this.statusGbx.Size = new System.Drawing.Size(412, 48);
-            this.statusGbx.TabIndex = 36;
+            this.statusGbx.TabIndex = 60;
             this.statusGbx.TabStop = false;
             this.statusGbx.Text = "Status";
             // 
@@ -441,7 +441,7 @@
             this.dataNascimentoTbx.Location = new System.Drawing.Point(134, 96);
             this.dataNascimentoTbx.Name = "dataNascimentoTbx";
             this.dataNascimentoTbx.Size = new System.Drawing.Size(146, 25);
-            this.dataNascimentoTbx.TabIndex = 30;
+            this.dataNascimentoTbx.TabIndex = 27;
             // 
             // idTbx
             // 
@@ -521,7 +521,7 @@
             this.cadastrarClienteBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cadastrarClienteBtn.Name = "cadastrarClienteBtn";
             this.cadastrarClienteBtn.Size = new System.Drawing.Size(160, 60);
-            this.cadastrarClienteBtn.TabIndex = 9;
+            this.cadastrarClienteBtn.TabIndex = 39;
             this.cadastrarClienteBtn.Click += new System.EventHandler(this.botaoCadCliente1_Click);
             // 
             // cancelarCadastroBtn
@@ -533,7 +533,7 @@
             this.cancelarCadastroBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cancelarCadastroBtn.Name = "cancelarCadastroBtn";
             this.cancelarCadastroBtn.Size = new System.Drawing.Size(160, 60);
-            this.cancelarCadastroBtn.TabIndex = 8;
+            this.cancelarCadastroBtn.TabIndex = 40;
             this.cancelarCadastroBtn.Click += new System.EventHandler(this.botaoCancelarCad1_Click);
             // 
             // sairBtn
@@ -545,7 +545,7 @@
             this.sairBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.sairBtn.Name = "sairBtn";
             this.sairBtn.Size = new System.Drawing.Size(160, 60);
-            this.sairBtn.TabIndex = 7;
+            this.sairBtn.TabIndex = 41;
             this.sairBtn.Click += new System.EventHandler(this.botaoSair1_Click);
             // 
             // CadastrarCliente
