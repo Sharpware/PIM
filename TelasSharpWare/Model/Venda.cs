@@ -15,26 +15,27 @@ namespace TelasSharpWare.Model
         private Cliente _cliente;
         private Funcionario _funcionario;
         private TipoVenda tipoVenda;
-        private Lazy<IList<Produto>> _lazyProdutos;
+        private List<ItemVenda> _itensVenda;
 
         public Venda(Cliente cliente, Funcionario funcionario)
         {
             _cliente = cliente;
-            _funcionario = funcionario;
+            Funcionario = funcionario;
             _data = DateTime.Now;
-            _lazyProdutos = new Lazy<IList<Produto>>(() => new List<Produto>());
+            
         }
 
-        public void AddProduto(Produto produto)
+        public void AddItem(ItemVenda itensVenda)
         {
-            _lazyProdutos.Value.Add(produto);
-            _valorTotal += produto.PrecoVenda;
+            ItemVenda itemVenda = new ItemVenda(itensVenda.Produto, itensVenda.Quantidade);
+            ItensVenda.Add(itemVenda);
+            _valorTotal += itemVenda.ValorTotal;
         }
 
         public void RemoverProduto(int posicao)
         {
-           _valorTotal -= _lazyProdutos.Value[posicao].PrecoVenda;
-           _lazyProdutos.Value.RemoveAt(posicao);
+            _valorTotal -= ItensVenda[posicao].ValorTotal;
+            ItensVenda.RemoveAt(posicao);
         }
 
         public DateTime Data
@@ -61,13 +62,7 @@ namespace TelasSharpWare.Model
             }
         }
 
-        public IReadOnlyCollection<Produto> Produtos
-        {
-            get
-            {
-                return new ReadOnlyCollection<Produto>(_lazyProdutos.Value);
-            }
-        }
+       
 
         public TipoVenda TipoVenda
         {
@@ -79,6 +74,32 @@ namespace TelasSharpWare.Model
             set
             {
                 tipoVenda = value;
+            }
+        }
+
+        public Funcionario Funcionario
+        {
+            get
+            {
+                return _funcionario;
+            }
+
+            set
+            {
+                _funcionario = value;
+            }
+        }
+
+        public List<ItemVenda> ItensVenda
+        {
+            get
+            {
+                return _itensVenda;
+            }
+
+            set
+            {
+                _itensVenda = value;
             }
         }
     }

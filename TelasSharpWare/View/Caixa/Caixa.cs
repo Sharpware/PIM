@@ -17,12 +17,14 @@ namespace TelasSharpWare
         private Venda _venda;
         private Cliente _cliente;
         private Funcionario _funcionario;
-        private VendaController vendaController;
+        private VendaController _vendaController;
+        private PesquisaProdutoController _produtoController;
 
         public Caixa()
         {
             InitializeComponent();
-            vendaController = new VendaController();
+            _vendaController = new VendaController();
+            _produtoController = new PesquisaProdutoController();
         }
 
         private void botaoAdicionarClienteCaixa1_Click(object sender, EventArgs e)
@@ -48,7 +50,29 @@ namespace TelasSharpWare
 
         private void adicionarProdutoBtn_Click(object sender, EventArgs e)
         {
-
+            Produto produto = _produtoController.PesquisaPorCodigoBarras(codigoBarrasProdutoTbx.Text);
+            if (produto.Id > 0)
+            {
+                int index = vendaProdutosDgv.Rows.Add();
+                DataGridViewRow linha = vendaProdutosDgv.Rows[index];
+                linha.Cells["id"].Value = produto.Id;
+                linha.Cells["marca"].Value = produto.Marca;
+                linha.Cells["nome"].Value = produto.Nome;
+                linha.Cells["descricao"].Value = produto.Observacao;
+                linha.Cells["tamanho"].Value = produto.Tamanho;
+                linha.Cells["valor"].Value = produto.PrecoVenda;
+                linha.Cells["quantidade"].Value = produto.Quantidade;
+                nomeProdutoTbx.Text = produto.Nome;
+                descricaoProdutoTbx.Text = produto.Observacao;
+                tamanhoTbx.Text = produto.Tamanho;
+            }
+            else
+            {
+                MessageBox.Show("Produto não encontrado");
+                nomeProdutoTbx.Text = "";
+                descricaoProdutoTbx.Text = "";
+                tamanhoTbx.Text = "";
+            }
         }
 
         private void botaoFinalizarVenda2_Click(object sender, EventArgs e)
@@ -60,6 +84,11 @@ namespace TelasSharpWare
         {
             ModoDePagamento pagamento = new ModoDePagamento();
             pagamento.ShowDialog();
+        }
+
+        private void abrirVendaBtn_Click(object sender, EventArgs e)
+        {
+            _venda = _vendaController.IniciarVenda(new Cliente(), new Funcionario());
         }
     }
 }

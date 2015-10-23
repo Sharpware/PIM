@@ -6,17 +6,18 @@ using System.Threading.Tasks;
 
 namespace TelasSharpWare.Model
 {
-    public class ItensVenda
+    public class ItemVenda
     {
         private long _id;
         private int _quantidade;
         private double _valorTotal;
         private Produto _produto;
 
-        public ItensVenda(Produto produto, int quantidade)
+        public ItemVenda(Produto produto, int quantidade)
         {
             _produto = produto;
             _quantidade = quantidade;
+            _valorTotal = produto.PrecoVenda * quantidade;
         }
 
         public long Id

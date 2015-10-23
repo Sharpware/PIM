@@ -72,7 +72,7 @@
     <Compile Include="Model\TipoTelefone.cs" />
     <Compile Include="Model\TipoVenda.cs" />
     <Compile Include="Model\Venda.cs" />
-    <Compile Include="Model\ItensVenda.cs" />
+    <Compile Include="Model\ItemVenda.cs" />
     <Compile Include="View\Botoes\BotaoAcessarPesquisaCliente.cs">
       <SubType>UserControl</SubType>
     </Compile>

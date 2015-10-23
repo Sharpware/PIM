@@ -30,11 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Caixa));
             this.vendaProdutosDgv = new System.Windows.Forms.DataGridView();
-            this.CodigoProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NomeProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DescricaoPrdouto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TamanhoProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValorProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tamanho = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -48,7 +50,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.valorProdutoLbl = new System.Windows.Forms.Label();
-            this.idProdutoTbx = new System.Windows.Forms.TextBox();
+            this.codigoBarrasProdutoTbx = new System.Windows.Forms.TextBox();
             this.nomeProdutoTbx = new System.Windows.Forms.TextBox();
             this.descricaoProdutoTbx = new System.Windows.Forms.TextBox();
             this.tamanhoTbx = new System.Windows.Forms.TextBox();
@@ -59,6 +61,7 @@
             this.CaixaSsl = new System.Windows.Forms.ToolStripStatusLabel();
             this.vendedorVendaCbx = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.adicionarProdutoBtn = new TelasSharpWare.Botoes.BotaoAdProduto();
             this.label11 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.clienteVendaTbx = new System.Windows.Forms.TextBox();
@@ -81,7 +84,7 @@
             this.modoDePagamentoBtn = new TelasSharpWare.View.Botoes.BotaoModoDePagamento();
             this.adicionarClienteBtn = new TelasSharpWare.Botoes.BotaoAdicionarClienteCaixa();
             this.finalizarVenda = new TelasSharpWare.Botoes.BotaoFinalizarVenda();
-            this.adicionarProdutoBtn = new TelasSharpWare.Botoes.BotaoAdProduto();
+            this.abrirVendaBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.vendaProdutosDgv)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -99,50 +102,64 @@
             this.vendaProdutosDgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.vendaProdutosDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.vendaProdutosDgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CodigoProduto,
-            this.NomeProduto,
-            this.DescricaoPrdouto,
-            this.TamanhoProduto,
-            this.ValorProduto});
-            this.vendaProdutosDgv.Location = new System.Drawing.Point(536, 62);
+            this.id,
+            this.marca,
+            this.nome,
+            this.descricao,
+            this.tamanho,
+            this.valor,
+            this.quantidade});
+            this.vendaProdutosDgv.Location = new System.Drawing.Point(526, 62);
             this.vendaProdutosDgv.Name = "vendaProdutosDgv";
-            this.vendaProdutosDgv.Size = new System.Drawing.Size(703, 246);
+            this.vendaProdutosDgv.Size = new System.Drawing.Size(828, 246);
             this.vendaProdutosDgv.TabIndex = 1;
             // 
-            // CodigoProduto
+            // id
             // 
-            this.CodigoProduto.HeaderText = "Codigo";
-            this.CodigoProduto.Name = "CodigoProduto";
-            this.CodigoProduto.ReadOnly = true;
-            this.CodigoProduto.Width = 150;
+            this.id.HeaderText = "Codigo";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 75;
             // 
-            // NomeProduto
+            // marca
             // 
-            this.NomeProduto.HeaderText = "Nome";
-            this.NomeProduto.Name = "NomeProduto";
-            this.NomeProduto.ReadOnly = true;
-            this.NomeProduto.Width = 150;
+            this.marca.HeaderText = "Marca";
+            this.marca.Name = "marca";
+            this.marca.Width = 125;
             // 
-            // DescricaoPrdouto
+            // nome
             // 
-            this.DescricaoPrdouto.HeaderText = "Descrição";
-            this.DescricaoPrdouto.Name = "DescricaoPrdouto";
-            this.DescricaoPrdouto.ReadOnly = true;
-            this.DescricaoPrdouto.Width = 220;
+            this.nome.HeaderText = "Nome";
+            this.nome.Name = "nome";
+            this.nome.ReadOnly = true;
+            this.nome.Width = 150;
             // 
-            // TamanhoProduto
+            // descricao
             // 
-            this.TamanhoProduto.HeaderText = "Tamanho";
-            this.TamanhoProduto.Name = "TamanhoProduto";
-            this.TamanhoProduto.ReadOnly = true;
-            this.TamanhoProduto.Width = 70;
+            this.descricao.HeaderText = "Descrição";
+            this.descricao.Name = "descricao";
+            this.descricao.ReadOnly = true;
+            this.descricao.Width = 220;
             // 
-            // ValorProduto
+            // tamanho
             // 
-            this.ValorProduto.HeaderText = "Valor";
-            this.ValorProduto.Name = "ValorProduto";
-            this.ValorProduto.ReadOnly = true;
-            this.ValorProduto.Width = 70;
+            this.tamanho.HeaderText = "Tamanho";
+            this.tamanho.Name = "tamanho";
+            this.tamanho.ReadOnly = true;
+            this.tamanho.Width = 70;
+            // 
+            // valor
+            // 
+            this.valor.HeaderText = "Valor";
+            this.valor.Name = "valor";
+            this.valor.ReadOnly = true;
+            this.valor.Width = 70;
+            // 
+            // quantidade
+            // 
+            this.quantidade.HeaderText = "Quantidade";
+            this.quantidade.Name = "quantidade";
+            this.quantidade.Width = 75;
             // 
             // label1
             // 
@@ -279,14 +296,14 @@
             this.valorProdutoLbl.TabIndex = 3;
             this.valorProdutoLbl.Text = "0,00";
             // 
-            // idProdutoTbx
+            // codigoBarrasProdutoTbx
             // 
-            this.idProdutoTbx.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.idProdutoTbx.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.idProdutoTbx.Location = new System.Drawing.Point(18, 27);
-            this.idProdutoTbx.Name = "idProdutoTbx";
-            this.idProdutoTbx.Size = new System.Drawing.Size(412, 22);
-            this.idProdutoTbx.TabIndex = 4;
+            this.codigoBarrasProdutoTbx.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.codigoBarrasProdutoTbx.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.codigoBarrasProdutoTbx.Location = new System.Drawing.Point(18, 27);
+            this.codigoBarrasProdutoTbx.Name = "codigoBarrasProdutoTbx";
+            this.codigoBarrasProdutoTbx.Size = new System.Drawing.Size(412, 22);
+            this.codigoBarrasProdutoTbx.TabIndex = 4;
             // 
             // nomeProdutoTbx
             // 
@@ -388,7 +405,7 @@
             this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.tamanhoTbx);
             this.panel3.Controls.Add(this.descricaoProdutoTbx);
-            this.panel3.Controls.Add(this.idProdutoTbx);
+            this.panel3.Controls.Add(this.codigoBarrasProdutoTbx);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.nomeProdutoTbx);
             this.panel3.Controls.Add(this.label8);
@@ -397,6 +414,17 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(526, 270);
             this.panel3.TabIndex = 15;
+            // 
+            // adicionarProdutoBtn
+            // 
+            this.adicionarProdutoBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("adicionarProdutoBtn.BackgroundImage")));
+            this.adicionarProdutoBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.adicionarProdutoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.adicionarProdutoBtn.Location = new System.Drawing.Point(313, 201);
+            this.adicionarProdutoBtn.Name = "adicionarProdutoBtn";
+            this.adicionarProdutoBtn.Size = new System.Drawing.Size(200, 66);
+            this.adicionarProdutoBtn.TabIndex = 24;
+            this.adicionarProdutoBtn.Click += new System.EventHandler(this.adicionarProdutoBtn_Click);
             // 
             // label11
             // 
@@ -602,7 +630,7 @@
             this.botaoCancelarVenda1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botaoCancelarVenda1.BackgroundImage")));
             this.botaoCancelarVenda1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.botaoCancelarVenda1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.botaoCancelarVenda1.Location = new System.Drawing.Point(1124, 541);
+            this.botaoCancelarVenda1.Location = new System.Drawing.Point(1124, 455);
             this.botaoCancelarVenda1.Name = "botaoCancelarVenda1";
             this.botaoCancelarVenda1.Size = new System.Drawing.Size(230, 80);
             this.botaoCancelarVenda1.TabIndex = 26;
@@ -612,7 +640,7 @@
             this.modoDePagamentoBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("modoDePagamentoBtn.BackgroundImage")));
             this.modoDePagamentoBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.modoDePagamentoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.modoDePagamentoBtn.Location = new System.Drawing.Point(1124, 628);
+            this.modoDePagamentoBtn.Location = new System.Drawing.Point(1124, 542);
             this.modoDePagamentoBtn.Name = "modoDePagamentoBtn";
             this.modoDePagamentoBtn.Size = new System.Drawing.Size(230, 80);
             this.modoDePagamentoBtn.TabIndex = 25;
@@ -623,7 +651,7 @@
             this.adicionarClienteBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("adicionarClienteBtn.BackgroundImage")));
             this.adicionarClienteBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.adicionarClienteBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.adicionarClienteBtn.Location = new System.Drawing.Point(1124, 454);
+            this.adicionarClienteBtn.Location = new System.Drawing.Point(1124, 368);
             this.adicionarClienteBtn.Name = "adicionarClienteBtn";
             this.adicionarClienteBtn.Size = new System.Drawing.Size(230, 80);
             this.adicionarClienteBtn.TabIndex = 20;
@@ -634,22 +662,21 @@
             this.finalizarVenda.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("finalizarVenda.BackgroundImage")));
             this.finalizarVenda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.finalizarVenda.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.finalizarVenda.Location = new System.Drawing.Point(1124, 628);
+            this.finalizarVenda.Location = new System.Drawing.Point(1124, 542);
             this.finalizarVenda.Name = "finalizarVenda";
             this.finalizarVenda.Size = new System.Drawing.Size(230, 80);
             this.finalizarVenda.TabIndex = 17;
             this.finalizarVenda.Visible = false;
             // 
-            // adicionarProdutoBtn
+            // abrirVendaBtn
             // 
-            this.adicionarProdutoBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("adicionarProdutoBtn.BackgroundImage")));
-            this.adicionarProdutoBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.adicionarProdutoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.adicionarProdutoBtn.Location = new System.Drawing.Point(313, 201);
-            this.adicionarProdutoBtn.Name = "adicionarProdutoBtn";
-            this.adicionarProdutoBtn.Size = new System.Drawing.Size(200, 66);
-            this.adicionarProdutoBtn.TabIndex = 24;
-            this.adicionarProdutoBtn.Click += new System.EventHandler(this.adicionarProdutoBtn_Click);
+            this.abrirVendaBtn.Location = new System.Drawing.Point(1145, 642);
+            this.abrirVendaBtn.Name = "abrirVendaBtn";
+            this.abrirVendaBtn.Size = new System.Drawing.Size(209, 66);
+            this.abrirVendaBtn.TabIndex = 27;
+            this.abrirVendaBtn.Text = "Abrir Venda";
+            this.abrirVendaBtn.UseVisualStyleBackColor = true;
+            this.abrirVendaBtn.Click += new System.EventHandler(this.abrirVendaBtn_Click);
             // 
             // Caixa
             // 
@@ -657,6 +684,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(224)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(1368, 758);
+            this.Controls.Add(this.abrirVendaBtn);
             this.Controls.Add(this.botaoCancelarVenda1);
             this.Controls.Add(this.modoDePagamentoBtn);
             this.Controls.Add(this.atalhosPnl);
@@ -708,7 +736,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label valorProdutoLbl;
-        private System.Windows.Forms.TextBox idProdutoTbx;
+        private System.Windows.Forms.TextBox codigoBarrasProdutoTbx;
         private System.Windows.Forms.TextBox nomeProdutoTbx;
         private System.Windows.Forms.TextBox descricaoProdutoTbx;
         private System.Windows.Forms.TextBox tamanhoTbx;
@@ -725,11 +753,6 @@
         private System.Windows.Forms.TextBox clienteVendaTbx;
         private System.Windows.Forms.Label label12;
         private Botoes.BotaoAdicionarClienteCaixa adicionarClienteBtn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoProduto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NomeProduto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DescricaoPrdouto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TamanhoProduto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ValorProduto;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button fecharBtn;
@@ -750,5 +773,13 @@
         private System.Windows.Forms.Label label18;
         private View.Botoes.BotaoModoDePagamento modoDePagamentoBtn;
         private View.Botoes.BotaoCancelarVenda botaoCancelarVenda1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn marca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descricao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tamanho;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantidade;
+        private System.Windows.Forms.Button abrirVendaBtn;
     }
 }

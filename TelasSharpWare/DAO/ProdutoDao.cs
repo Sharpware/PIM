@@ -156,5 +156,39 @@ namespace TelasSharpWare.DAO
             }
             return produtos;
         }
+
+        public Produto BuscarPorCodigo(string codigo)
+        {
+            MySqlDataReader reader = null;
+            Produto produto = null;
+            string cmdText = @"SELECT id,
+                                    nome,
+                                    marca,
+                                    observacao,
+                                    tamanho,
+                                    preco_venda,
+                                    quantidade FROM produto WHERE codigo_barra=@codigo_barra";
+            using (MySqlCommand cmd = new MySqlCommand(cmdText, _con))
+            {
+                cmd.Prepare();
+                cmd.Parameters.AddWithValue("@codigo_barra", codigo);
+                produto = new Produto();
+                reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        produto.Id = reader.GetInt64("id");
+                        produto.Nome = reader.GetString("nome");
+                        produto.Marca = reader.GetString("marca");
+                        produto.Observacao = reader.GetString("observacao");
+                        produto.Tamanho = reader.GetString("tamanho");
+                        produto.PrecoVenda = reader.GetDouble("preco_venda");
+                        produto.Quantidade = reader.GetInt32("quantidade");
+                    }
+                }
+            }
+            return produto;
+        }
     }
 }

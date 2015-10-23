@@ -56,5 +56,13 @@ namespace TelasSharpWare.Controller
                 return _produtoDao.BuscarPorMarca(marca);
             }
         }
+
+        public Produto PesquisaPorCodigoBarras(string codigo)
+        {
+            using (_connectionManager.Open())
+            {
+                return _produtoDao.BuscarPorCodigo(codigo);
+            }
+        }
     }
 }
