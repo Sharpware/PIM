@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PesquisarCliente));
             this.panel1 = new System.Windows.Forms.Panel();
             this.cpfMbx = new System.Windows.Forms.MaskedTextBox();
+            this.botaoAcessarPesquisaCliente1 = new TelasSharpWare.View.Botoes.BotaoAcessarPesquisaCliente();
             this.nomeTbx = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pesquisaClienteDgv = new System.Windows.Forms.DataGridView();
@@ -55,7 +56,6 @@
             this.inativarClienteBtn = new TelasSharpWare.Botoes.BotaoInativarCliente();
             this.editarCliente = new TelasSharpWare.Botoes.BotaoEditarCliente();
             this.cadastrarClienteBtn = new TelasSharpWare.Botoes.BotaoCadCliente();
-            this.botaoAcessarPesquisaCliente1 = new TelasSharpWare.View.Botoes.BotaoAcessarPesquisaCliente();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pesquisaClienteDgv)).BeginInit();
             this.tipoPesquisaGbx.SuspendLayout();
@@ -91,6 +91,18 @@
             this.cpfMbx.Name = "cpfMbx";
             this.cpfMbx.Size = new System.Drawing.Size(291, 25);
             this.cpfMbx.TabIndex = 20;
+            // 
+            // botaoAcessarPesquisaCliente1
+            // 
+            this.botaoAcessarPesquisaCliente1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botaoAcessarPesquisaCliente1.BackgroundImage")));
+            this.botaoAcessarPesquisaCliente1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.botaoAcessarPesquisaCliente1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.botaoAcessarPesquisaCliente1.Location = new System.Drawing.Point(328, 153);
+            this.botaoAcessarPesquisaCliente1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.botaoAcessarPesquisaCliente1.Name = "botaoAcessarPesquisaCliente1";
+            this.botaoAcessarPesquisaCliente1.Size = new System.Drawing.Size(102, 28);
+            this.botaoAcessarPesquisaCliente1.TabIndex = 19;
+            this.botaoAcessarPesquisaCliente1.Click += new System.EventHandler(this.botaoAcessarPesquisaCliente1_Click);
             // 
             // nomeTbx
             // 
@@ -295,6 +307,7 @@
             this.adicionarClienteBtn.Name = "adicionarClienteBtn";
             this.adicionarClienteBtn.Size = new System.Drawing.Size(150, 50);
             this.adicionarClienteBtn.TabIndex = 11;
+            this.adicionarClienteBtn.Click += new System.EventHandler(this.adicionarClienteBtn_Click);
             // 
             // sairBtn
             // 
@@ -344,18 +357,6 @@
             this.cadastrarClienteBtn.Size = new System.Drawing.Size(150, 50);
             this.cadastrarClienteBtn.TabIndex = 6;
             this.cadastrarClienteBtn.Click += new System.EventHandler(this.botaoCadCliente1_Click);
-            // 
-            // botaoAcessarPesquisaCliente1
-            // 
-            this.botaoAcessarPesquisaCliente1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botaoAcessarPesquisaCliente1.BackgroundImage")));
-            this.botaoAcessarPesquisaCliente1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.botaoAcessarPesquisaCliente1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.botaoAcessarPesquisaCliente1.Location = new System.Drawing.Point(328, 153);
-            this.botaoAcessarPesquisaCliente1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.botaoAcessarPesquisaCliente1.Name = "botaoAcessarPesquisaCliente1";
-            this.botaoAcessarPesquisaCliente1.Size = new System.Drawing.Size(102, 28);
-            this.botaoAcessarPesquisaCliente1.TabIndex = 19;
-            this.botaoAcessarPesquisaCliente1.Click += new System.EventHandler(this.botaoAcessarPesquisaCliente1_Click);
             // 
             // PesquisarCliente
             // 

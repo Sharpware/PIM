@@ -370,3 +370,5 @@ C:\Users\Usuario\Documents\repositorios\GitHub\PIM\packages\TelasSharpWare\obj\D
 C:\Users\Usuario\Documents\repositorios\GitHub\PIM\packages\TelasSharpWare\obj\Debug\TelasSharpWare.EditarCliente.resources
 C:\Users\Usuario\Documents\repositorios\GitHub\PIM\packages\TelasSharpWare\obj\Debug\TelasSharpWare.csproj.GenerateResource.Cache
 C:\Users\Usuario\Documents\repositorios\GitHub\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.View.Botoes.BotaoAcessarPesquisaCliente.resources
+C:\Users\Usuario\Documents\repositorios\GitHub\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.View.Botoes.BotaoAbrirVenda.resources
+C:\Users\Usuario\Documents\repositorios\GitHub\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.View.Botoes.BotaoAbrirVendaLocked.resources

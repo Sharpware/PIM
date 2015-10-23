@@ -15,6 +15,8 @@ namespace TelasSharpWare
     public partial class PesquisarCliente : Form
     {
         private ClienteController _clienteController;
+        private Cliente _cliente;
+
         public PesquisarCliente()
         {
             InitializeComponent();
@@ -91,19 +93,46 @@ namespace TelasSharpWare
             }
         }
 
+        private void adicionarClienteBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int row = pesquisaClienteDgv.Rows.GetRowCount(DataGridViewElementStates.Selected);
+                int id = 0;
+                string idText = "";
+                if (row == 1)
+                {
+                    idText = pesquisaClienteDgv.SelectedRows[0].Cells[0].Value.ToString();
+                    id = Int32.Parse(idText);
+                    _cliente = _clienteController.PesquisarPorId(id);
+                    this.Close();
+                }
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.ToString());
+            }
+        }
+
         private void botaoEditarCliente1_Click(object sender, EventArgs e)
         {
-            int row = pesquisaClienteDgv.Rows.GetRowCount(DataGridViewElementStates.Selected);
-            int id = 0;
-            string idText = "";
-            if (row == 1)
+            try
             {
-                idText = pesquisaClienteDgv.SelectedRows[0].Cells[0].Value.ToString();
-                id = Int32.Parse(idText);
-                EditarCliente editarCliente = new EditarCliente(_clienteController.PesquisarPorId(id));
-                editarCliente.Show();
+                int row = pesquisaClienteDgv.Rows.GetRowCount(DataGridViewElementStates.Selected);
+                int id = 0;
+                string idText = "";
+                if (row == 1)
+                {
+                    idText = pesquisaClienteDgv.SelectedRows[0].Cells[0].Value.ToString();
+                    id = Int32.Parse(idText);
+                    EditarCliente editarCliente = new EditarCliente(_clienteController.PesquisarPorId(id));
+                    editarCliente.Show();
+                }
             }
-            
+            catch(Exception erro)
+            {
+                MessageBox.Show(erro.ToString());
+            }
         }
 
 
@@ -168,6 +197,13 @@ namespace TelasSharpWare
             nomeTbx.Enabled = false;
             idTbx.Enabled = false;
             cpfMbx.Enabled = true;
+        }
+
+        
+
+        public Cliente RetornarCliente()
+        {
+            return _cliente;
         }
     }
 }

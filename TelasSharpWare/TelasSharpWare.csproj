@@ -56,6 +56,7 @@
     <Compile Include="Controller\VendaController.cs" />
     <Compile Include="DAO\ClienteDao.cs" />
     <Compile Include="DAO\ConnectionFactory.cs" />
+    <Compile Include="DAO\FuncionarioDao.cs" />
     <Compile Include="DAO\ProdutoDao.cs" />
     <Compile Include="DAO\TelefoneDao.cs" />
     <Compile Include="DAO\VendaDao.cs" />
@@ -73,6 +74,18 @@
     <Compile Include="Model\TipoVenda.cs" />
     <Compile Include="Model\Venda.cs" />
     <Compile Include="Model\ItemVenda.cs" />
+    <Compile Include="View\Botoes\BotaoAbrirVenda.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Botoes\BotaoAbrirVenda.Designer.cs">
+      <DependentUpon>BotaoAbrirVenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Botoes\BotaoAbrirVendaLocked.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Botoes\BotaoAbrirVendaLocked.Designer.cs">
+      <DependentUpon>BotaoAbrirVendaLocked.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Botoes\BotaoAcessarPesquisaCliente.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -459,6 +472,12 @@
     <Compile Include="View\Caixa\Cliente\EditarCliente.Designer.cs">
       <DependentUpon>EditarCliente.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Botoes\BotaoAbrirVenda.resx">
+      <DependentUpon>BotaoAbrirVenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Botoes\BotaoAbrirVendaLocked.resx">
+      <DependentUpon>BotaoAbrirVendaLocked.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Botoes\BotaoAcessarPesquisaCliente.resx">
       <DependentUpon>BotaoAcessarPesquisaCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -1018,6 +1037,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\BotaoAcessarPesquisaCliente2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BotaoAbrirVenda1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BotaoAbrirVenda2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BotaoAbrirVendaLock1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BotaoAbrirVendaLock2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

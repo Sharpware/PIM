@@ -16,19 +16,23 @@ namespace TelasSharpWare.Model
         private Funcionario _funcionario;
         private TipoVenda tipoVenda;
         private List<ItemVenda> _itensVenda;
+        private int _quantItensVenda;
+        private double _pagamentoCliente;
+        private double _troco;
 
         public Venda(Cliente cliente, Funcionario funcionario)
         {
             _cliente = cliente;
             Funcionario = funcionario;
             _data = DateTime.Now;
+            _itensVenda = new List<ItemVenda>();
             
         }
 
         public void AddItem(ItemVenda itensVenda)
         {
             ItemVenda itemVenda = new ItemVenda(itensVenda.Produto, itensVenda.Quantidade);
-            ItensVenda.Add(itemVenda);
+            _itensVenda.Add(itemVenda);
             _valorTotal += itemVenda.ValorTotal;
         }
 
@@ -51,6 +55,10 @@ namespace TelasSharpWare.Model
             get
             {
                 return _valorTotal;
+            }
+            set
+            {
+                _valorTotal = value;
             }
         }
 
@@ -100,6 +108,45 @@ namespace TelasSharpWare.Model
             set
             {
                 _itensVenda = value;
+            }
+        }
+
+        public int QuantItensVenda
+        {
+            get
+            {
+                return _quantItensVenda;
+            }
+
+            set
+            {
+                _quantItensVenda = value;
+            }
+        }
+
+        public double PagamentoCliente
+        {
+            get
+            {
+                return _pagamentoCliente;
+            }
+
+            set
+            {
+                _pagamentoCliente = value;
+            }
+        }
+
+        public double Troco
+        {
+            get
+            {
+                return _troco;
+            }
+
+            set
+            {
+                _troco = value;
             }
         }
     }

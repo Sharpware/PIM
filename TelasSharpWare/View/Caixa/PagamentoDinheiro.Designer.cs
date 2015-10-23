@@ -32,17 +32,15 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.pagamentoClienteTbx = new System.Windows.Forms.TextBox();
-            this.trocoLbl = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.valorTotalLbl = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.quantItensLbl = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.cancelarPagamentoBtn = new TelasSharpWare.View.Botoes.BotaoModoCancelarVenda();
             this.confirmarPagamentoBtn = new TelasSharpWare.View.Botoes.BotaoRealizarPagamento();
             this.panel2.SuspendLayout();
@@ -55,8 +53,6 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(195)))), ((int)(((byte)(215)))));
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.pagamentoClienteTbx);
-            this.panel2.Controls.Add(this.trocoLbl);
-            this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.valorTotalLbl);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.quantItensLbl);
@@ -84,26 +80,6 @@
             this.pagamentoClienteTbx.Name = "pagamentoClienteTbx";
             this.pagamentoClienteTbx.Size = new System.Drawing.Size(134, 39);
             this.pagamentoClienteTbx.TabIndex = 6;
-            // 
-            // trocoLbl
-            // 
-            this.trocoLbl.AutoSize = true;
-            this.trocoLbl.Font = new System.Drawing.Font("Arial Black", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.trocoLbl.Location = new System.Drawing.Point(120, 88);
-            this.trocoLbl.Name = "trocoLbl";
-            this.trocoLbl.Size = new System.Drawing.Size(62, 38);
-            this.trocoLbl.TabIndex = 5;
-            this.trocoLbl.Text = "0,0";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial Black", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(14, 88);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(120, 38);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Troco: ";
             // 
             // valorTotalLbl
             // 
@@ -168,6 +144,16 @@
             this.panel3.Size = new System.Drawing.Size(502, 34);
             this.panel3.TabIndex = 9;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(125, -2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(223, 35);
+            this.pictureBox2.TabIndex = 9;
+            this.pictureBox2.TabStop = false;
+            // 
             // button2
             // 
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -194,16 +180,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(125, -2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(223, 35);
-            this.pictureBox2.TabIndex = 9;
-            this.pictureBox2.TabStop = false;
-            // 
             // cancelarPagamentoBtn
             // 
             this.cancelarPagamentoBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cancelarPagamentoBtn.BackgroundImage")));
@@ -213,6 +189,7 @@
             this.cancelarPagamentoBtn.Name = "cancelarPagamentoBtn";
             this.cancelarPagamentoBtn.Size = new System.Drawing.Size(180, 70);
             this.cancelarPagamentoBtn.TabIndex = 11;
+            this.cancelarPagamentoBtn.Click += new System.EventHandler(this.cancelarPagamentoBtn_Click);
             // 
             // confirmarPagamentoBtn
             // 
@@ -223,6 +200,7 @@
             this.confirmarPagamentoBtn.Name = "confirmarPagamentoBtn";
             this.confirmarPagamentoBtn.Size = new System.Drawing.Size(180, 70);
             this.confirmarPagamentoBtn.TabIndex = 10;
+            this.confirmarPagamentoBtn.Click += new System.EventHandler(this.confirmarPagamentoBtn_Click);
             // 
             // PagamentoDinheiro
             // 
@@ -240,6 +218,7 @@
             this.Name = "PagamentoDinheiro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PagamentoDinheiro";
+            this.Load += new System.EventHandler(this.PagamentoDinheiro_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -253,8 +232,6 @@
 
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox pagamentoClienteTbx;
-        private System.Windows.Forms.Label trocoLbl;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label valorTotalLbl;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label quantItensLbl;

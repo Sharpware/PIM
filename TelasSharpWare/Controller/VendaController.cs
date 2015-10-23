@@ -14,12 +14,18 @@ namespace TelasSharpWare.Controller
         private Venda _venda;
         private VendaDao _vendaDao;
         private ConnectionManager _connectionManager;
+        private FuncionarioDao _funcionarioDao;
+
+        public VendaController()
+        {
+            var con = ConnectionFactory.GetConnection();
+            _funcionarioDao = new FuncionarioDao(con);
+            _connectionManager = new ConnectionManager(con);
+            _vendaDao = new VendaDao(con);
+        }
 
         public Venda IniciarVenda(Cliente cliente, Funcionario funcionario)
         {
-            var con = ConnectionFactory.GetConnection();
-            _vendaDao = new VendaDao(con);
-            _connectionManager = new ConnectionManager(con);
             return _venda = new Venda(cliente, funcionario);
         }
 
@@ -45,6 +51,27 @@ namespace TelasSharpWare.Controller
         {
             _venda.RemoverProduto(posicao);
         }
+
+        public double CalcularTroco()
+        {
+            return _venda.Troco = _venda.PagamentoCliente - _venda.ValorTotal;
+        }
+        public List<Funcionario> BuscarFuncionarios()
+        {
+            using (_connectionManager.Open())
+            {
+                return _funcionarioDao.BuscarFuncionarios();
+            }
+        }
+        public Funcionario BuscarFuncionarioNome(string nome)
+        {
+            using (_connectionManager.Open())
+            {
+                return _funcionarioDao.BuscarPorNome(nome);
+            }
+        }
+
+
 
         /*public void ConcluirVenda(TipoVenda tipoVenda)
         {

@@ -26,7 +26,7 @@ namespace TelasSharpWare.DAO
                     string cmdSalvaItem = @"insert into itens_venda 
                                   (valor_total, quantidade, id_produto, id_venda)
                                    values 
-                                  (@valor_total, @quantidade, @id_produto, id_venda)";
+                                  (@valor_total, @quantidade, @id_produto, @id_venda)";
                     using (MySqlCommand cmd = new MySqlCommand(cmdSalvaItem, _con))
                     {
                         cmd.Prepare();

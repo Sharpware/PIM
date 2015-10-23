@@ -7,15 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TelasSharpWare.Model;
 using TelasSharpWare.View.Caixa;
 
 namespace TelasSharpWare
 {
     public partial class ModoDePagamento : Form
     {
-        public ModoDePagamento()
+        Venda _venda;
+        private PagamentoDinheiro _pagamentoDinheiro;
+        public ModoDePagamento(Venda venda)
         {
             InitializeComponent();
+            _venda = venda;
         }
 
         // Define the CS_DROPSHADOW constant
@@ -32,6 +36,13 @@ namespace TelasSharpWare
             }
         }
 
+        public PagamentoDinheiro PagamentoDinheiro
+        {
+            get
+            {
+                return _pagamentoDinheiro;
+            }
+        }
 
         private void ModoDePagamento_Load(object sender, EventArgs e)
         {
@@ -40,8 +51,10 @@ namespace TelasSharpWare
 
         private void botaoDinheiro1_Click(object sender, EventArgs e)
         {
-            PagamentoDinheiro pagamentoDinheiro = new PagamentoDinheiro();
-            pagamentoDinheiro.ShowDialog();
+            PagamentoDinheiro pagamentoDinheiro = new PagamentoDinheiro(_venda);
+            _pagamentoDinheiro = pagamentoDinheiro;
+            _pagamentoDinheiro.ShowDialog();
+            this.Close();
             
         }
 

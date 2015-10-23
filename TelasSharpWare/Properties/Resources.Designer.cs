@@ -63,6 +63,46 @@ namespace TelasSharpWare.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BotaoAbrirVenda1 {
+            get {
+                object obj = ResourceManager.GetObject("BotaoAbrirVenda1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BotaoAbrirVenda2 {
+            get {
+                object obj = ResourceManager.GetObject("BotaoAbrirVenda2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BotaoAbrirVendaLock1 {
+            get {
+                object obj = ResourceManager.GetObject("BotaoAbrirVendaLock1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BotaoAbrirVendaLock2 {
+            get {
+                object obj = ResourceManager.GetObject("BotaoAbrirVendaLock2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BotaoAcessarPesquisaCliente1 {
             get {
                 object obj = ResourceManager.GetObject("BotaoAcessarPesquisaCliente1", resourceCulture);

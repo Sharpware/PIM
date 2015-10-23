@@ -157,9 +157,6 @@
   <data name="BotaoCancelarPagamento2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BotaoCancelarPagamento2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BotaoAdicionarFornecedor1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BotaoAdicionarFornecedor1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="BotaoFimPedido1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BotaoFimPedido1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -190,6 +187,9 @@
   <data name="BotaoFinalizarPesquisa2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BotaoFinalizarPesquisa2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="BotaoPesqFornecedor1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BotaoPesqFornecedor1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="BotaoPesquisarFornecedor1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BotaoPesquisarFornecedor1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -204,6 +204,9 @@
   </data>
   <data name="BotaoCadFornecedor1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BotaoCadFornecedor1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BotaoAcessarPesquisaCliente1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BotaoAcessarPesquisaCliente1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BotaoSair2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BotaoSair2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -277,14 +280,26 @@
   <data name="BotaoInativarFornecedor2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BotaoInativarFornecedor2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="BotaoPesqPedido1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BotaoPesqPedido1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="BotaoPedidosEmAberto2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BotaoPedidosEmAberto2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BotaoAbrirVenda1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BotaoAbrirVenda1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BotaoCancelarVenda1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BotaoCancelarVenda1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BotaoPesquisarUsuario2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BotaoPesquisarUsuario2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BotaoAbrirVenda2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BotaoAbrirVenda2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BotaoPesquisarCliente1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BotaoPesquisarCliente1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="IconeProdutos2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IconeProdutos2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -298,14 +313,14 @@
   <data name="BotaoCancelPedido1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BotaoCancelPedido1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BotaoInativarCliente2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BotaoInativarCliente2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="BotaoCaixa2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BotaoCaixa2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BotaoCancelPedido2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BotaoCancelPedido2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BotaoAdicionarUsuario2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BotaoAdicionarUsuario2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BotaoAdicionarFornecedor11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BotaoAdicionarFornecedor11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -331,9 +346,6 @@
   <data name="BotaoDinheiro2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BotaoDinheiro2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BotaoObterRelatorio1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BotaoObterRelatorio1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="BotaoFinalizarVenda1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BotaoFinalizarVenda1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -343,11 +355,11 @@
   <data name="BotaoPesquisar2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BotaoPesquisar2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BotaoInserirPedido2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BotaoInserirPedido2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BotaoFazPedido2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BotaoFazPedido2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BotaoPesquisarProduto1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BotaoPesquisarProduto1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BotaoInativarCliente2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BotaoInativarCliente2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BotaoSair11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BotaoSair11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -358,11 +370,11 @@
   <data name="BotaoFinalizarVenda2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BotaoFinalizarVenda2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BotaoAdicionarUsuario2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BotaoAdicionarUsuario2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BotaoInserirPedido2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BotaoInserirPedido2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BotaoPesqProduto1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BotaoPesqProduto1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BotaoAcessarPesquisaCliente2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BotaoAcessarPesquisaCliente2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BotaoCartao1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BotaoCartao1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -370,8 +382,8 @@
   <data name="BotaoFazerPedido1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BotaoFazerPedido1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BotaoPesqPedido1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BotaoPesqPedido1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BotaoPesqProduto1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BotaoPesqProduto1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BotaoFazerPedido2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BotaoFazerPedido2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -397,14 +409,14 @@
   <data name="BotaoCancelarPagamento1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BotaoCancelarPagamento1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BotaoPesqFornecedor1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BotaoPesqFornecedor1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BotaoPesquisarProduto1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BotaoPesquisarProduto1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BotaoCadUsuario2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BotaoCadUsuario2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BotaoFazPedido2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BotaoFazPedido2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="IconeAdministrativo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconeAdministrativo1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BotaoPesquisarProduto2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BotaoPesquisarProduto2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -430,8 +442,8 @@
   <data name="BotaoLogin1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BotaoLogin1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BotaoPesquisarCliente1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BotaoPesquisarCliente1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BotaoObterRelatorio1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BotaoObterRelatorio1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BotaoAdicionarProduto1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BotaoAdicionarProduto1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -451,13 +463,13 @@
   <data name="BotaoCadProduto1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BotaoCadProduto1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="IconeAdministrativo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\IconeAdministrativo1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BotaoAdicionarFornecedor1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BotaoAdicionarFornecedor1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BotaoAcessarPesquisaCliente1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BotaoAcessarPesquisaCliente1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BotaoAbrirVendaLock1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BotaoAbrirVendaLock1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BotaoAcessarPesquisaCliente2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BotaoAcessarPesquisaCliente2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BotaoAbrirVendaLock2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BotaoAbrirVendaLock2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
