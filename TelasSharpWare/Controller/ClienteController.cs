@@ -31,6 +31,14 @@ namespace TelasSharpWare.Controller
             }
         }
 
+        public bool EditarCliente(Cliente cliente)
+        {
+            using (_connectionManager.Open())
+            {
+                return _clienteDao.EditarCliente(cliente);
+            }
+        }
+
         public List<Cliente> PesquisarTodosClientes()
         {
             using (_connectionManager.Open())
@@ -54,12 +62,13 @@ namespace TelasSharpWare.Controller
             {
                 cliente = _clienteDao.BuscarPorId(id);
             }
-            _connectionManager.Open();
-            foreach (Telefone telefone in _telefoneDao.BuscarTelefonesCliente(id))
+            using (_connectionManager.Open())
             {
-                cliente.AddTelefone(telefone);
+                foreach (Telefone telefone in _telefoneDao.BuscarTelefonesCliente(id))
+                {
+                    cliente.AddTelefone(telefone);
+                }
             }
-            _connectionManager.Close();
             return cliente;
         }
 
@@ -68,6 +77,14 @@ namespace TelasSharpWare.Controller
             using (_connectionManager.Open())
             {
                 return _clienteDao.BuscarPorCPF(cpf);
+            }
+        }
+
+        public void InativarCliente(int id)
+        {
+            using (_connectionManager.Open())
+            {
+                _clienteDao.InativarCliente(id);
             }
         }
     }

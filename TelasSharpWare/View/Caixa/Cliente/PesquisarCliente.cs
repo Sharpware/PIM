@@ -20,7 +20,9 @@ namespace TelasSharpWare
         public PesquisarCliente()
         {
             InitializeComponent();
+            nomeTbx.Focus();
             _clienteController = new ClienteController();
+
         }
 
         // Define the CS_DROPSHADOW constant
@@ -89,7 +91,22 @@ namespace TelasSharpWare
         {
             if (MessageBox.Show("Deseja inativar o cliente?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                
+                try
+                {
+                    int row = pesquisaClienteDgv.Rows.GetRowCount(DataGridViewElementStates.Selected);
+                    int id = 0;
+                    string idText = "";
+                    if (row == 1)
+                    {
+                        idText = pesquisaClienteDgv.SelectedRows[0].Cells[0].Value.ToString();
+                        id = Int32.Parse(idText);
+                        _clienteController.InativarCliente(id);
+                    }
+                }
+                catch(Exception erro)
+                {
+                    MessageBox.Show("Não foi possivel inativar o cliente /n" + erro.ToString());
+                }
             }
         }
 
@@ -116,8 +133,8 @@ namespace TelasSharpWare
 
         private void botaoEditarCliente1_Click(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 int row = pesquisaClienteDgv.Rows.GetRowCount(DataGridViewElementStates.Selected);
                 int id = 0;
                 string idText = "";
@@ -128,11 +145,11 @@ namespace TelasSharpWare
                     EditarCliente editarCliente = new EditarCliente(_clienteController.PesquisarPorId(id));
                     editarCliente.Show();
                 }
-            }
-            catch(Exception erro)
-            {
-                MessageBox.Show(erro.ToString());
-            }
+            //}
+            //catch(Exception erro)
+            //{
+              //  MessageBox.Show(erro.ToString());
+            //}
         }
 
 
@@ -181,22 +198,31 @@ namespace TelasSharpWare
         private void nomeRb_CheckedChanged(object sender, EventArgs e)
         {
             nomeTbx.Enabled = true;
+            nomeTbx.Focus();
             idTbx.Enabled = false;
+            idTbx.Text = "";
             cpfMbx.Enabled = false;
+            cpfMbx.Text = "   .   .   -";
         }
 
         private void idRb_CheckedChanged(object sender, EventArgs e)
         {
             nomeTbx.Enabled = false;
+            nomeTbx.Text = "";
             idTbx.Enabled = true;
+            idTbx.Focus();
             cpfMbx.Enabled = false;
+            cpfMbx.Text = "   .   .   -";
         }
 
         private void cpfRb_CheckedChanged(object sender, EventArgs e)
         {
             nomeTbx.Enabled = false;
+            nomeTbx.Text = "";
             idTbx.Enabled = false;
+            idTbx.Text = "";
             cpfMbx.Enabled = true;
+            cpfMbx.Focus();
         }
 
         
@@ -204,6 +230,16 @@ namespace TelasSharpWare
         public Cliente RetornarCliente()
         {
             return _cliente;
+        }
+
+        private void PesquisarCliente_Load(object sender, EventArgs e)
+        {
+            nomeTbx.Enabled = true;
+            nomeTbx.Focus();
+            idTbx.Enabled = false;
+            idTbx.Text = "";
+            cpfMbx.Enabled = false;
+            cpfMbx.Text = "   .   .   -";
         }
     }
 }

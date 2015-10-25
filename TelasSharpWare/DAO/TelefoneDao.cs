@@ -20,28 +20,34 @@ namespace TelasSharpWare.DAO
         {
             try
             {
+                long lastId;
                 bool resQuery = false;
                 foreach (Telefone telefone in cliente.Telefones)
                 {
-                    string cmdInsertTelefone = @"INSERT INTO telefone_cliente
-                                            (
-                                            numero, 
-                                            tipo_telefone,
-                                            id_cliente)
-                                            VALUES
-                                            (
-                                            @numero, 
-                                            @tipo_telefone,
-                                            @id_cliente
-                                            )";
+                    string cmdInsertTelefone = @"insert into telefone
+                                            (numero, tipo_telefone)
+                                            values
+                                            (@numero, @tipo_telefone)";
+                    string cmdInsertTelefone_Cliente = @"insert into telefone_cliente
+                                                       (id_cliente, id_telefone)
+                                                        values
+                                                        (@id_cliente, @id_telefone)";
                     using (MySqlCommand cmd = new MySqlCommand(cmdInsertTelefone, _con))
                     {
-                            cmd.Prepare();
-                            cmd.Parameters.AddWithValue("@numero", telefone.Numero);
-                            cmd.Parameters.AddWithValue("@tipo_telefone", telefone.TipoTelefone.ToString());
-                            cmd.Parameters.AddWithValue("@id_cliente", id);
-                            resQuery = cmd.ExecuteNonQuery()>0; 
+                        cmd.Prepare();
+                        cmd.Parameters.AddWithValue("@numero", telefone.Numero);
+                        cmd.Parameters.AddWithValue("@tipo_telefone", telefone.TipoTelefone.ToString());
+                        resQuery = cmd.ExecuteNonQuery()>0;
+                        lastId = cmd.LastInsertedId;
                     }
+                    using (MySqlCommand cmd = new MySqlCommand(cmdInsertTelefone_Cliente, _con))
+                    {
+                        cmd.Prepare();
+                        cmd.Parameters.AddWithValue("@id_cliente", id);
+                        cmd.Parameters.AddWithValue("@id_telefone", lastId);
+                        resQuery = cmd.ExecuteNonQuery() > 0;
+                    }
+
                 }
                 return resQuery;
             }
@@ -51,27 +57,87 @@ namespace TelasSharpWare.DAO
             }
         }
 
-        public List<Telefone> BuscarTelefonesCliente(long id)
+        public bool EditarTelefoneCliente(Cliente cliente, long id)
         {
             try
             {
+                bool resQuery = false;
+                foreach (Telefone telefone in cliente.Telefones)
+                {
+                    string cmdUpdateTelefone = @"update telefone
+                                            set
+                                            numero=@numero, 
+                                            tipo_telefone=@tipo_telefone,
+                                            where id=@id
+                                            ";
+                    using (MySqlCommand cmd = new MySqlCommand(cmdUpdateTelefone, _con))
+                    {
+                        cmd.Prepare();
+                        cmd.Parameters.AddWithValue("@id", telefone.Id);
+                        cmd.Parameters.AddWithValue("@numero", telefone.Numero);
+                        cmd.Parameters.AddWithValue("@tipo_telefone", telefone.TipoTelefone.ToString());
+                        cmd.Parameters.AddWithValue("@id_cliente", id);
+                        resQuery = cmd.ExecuteNonQuery() > 0;
+                    }
+                }
+                return resQuery;
+            }
+            catch (Exception erro)
+            {
+                throw new Exception("Ocorreu o seguinte erro: " + erro.ToString());
+            }
+        }
+
+        public List<Telefone> BuscarTelefonesCliente(long id_cliente)
+        {
+            try
+            {
+                List<Telefone> telefones = null;
+                List<int> ids = null;
                 MySqlDataReader reader = null;
-                string cmdBuscaTelefone = @"select numero, tipo_telefone from telefone_cliente
-                                            where id_cliente=@id";
-                using (MySqlCommand cmd = new MySqlCommand(cmdBuscaTelefone, _con)) 
+                string cmdBuscaTelefone_Cliente = @"select id_telefone from telefone_cliente
+                                            where id_cliente=@id_cliente";
+                using (MySqlCommand cmd = new MySqlCommand(cmdBuscaTelefone_Cliente, _con)) 
                 {
                     cmd.Prepare();
-                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.Parameters.AddWithValue("@id_cliente", id_cliente);
                     reader = cmd.ExecuteReader();
-                    List<Telefone> telefones = new List<Telefone>();
-                    while(reader.Read())
+                    ids = new List<int>();
+                    if (reader.HasRows)
                     {
-                        Telefone telefone = new Telefone(reader.GetString("numero"), 
-                        reader.GetString("tipo_telefone"));
-                        telefones.Add(telefone);
+                        while (reader.Read())
+                        {
+                            int id = reader.GetInt32("id_telefone");
+                            ids.Add(id);
+                        }
                     }
-                    return telefones;
+                    reader.Close();
                 }
+                telefones = new List<Telefone>();
+                foreach (int id in ids)
+                {
+                    string cmdBuscaTelefone = @"select id, numero, tipo_telefone
+                                            from telefone where id=@id_telefone";
+                    using (MySqlCommand cmd = new MySqlCommand(cmdBuscaTelefone, _con))
+                    {
+                        cmd.Prepare();
+                        cmd.Parameters.AddWithValue("@id_telefone", id);
+                        reader = cmd.ExecuteReader();
+                        if(reader.HasRows)
+                        {
+                            while(reader.Read())
+                            {
+                                Telefone telefone = new Telefone(
+                                reader.GetString("numero"),
+                                reader.GetString("tipo_telefone"));
+                                telefone.Id = reader.GetInt32("id");
+                                telefones.Add(telefone);
+                            }
+                        }
+                    }
+                    reader.Close();
+                }
+                return telefones;
             }
             catch(Exception erro)
             {

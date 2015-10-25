@@ -19,6 +19,7 @@ namespace TelasSharpWare
         public EditarCliente(Cliente cliente)
         {
             _cliente = cliente;
+            _clienteController = new ClienteController();
             InitializeComponent();
         }
 
@@ -66,9 +67,40 @@ namespace TelasSharpWare
 
         private void botaoEditarCliente1_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Deseja editar o cliente?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            try
             {
-                
+                if (MessageBox.Show("Deseja editar o cliente?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    Cliente cliente = new Cliente();
+                    cliente.SetId(Int32.Parse(idTbx.Text));
+                    cliente.SetNome(nomeTbx.Text)
+                    .SetEmail(emailTbx.Text)
+                    .SetCPF(cpfTbx.Text)
+                    .SetDataNascimento(Convert.ToDateTime(dataNascimentoTbx.Text))
+                    .SetObservacao(observacaoTbx.Text)
+                    .SetEndereco(new Endereco()
+                    .SetLogradouro(logradouroTbx.Text)
+                    .SetNumero(numeroTbx.Text)
+                    .SetComplemento(complementoTbx.Text)
+                    .SetCep(cepTbx.Text)
+                    .SetBairro(bairroTbx.Text)
+                    .SetUf(ufTbx.Text)
+                    .SetCidade(cidadeTbx.Text));
+                    if (ativoRb.Checked == true)
+                        cliente.SetSituacao(Situacao.Ativo);
+                    if (inativoRb.Checked == true)
+                        cliente.SetSituacao(Situacao.Inativo);
+                    cliente.AddTelefone(new Telefone(telefoneResidencialTbx.Text, TipoTelefone.Residencial));
+                    cliente.AddTelefone(new Telefone(telefoneComercialTbx.Text, TipoTelefone.Trabalho));
+                    cliente.AddTelefone(new Telefone(celularTbx.Text, TipoTelefone.Celular));
+
+                    _clienteController.EditarCliente(cliente);
+                    MessageBox.Show("Cadastro atualizado com sucesso!");
+                }
+            }
+            catch(Exception erro)
+            {
+                MessageBox.Show("Ocorreu um erro durante a apkicação! \n" + erro.ToString());
             }
         }
 

@@ -169,6 +169,7 @@ namespace TelasSharpWare.DAO
                     .SetUf(reader.GetString("uf"))
                     .SetCidade(reader.GetString("cidade")));
                 }
+                reader.Close();
                 return cliente;
             }
         }
@@ -199,10 +200,74 @@ namespace TelasSharpWare.DAO
             }
         }
 
-        /*public void Inativacao(Cliente cliente)
+        public bool InativarCliente(int id)
         {
-            MySqlDataReader reader = null;
-            string cmdText = @"ALTER TABLE cliente MODIFY COLUNM";
-        }*/
+            try
+            {
+                bool resInativaCliente = false;
+                MySqlDataReader reader = null;
+                string cmdText = @"update cliente set situacao='Inativo' where id=@id";
+                using (MySqlCommand cmd = new MySqlCommand(cmdText, _con))
+                {
+                    cmd.Prepare();
+                    cmd.Parameters.AddWithValue("@id", id);
+                    return resInativaCliente = cmd.ExecuteNonQuery() > 0;
+                }
+            }
+            catch(Exception erro)
+            {
+                throw new Exception(erro.ToString());
+            }
+        }
+
+        public bool EditarCliente(Cliente cliente)
+        {
+            try
+            {
+                string cmdInsertCliente = @"update cliente
+                                            set
+                                            nome=@nome, 
+                                            cpf=@cpf, 
+                                            data_nascimento=@data_nascimento, 
+                                            observacao=@observacao,
+                                            situacao=@situacao, 
+                                            email=@email,
+                                            logradouro=@logradouro,
+                                            numero=@numero,
+                                            complemento=@complemento,
+                                            cep=@cep,
+                                            bairro=@bairro,
+                                            uf=@uf,
+                                            cidade=@cidade
+                                            where id=@id";
+                using (var cmd = new MySqlCommand(cmdInsertCliente, _con))
+                {
+                    cmd.Prepare();
+                    cmd.Parameters.AddWithValue("@id", cliente.Id);
+                    cmd.Parameters.AddWithValue("@nome", cliente.Nome);
+                    cmd.Parameters.AddWithValue("@cpf", cliente.CPF);
+                    cmd.Parameters.AddWithValue("@data_nascimento", cliente.DataNascimento);
+                    cmd.Parameters.AddWithValue("@observacao", cliente.Observacao);
+                    cmd.Parameters.AddWithValue("@situacao", cliente._Situacao.ToString());
+                    cmd.Parameters.AddWithValue("@email", cliente.Email);
+                    cmd.Parameters.AddWithValue("@logradouro", cliente.Endereco.Logradouro);
+                    cmd.Parameters.AddWithValue("@numero", cliente.Endereco.Numero);
+                    cmd.Parameters.AddWithValue("@complemento", cliente.Endereco.Complemento);
+                    cmd.Parameters.AddWithValue("@cep", cliente.Endereco.Cep);
+                    cmd.Parameters.AddWithValue("@bairro", cliente.Endereco.Bairro);
+                    cmd.Parameters.AddWithValue("@uf", cliente.Endereco.Uf);
+                    cmd.Parameters.AddWithValue("@cidade", cliente.Endereco.Cidade);
+                    bool resQueryEndereco = cmd.ExecuteNonQuery() > 0;
+                    long lastId = cmd.LastInsertedId;
+                    TelefoneDao telefoneDao = new TelefoneDao(_con);
+                    telefoneDao.EditarTelefoneCliente(cliente, lastId);
+                    return resQueryEndereco;
+                }
+            }
+            catch (Exception erro)
+            {
+                throw new Exception("ocorreu o seguinte erro: " + erro.ToString());
+            }
+        }
     }
 }

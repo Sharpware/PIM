@@ -71,7 +71,6 @@ namespace TelasSharpWare
                 .SetCPF(cpfTbx.Text)
                 .SetDataNascimento(Convert.ToDateTime(dataNascimentoTbx.Text))
                 .SetObservacao(observacaoTbx.Text)
-                .SetSituacao(Situacao.Ativo)
                 .SetEndereco(new Endereco()
                 .SetLogradouro(logradouroTbx.Text)
                 .SetNumero(numeroTbx.Text)
@@ -80,6 +79,10 @@ namespace TelasSharpWare
                 .SetBairro(bairroTbx.Text)
                 .SetUf(ufCbx.Text)
                 .SetCidade(cidadeTbx.Text));
+                if (ativoRb.Checked == true)
+                    cliente.SetSituacao(Situacao.Ativo);
+                if (inativoRb.Checked == true)
+                    cliente.SetSituacao(Situacao.Inativo);
                 cliente.AddTelefone(new Telefone(telefoneResidencialTbx.Text, TipoTelefone.Residencial));
                 cliente.AddTelefone(new Telefone(telefoneComercialTbx.Text, TipoTelefone.Trabalho));
                 cliente.AddTelefone(new Telefone(celularTbx.Text, TipoTelefone.Celular));

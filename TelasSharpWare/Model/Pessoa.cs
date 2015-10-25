@@ -119,9 +119,9 @@ namespace TelasSharpWare.Model
 
         public Pessoa<T> SetSituacao(string situacao)
         {
-            if (situacao == "ativo")
+            if (situacao == "Ativo")
                 _situacao = Situacao.Ativo;
-            if (situacao == "inativo")
+            if (situacao == "Inativo")
                 _situacao = Situacao.Inativo;
             return this;
         }
