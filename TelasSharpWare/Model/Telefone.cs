@@ -35,6 +35,10 @@ namespace TelasSharpWare.Model
             {
                 return _numero;
             }
+            set
+            {
+                _numero = value;
+            }
         }
 
         public TipoTelefone TipoTelefone

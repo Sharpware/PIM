@@ -385,13 +385,13 @@
             this.inativoRb.Name = "inativoRb";
             this.inativoRb.Size = new System.Drawing.Size(64, 21);
             this.inativoRb.TabIndex = 12;
-            this.inativoRb.TabStop = true;
             this.inativoRb.Text = "Inativo";
             this.inativoRb.UseVisualStyleBackColor = true;
             // 
             // ativoRb
             // 
             this.ativoRb.AutoSize = true;
+            this.ativoRb.Checked = true;
             this.ativoRb.Location = new System.Drawing.Point(103, 19);
             this.ativoRb.Name = "ativoRb";
             this.ativoRb.Size = new System.Drawing.Size(55, 21);

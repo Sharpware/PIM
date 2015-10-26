@@ -25,10 +25,8 @@ namespace TelasSharpWare.DAO
             string cmdText = @"SELECT id,
                                 nome,
                                 marca,
-                                observacao,
-                                tamanho,
-                                preco_venda,
-                                quantidade FROM produto";
+                                descricao,
+                                tamanho FROM produto";
             using (MySqlCommand cmd = new MySqlCommand(cmdText, _con))
             {
                 reader = cmd.ExecuteReader();
@@ -39,14 +37,13 @@ namespace TelasSharpWare.DAO
                         produto.Id = reader.GetInt64("id");
                         produto.Nome = reader.GetString("nome");
                         produto.Marca = reader.GetString("marca");
-                        produto.Observacao = reader.GetString("observacao");
+                        produto.Descricao = reader.GetString("descricao");
                         produto.Tamanho = reader.GetString("tamanho");
-                        produto.PrecoVenda = reader.GetDouble("preco_venda");
-                        produto.Quantidade = reader.GetInt32("quantidade");
                         produtos.Add(produto);
                     }
             }
-            return produtos;   
+            reader.Close();
+            return BuscarQuantProduto(BuscarPrecoProduto(produtos)); 
         }
 
         public List<Produto> BuscarPorId(int id)
@@ -56,10 +53,8 @@ namespace TelasSharpWare.DAO
             string cmdText = @"SELECT id,
                                     nome,
                                     marca,
-                                    observacao,
-                                    tamanho,
-                                    preco_venda,
-                                    quantidade FROM produto WHERE id=@id";
+                                    descricao,
+                                    tamanho FROM produto WHERE id=@id";
             using (MySqlCommand cmd = new MySqlCommand(cmdText, _con))
             {
                 cmd.Prepare();
@@ -74,15 +69,14 @@ namespace TelasSharpWare.DAO
                         produto.Id = reader.GetInt64("id");
                         produto.Nome = reader.GetString("nome");
                         produto.Marca = reader.GetString("marca");
-                        produto.Observacao = reader.GetString("observacao");
+                        produto.Descricao = reader.GetString("descricao");
                         produto.Tamanho = reader.GetString("tamanho");
-                        produto.PrecoVenda = reader.GetDouble("preco_venda");
-                        produto.Quantidade = reader.GetInt32("quantidade");
                         produtos.Add(produto);
                     }
                 }
             }
-            return produtos;
+            reader.Close();
+            return BuscarQuantProduto(BuscarPrecoProduto(produtos));
         }
 
         public List<Produto> BuscarPorNome(string nome)
@@ -92,10 +86,8 @@ namespace TelasSharpWare.DAO
             string cmdText = @"SELECT id,
                                     nome,
                                     marca,
-                                    observacao,
-                                    tamanho,
-                                    preco_venda,
-                                    quantidade FROM produto WHERE nome=@nome";
+                                    descricao,
+                                    tamanho FROM produto WHERE nome=@nome";
             using (MySqlCommand cmd = new MySqlCommand(cmdText, _con))
             {
                 cmd.Prepare();
@@ -110,15 +102,14 @@ namespace TelasSharpWare.DAO
                         produto.Id = reader.GetInt64("id");
                         produto.Nome = reader.GetString("nome");
                         produto.Marca = reader.GetString("marca");
-                        produto.Observacao = reader.GetString("observacao");
+                        produto.Descricao = reader.GetString("descricao");
                         produto.Tamanho = reader.GetString("tamanho");
-                        produto.PrecoVenda = reader.GetDouble("preco_venda");
-                        produto.Quantidade = reader.GetInt32("quantidade");
                         produtos.Add(produto);
                     }
                 }
             }
-            return produtos;
+            reader.Close();
+            return BuscarQuantProduto(BuscarPrecoProduto(produtos));
         }
 
         public List<Produto> BuscarPorMarca(string marca)
@@ -128,10 +119,8 @@ namespace TelasSharpWare.DAO
             string cmdText = @"SELECT id,
                                     nome,
                                     marca,
-                                    observacao,
-                                    tamanho,
-                                    preco_venda,
-                                    quantidade FROM produto WHERE marca=@marca";
+                                    descricao,
+                                    tamanho FROM produto WHERE marca=@marca";
             using (MySqlCommand cmd = new MySqlCommand(cmdText, _con))
             {
                 cmd.Prepare();
@@ -146,49 +135,100 @@ namespace TelasSharpWare.DAO
                         produto.Id = reader.GetInt64("id");
                         produto.Nome = reader.GetString("nome");
                         produto.Marca = reader.GetString("marca");
-                        produto.Observacao = reader.GetString("observacao");
+                        produto.Descricao = reader.GetString("descricao");
                         produto.Tamanho = reader.GetString("tamanho");
-                        produto.PrecoVenda = reader.GetDouble("preco_venda");
-                        produto.Quantidade = reader.GetInt32("quantidade");
                         produtos.Add(produto);
                     }
                 }
             }
-            return produtos;
+            reader.Close();
+            return BuscarQuantProduto(BuscarPrecoProduto(produtos));
         }
 
-        public Produto BuscarPorCodigo(string codigo)
+        public List<Produto> BuscarPorCodigo(string codigo)
         {
             MySqlDataReader reader = null;
-            Produto produto = null;
+            List<Produto> produtos = null;
             string cmdText = @"SELECT id,
                                     nome,
                                     marca,
-                                    observacao,
-                                    tamanho,
-                                    preco_venda,
-                                    quantidade FROM produto WHERE codigo_barra=@codigo_barra";
+                                    descricao,
+                                    tamanho FROM produto WHERE codigo_barra=@codigo_barra";
             using (MySqlCommand cmd = new MySqlCommand(cmdText, _con))
             {
                 cmd.Prepare();
                 cmd.Parameters.AddWithValue("@codigo_barra", codigo);
-                produto = new Produto();
+                produtos = new List<Produto>();
                 reader = cmd.ExecuteReader();
                 if (reader.HasRows)
                 {
                     while (reader.Read())
                     {
+                        Produto produto = new Produto();
                         produto.Id = reader.GetInt64("id");
                         produto.Nome = reader.GetString("nome");
                         produto.Marca = reader.GetString("marca");
-                        produto.Observacao = reader.GetString("observacao");
+                        produto.Descricao = reader.GetString("descricao");
                         produto.Tamanho = reader.GetString("tamanho");
-                        produto.PrecoVenda = reader.GetDouble("preco_venda");
-                        produto.Quantidade = reader.GetInt32("quantidade");
+                        produtos.Add(produto);
                     }
                 }
             }
-            return produto;
+            reader.Close();
+            return BuscarQuantProduto(BuscarPrecoProduto(produtos));
+        }
+
+        public List<Produto> BuscarPrecoProduto(List<Produto> produtos)
+        {
+            MySqlDataReader reader = null;
+            foreach (Produto produto in produtos)
+            {
+                string cmdBuscaPreco = @"select preco from lista_preco 
+                                        where id_produto=@id_produto";
+                using (MySqlCommand cmd = new MySqlCommand(cmdBuscaPreco, _con))
+                {
+                    cmd.Prepare();
+                    cmd.Parameters.AddWithValue("id_produto", produto.Id);
+                    reader = cmd.ExecuteReader();
+                    if(reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            produto.PrecoVenda = reader.GetDouble("preco");
+                        }
+                    }
+                }
+            }
+            if (reader != null)
+            {
+                reader.Close();
+            }
+            return produtos;
+        }
+
+        public List<Produto> BuscarQuantProduto(List<Produto> produtos)
+        {
+            MySqlDataReader reader = null;
+            foreach (Produto produto in produtos)
+            {
+                string cmdBuscaQuant = @"select quantidade_produto from estoque 
+                                        where id_produto=@id_produto";
+                using (MySqlCommand cmd = new MySqlCommand(cmdBuscaQuant, _con))
+                {
+                    cmd.Prepare();
+                    cmd.Parameters.AddWithValue("id_produto", produto.Id);
+                    reader = cmd.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            produto.Quantidade= reader.GetInt32("quantidade_produto");
+                        }
+                    }
+                }
+            }
+            return produtos;
+            reader.Close();
         }
     }
 }

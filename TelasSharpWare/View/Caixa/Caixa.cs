@@ -75,7 +75,8 @@ namespace TelasSharpWare
 
         private void adicionarProdutoBtn_Click(object sender, EventArgs e)
         {
-            Produto produto = _produtoController.PesquisaPorCodigoBarras(codigoBarrasProdutoTbx.Text);
+            List<Produto> produtos = _produtoController.PesquisaPorCodigoBarras(codigoBarrasProdutoTbx.Text);
+            Produto produto = produtos[0];
             if (produto.Id > 0)
             {
                 int index = vendaProdutosDgv.Rows.Add();
@@ -86,14 +87,14 @@ namespace TelasSharpWare
                 linha.Cells["id"].Value = itemVenda.Id;
                 linha.Cells["marca"].Value = itemVenda.Produto.Marca;
                 linha.Cells["nome"].Value = itemVenda.Produto.Nome;
-                linha.Cells["descricao"].Value = itemVenda.Produto.Observacao;
+                linha.Cells["descricao"].Value = itemVenda.Produto.Descricao;
                 linha.Cells["tamanho"].Value = itemVenda.Produto.Tamanho;
                 linha.Cells["valor"].Value = itemVenda.ValorTotal;
                 linha.Cells["quantidade"].Value = itemVenda.Quantidade;
                 _venda.QuantItensVenda += itemVenda.Quantidade;
 
                 nomeProdutoTbx.Text = itemVenda.Produto.Nome;
-                descricaoProdutoTbx.Text = itemVenda.Produto.Observacao;
+                descricaoProdutoTbx.Text = itemVenda.Produto.Descricao;
                 tamanhoTbx.Text = itemVenda.Produto.Tamanho;
 
                 valorProdutoLbl.Text = Convert.ToString(itemVenda.Produto.PrecoVenda);

@@ -67,7 +67,7 @@ namespace TelasSharpWare.DAO
                     string cmdUpdateTelefone = @"update telefone
                                             set
                                             numero=@numero, 
-                                            tipo_telefone=@tipo_telefone,
+                                            tipo_telefone=@tipo_telefone
                                             where id=@id
                                             ";
                     using (MySqlCommand cmd = new MySqlCommand(cmdUpdateTelefone, _con))

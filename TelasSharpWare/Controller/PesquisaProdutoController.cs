@@ -57,7 +57,7 @@ namespace TelasSharpWare.Controller
             }
         }
 
-        public Produto PesquisaPorCodigoBarras(string codigo)
+        public List<Produto> PesquisaPorCodigoBarras(string codigo)
         {
             using (_connectionManager.Open())
             {

@@ -16,11 +16,14 @@ namespace TelasSharpWare
     {
         private Cliente _cliente;
         private ClienteController _clienteController;
+        private bool _resposta;
+
         public EditarCliente(Cliente cliente)
         {
             _cliente = cliente;
             _clienteController = new ClienteController();
             InitializeComponent();
+            _resposta = false;
         }
 
         private void EditarCliente_Load(object sender, EventArgs e)
@@ -64,6 +67,18 @@ namespace TelasSharpWare
             }
         }
 
+        public bool Resposta
+        {
+            get
+            {
+                return _resposta;
+            }
+
+            set
+            {
+                _resposta = value;
+            }
+        }
 
         private void botaoEditarCliente1_Click(object sender, EventArgs e)
         {
@@ -71,9 +86,8 @@ namespace TelasSharpWare
             {
                 if (MessageBox.Show("Deseja editar o cliente?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    Cliente cliente = new Cliente();
-                    cliente.SetId(Int32.Parse(idTbx.Text));
-                    cliente.SetNome(nomeTbx.Text)
+                    _cliente.SetId(Int32.Parse(idTbx.Text));
+                    _cliente.SetNome(nomeTbx.Text)
                     .SetEmail(emailTbx.Text)
                     .SetCPF(cpfTbx.Text)
                     .SetDataNascimento(Convert.ToDateTime(dataNascimentoTbx.Text))
@@ -87,15 +101,29 @@ namespace TelasSharpWare
                     .SetUf(ufTbx.Text)
                     .SetCidade(cidadeTbx.Text));
                     if (ativoRb.Checked == true)
-                        cliente.SetSituacao(Situacao.Ativo);
+                        _cliente.SetSituacao(Situacao.Ativo);
                     if (inativoRb.Checked == true)
-                        cliente.SetSituacao(Situacao.Inativo);
-                    cliente.AddTelefone(new Telefone(telefoneResidencialTbx.Text, TipoTelefone.Residencial));
-                    cliente.AddTelefone(new Telefone(telefoneComercialTbx.Text, TipoTelefone.Trabalho));
-                    cliente.AddTelefone(new Telefone(celularTbx.Text, TipoTelefone.Celular));
+                        _cliente.SetSituacao(Situacao.Inativo);
+                    foreach(Telefone telefone in _cliente.Telefones)
+                    {
+                        if(telefone.TipoTelefone == TipoTelefone.Residencial)
+                        {
+                            telefone.Numero = telefoneResidencialTbx.Text;
+                        }
+                        if(telefone.TipoTelefone == TipoTelefone.Trabalho)
+                        {
+                            telefone.Numero = telefoneComercialTbx.Text;
+                        }
+                        if(telefone.TipoTelefone == TipoTelefone.Celular)
+                        {
+                            telefone.Numero = celularTbx.Text;
+                        }
+                    }
 
-                    _clienteController.EditarCliente(cliente);
+                    _clienteController.EditarCliente(_cliente);
                     MessageBox.Show("Cadastro atualizado com sucesso!");
+                    Resposta = true;
+                    this.Close();
                 }
             }
             catch(Exception erro)

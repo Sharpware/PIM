@@ -39,7 +39,6 @@ namespace TelasSharpWare
             }
         }
 
-
         private void PopularGrid(List<Cliente> insertClientes)
         {
             List<Cliente> clientes = insertClientes;
@@ -89,24 +88,25 @@ namespace TelasSharpWare
 
         private void botaoInativarCliente1_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Deseja inativar o cliente?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            try
             {
-                try
+                int row = pesquisaClienteDgv.Rows.GetRowCount(DataGridViewElementStates.Selected);
+                int id = 0;
+                string idText = "";
+                if (row == 1)
                 {
-                    int row = pesquisaClienteDgv.Rows.GetRowCount(DataGridViewElementStates.Selected);
-                    int id = 0;
-                    string idText = "";
-                    if (row == 1)
+                    idText = pesquisaClienteDgv.SelectedRows[0].Cells[0].Value.ToString();
+                    id = Int32.Parse(idText);
+                    if (MessageBox.Show("Deseja inativar o cliente?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        idText = pesquisaClienteDgv.SelectedRows[0].Cells[0].Value.ToString();
-                        id = Int32.Parse(idText);
                         _clienteController.InativarCliente(id);
+                        Pesquisa();
                     }
                 }
-                catch(Exception erro)
-                {
-                    MessageBox.Show("Não foi possivel inativar o cliente /n" + erro.ToString());
-                }
+            }
+            catch(Exception erro)
+            {
+                MessageBox.Show("Não foi possivel inativar o cliente /n" + erro.ToString());
             }
         }
 
@@ -133,8 +133,8 @@ namespace TelasSharpWare
 
         private void botaoEditarCliente1_Click(object sender, EventArgs e)
         {
-            //try
-            //{
+            try
+            {
                 int row = pesquisaClienteDgv.Rows.GetRowCount(DataGridViewElementStates.Selected);
                 int id = 0;
                 string idText = "";
@@ -145,54 +145,16 @@ namespace TelasSharpWare
                     EditarCliente editarCliente = new EditarCliente(_clienteController.PesquisarPorId(id));
                     editarCliente.Show();
                 }
-            //}
-            //catch(Exception erro)
-            //{
-              //  MessageBox.Show(erro.ToString());
-            //}
+            }
+            catch(Exception erro)
+            {
+                MessageBox.Show(erro.ToString());
+            }
         }
-
 
         private void botaoAcessarPesquisaCliente1_Click(object sender, EventArgs e)
         {
-            pesquisaClienteDgv.Rows.Clear();
-            if (nomeTbx.Text != "" && nomeRb.Checked == true)
-            {
-                PopularGrid(_clienteController.PesquisarPorNome(nomeTbx.Text));
-                if (pesquisaClienteDgv.Rows[0].Cells["id"].Value == null)
-                {
-                    MessageBox.Show("Cliente não encontrado");
-                }    
-            }
-
-            if(idTbx.Text != "" && idRb.Checked == true)
-            {
-                PopularGrid(_clienteController.PesquisarPorId(Convert.ToInt32(idTbx.Text)));
-                if(pesquisaClienteDgv.Rows[0].Cells["id"].Value == null)
-                {
-                    MessageBox.Show("Cliente não encontrado");
-                }
-            }
-
-            if(cpfMbx.Text != "   ,   ,   -" && cpfRb.Checked == true)
-            {
-                PopularGrid(_clienteController.PesquisarPorCPF(cpfMbx.Text));
-                if (pesquisaClienteDgv.Rows[0].Cells["id"].Value == null)
-                {
-                    MessageBox.Show("Cliente não encontrado");
-                }
-            }
-
-            if (nomeTbx.Text == "" &&
-                idTbx.Text == "" &&
-                cpfMbx.Text == "   .   .   -")
-            {
-                PopularGrid(_clienteController.PesquisarTodosClientes());
-            }
-            nomeTbx.Text = "";
-            idTbx.Text = "";
-            cpfMbx.Text = "";
-
+            Pesquisa();
         }
 
         private void nomeRb_CheckedChanged(object sender, EventArgs e)
@@ -225,7 +187,46 @@ namespace TelasSharpWare
             cpfMbx.Focus();
         }
 
-        
+        private void Pesquisa()
+        {
+            pesquisaClienteDgv.Rows.Clear();
+            if (nomeTbx.Text != "" && nomeRb.Checked == true)
+            {
+                PopularGrid(_clienteController.PesquisarPorNome(nomeTbx.Text));
+                if (pesquisaClienteDgv.Rows[0].Cells["id"].Value == null)
+                {
+                    MessageBox.Show("Cliente não encontrado");
+                }
+            }
+
+            if (idTbx.Text != "" && idRb.Checked == true)
+            {
+                PopularGrid(_clienteController.PesquisarPorId(Convert.ToInt32(idTbx.Text)));
+                if (pesquisaClienteDgv.Rows[0].Cells["id"].Value == null)
+                {
+                    MessageBox.Show("Cliente não encontrado");
+                }
+            }
+
+            if (cpfMbx.Text != "   ,   ,   -" && cpfRb.Checked == true)
+            {
+                PopularGrid(_clienteController.PesquisarPorCPF(cpfMbx.Text));
+                if (pesquisaClienteDgv.Rows[0].Cells["id"].Value == null)
+                {
+                    MessageBox.Show("Cliente não encontrado");
+                }
+            }
+
+            if (nomeTbx.Text == "" &&
+                idTbx.Text == "" &&
+                cpfMbx.Text == "   .   .   -")
+            {
+                PopularGrid(_clienteController.PesquisarTodosClientes());
+            }
+            nomeTbx.Text = "";
+            idTbx.Text = "";
+            cpfMbx.Text = "";
+        }
 
         public Cliente RetornarCliente()
         {
@@ -240,6 +241,11 @@ namespace TelasSharpWare
             idTbx.Text = "";
             cpfMbx.Enabled = false;
             cpfMbx.Text = "   .   .   -";
+        }
+
+        private void PesquisarCliente_Activated(object sender, EventArgs e)
+        {
+            Pesquisa();
         }
     }
 }

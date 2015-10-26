@@ -16,7 +16,7 @@ namespace TelasSharpWare.Model
         private long codigoBarras;
         private double precoCusto;
         private double precoVenda;
-        private String observacao;
+        private String descricao;
         private TipoProduto tipoFuncionario;
         private Situacao status;
 
@@ -124,16 +124,16 @@ namespace TelasSharpWare.Model
             }
         }
 
-        public string Observacao
+        public string Descricao
         {
             get
             {
-                return observacao;
+                return descricao;
             }
 
             set
             {
-                observacao = value;
+                descricao = value;
             }
         }
 

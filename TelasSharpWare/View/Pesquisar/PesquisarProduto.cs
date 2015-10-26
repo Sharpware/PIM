@@ -33,7 +33,7 @@ namespace TelasSharpWare
                 linha.Cells["id"].Value = produto.Id;
                 linha.Cells["marca"].Value = produto.Marca;
                 linha.Cells["nome"].Value = produto.Nome;
-                linha.Cells["observacao"].Value = produto.Observacao;
+                linha.Cells["observacao"].Value = produto.Descricao;
                 linha.Cells["tamanho"].Value = produto.Tamanho;
                 linha.Cells["valor"].Value = produto.PrecoVenda;
                 linha.Cells["quant"].Value = produto.Quantidade;
