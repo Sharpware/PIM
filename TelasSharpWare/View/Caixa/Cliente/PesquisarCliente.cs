@@ -208,7 +208,7 @@ namespace TelasSharpWare
                 }
             }
 
-            if (cpfMbx.Text != "   ,   ,   -" && cpfRb.Checked == true)
+            if (cpfMbx.Text != "   .   .   -" && cpfRb.Checked == true)
             {
                 PopularGrid(_clienteController.PesquisarPorCPF(cpfMbx.Text));
                 if (pesquisaClienteDgv.Rows[0].Cells["id"].Value == null)
@@ -245,7 +245,7 @@ namespace TelasSharpWare
 
         private void PesquisarCliente_Activated(object sender, EventArgs e)
         {
-            Pesquisa();
+            
         }
     }
 }

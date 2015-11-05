@@ -10,7 +10,7 @@ namespace TelasSharpWare.DAO
 {
     public class ProdutoDao
     {
-
+        
         MySqlConnection _con;
         public ProdutoDao(MySqlConnection con)
         {
