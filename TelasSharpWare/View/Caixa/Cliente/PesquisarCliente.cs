@@ -235,6 +235,7 @@ namespace TelasSharpWare
 
         private void PesquisarCliente_Load(object sender, EventArgs e)
         {
+            Pesquisa();
             nomeTbx.Enabled = true;
             nomeTbx.Focus();
             idTbx.Enabled = false;
@@ -243,9 +244,5 @@ namespace TelasSharpWare
             cpfMbx.Text = "   .   .   -";
         }
 
-        private void PesquisarCliente_Activated(object sender, EventArgs e)
-        {
-            
-        }
     }
 }

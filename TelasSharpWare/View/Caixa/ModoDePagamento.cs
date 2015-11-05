@@ -51,11 +51,18 @@ namespace TelasSharpWare
 
         private void botaoDinheiro1_Click(object sender, EventArgs e)
         {
-            PagamentoDinheiro pagamentoDinheiro = new PagamentoDinheiro(_venda);
-            _pagamentoDinheiro = pagamentoDinheiro;
-            _pagamentoDinheiro.ShowDialog();
-            this.Close();
-            
+            try
+            {
+                PagamentoDinheiro pagamentoDinheiro = new PagamentoDinheiro(_venda);
+                _pagamentoDinheiro = pagamentoDinheiro;
+                _pagamentoDinheiro.ShowDialog();
+                this.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Ocorreu o seguinte erro: " + erro.ToString());
+            }
+
         }
 
         private void botaoDinheiro1_MouseEnter(object sender, EventArgs e)

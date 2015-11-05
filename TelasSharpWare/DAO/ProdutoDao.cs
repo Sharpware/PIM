@@ -180,55 +180,63 @@ namespace TelasSharpWare.DAO
 
         public List<Produto> BuscarPrecoProduto(List<Produto> produtos)
         {
-            MySqlDataReader reader = null;
-            foreach (Produto produto in produtos)
+            if (produtos.Count > 0)
             {
-                string cmdBuscaPreco = @"select preco from lista_preco 
-                                        where id_produto=@id_produto";
-                using (MySqlCommand cmd = new MySqlCommand(cmdBuscaPreco, _con))
+                MySqlDataReader reader = null;
+                foreach (Produto produto in produtos)
                 {
-                    cmd.Prepare();
-                    cmd.Parameters.AddWithValue("id_produto", produto.Id);
-                    reader = cmd.ExecuteReader();
-                    if(reader.HasRows)
+                    string cmdBuscaPreco = @"select preco from lista_preco 
+                                        where id_produto=@id_produto";
+                    using (MySqlCommand cmd = new MySqlCommand(cmdBuscaPreco, _con))
                     {
-                        while (reader.Read())
+                        cmd.Prepare();
+                        cmd.Parameters.AddWithValue("id_produto", produto.Id);
+                        reader = cmd.ExecuteReader();
+                        if (reader.HasRows)
                         {
-                            produto.PrecoVenda = reader.GetDouble("preco");
+                            while (reader.Read())
+                            {
+                                produto.PrecoVenda = reader.GetDouble("preco");
+                            }
                         }
                     }
                 }
-            }
-            if (reader != null)
-            {
-                reader.Close();
+                if (reader != null)
+                {
+                    reader.Close();
+                }
+                return produtos;
             }
             return produtos;
         }
 
         public List<Produto> BuscarQuantProduto(List<Produto> produtos)
         {
-            MySqlDataReader reader = null;
-            foreach (Produto produto in produtos)
+            if (produtos.Count > 0)
             {
-                string cmdBuscaQuant = @"select quantidade_produto from estoque 
-                                        where id_produto=@id_produto";
-                using (MySqlCommand cmd = new MySqlCommand(cmdBuscaQuant, _con))
+                MySqlDataReader reader = null;
+                foreach (Produto produto in produtos)
                 {
-                    cmd.Prepare();
-                    cmd.Parameters.AddWithValue("id_produto", produto.Id);
-                    reader = cmd.ExecuteReader();
-                    if (reader.HasRows)
+                    string cmdBuscaQuant = @"select quantidade_produto from estoque 
+                                        where id_produto=@id_produto";
+                    using (MySqlCommand cmd = new MySqlCommand(cmdBuscaQuant, _con))
                     {
-                        while (reader.Read())
+                        cmd.Prepare();
+                        cmd.Parameters.AddWithValue("id_produto", produto.Id);
+                        reader = cmd.ExecuteReader();
+                        if (reader.HasRows)
                         {
-                            produto.Quantidade= reader.GetInt32("quantidade_produto");
+                            while (reader.Read())
+                            {
+                                produto.Quantidade = reader.GetInt32("quantidade_produto");
+                            }
                         }
                     }
                 }
+                return produtos;
+                reader.Close();
             }
             return produtos;
-            reader.Close();
         }
     }
 }

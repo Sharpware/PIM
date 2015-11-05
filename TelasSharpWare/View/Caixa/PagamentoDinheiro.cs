@@ -45,8 +45,15 @@ namespace TelasSharpWare.View.Caixa
 
         private void PagamentoDinheiro_Load(object sender, EventArgs e)
         {
-            quantItensLbl.Text = Convert.ToString(_venda.QuantItensVenda);
-            valorTotalLbl.Text = Convert.ToString(_venda.ValorTotal);
+            try
+            {
+                quantItensLbl.Text = Convert.ToString(_venda.QuantItensVenda);
+                valorTotalLbl.Text = Convert.ToString(_venda.ValorTotal);
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Ocorreu o seguinte erro: " + erro.ToString());
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -61,20 +68,34 @@ namespace TelasSharpWare.View.Caixa
 
         private void confirmarPagamentoBtn_Click(object sender, EventArgs e)
         {
-            _venda.PagamentoCliente = Convert.ToDouble(pagamentoClienteTbx.Text);
-            if (_venda.PagamentoCliente >= _venda.ValorTotal)
+            try
             {
-                _retornoVenda = true;
-                this.Close();
+                _venda.PagamentoCliente = Convert.ToDouble(pagamentoClienteTbx.Text);
+                if (_venda.PagamentoCliente >= _venda.ValorTotal)
+                {
+                    _retornoVenda = true;
+                    this.Close();
+                }
+                else
+                    MessageBox.Show("Pagamento abaixo do valor total");
             }
-            else
-                MessageBox.Show("Pagamento abaixo do valor total");
+            catch (Exception erro)
+            {
+                MessageBox.Show("Ocorreu o seguinte erro: " + erro.ToString());
+            }
         }
 
         private void cancelarPagamentoBtn_Click(object sender, EventArgs e)
         {
-            _retornoVenda = false;
-            this.Close();
+            try
+            {
+                _retornoVenda = false;
+                this.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Ocorreu o seguinte erro: " + erro.ToString());
+            }
         }
     }
 }

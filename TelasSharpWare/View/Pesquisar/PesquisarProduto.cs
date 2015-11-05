@@ -47,51 +47,58 @@ namespace TelasSharpWare
 
         private void pesquisarProdutosBtn_Click(object sender, EventArgs e)
         {
-            pesquisaProdutosDgv.Rows.Clear();
-
-            if (idProdutoTbx.Text != "" && codigoRb.Checked == true)
+            try
             {
-                PopularGrid(_pesquisaProdutoController.PesquisarPorId(Convert.ToInt32(idProdutoTbx.Text)));
-                if (pesquisaProdutosDgv.Rows[0].Cells["id"].Value == null)
+                pesquisaProdutosDgv.Rows.Clear();
+
+                if (idProdutoTbx.Text != "" && codigoRb.Checked == true)
                 {
-                    MessageBox.Show("Nenhum produto encontrado");
+                    PopularGrid(_pesquisaProdutoController.PesquisarPorId(Convert.ToInt32(idProdutoTbx.Text)));
+                    if (pesquisaProdutosDgv.Rows[0].Cells["id"].Value == null)
+                    {
+                        MessageBox.Show("Nenhum produto encontrado");
+                    }
+                }
+
+                /*if(tipoProdutoCbx.Text != "" && tipoRb.Checked == true)
+                {
+                    PopularGrid(_pesquisaProdutoController.PesquisarPorTipo(tipoProdutoCbx.Text));
+                }*/
+
+                if (marcaProdutoTbx.Text != "" && marcaRb.Checked == true)
+                {
+                    PopularGrid(_pesquisaProdutoController.PesquisarPorMarca(marcaProdutoTbx.Text));
+                    if (pesquisaProdutosDgv.Rows[0].Cells["id"].Value == null)
+                    {
+                        MessageBox.Show("Nenhum produto encontrado");
+                    }
+                }
+
+                if (nomeProdutoTbx.Text != "" && nomeProdutoRb.Checked == true)
+                {
+                    PopularGrid(_pesquisaProdutoController.PesquisarPorNome(nomeProdutoTbx.Text));
+                    if (pesquisaProdutosDgv.Rows[0].Cells["id"].Value == null)
+                    {
+                        MessageBox.Show("Nenhum produto encontrado");
+                    }
+                }
+
+                if (idProdutoTbx.Text == "" &&
+                    nomeProdutoTbx.Text == "" &&
+                    marcaProdutoTbx.Text == "" &&
+                    tipoProdutoCbx.Text == ""
+                    )
+                {
+                    PopularGrid(_pesquisaProdutoController.PesquisarTodos());
+                    if (pesquisaProdutosDgv.Rows[0].Cells["id"].Value == null)
+                    {
+                        MessageBox.Show("Nenhum produto encontrado");
+                    }
                 }
             }
-
-            /*if(tipoProdutoCbx.Text != "" && tipoRb.Checked == true)
+            catch (Exception erro)
             {
-                PopularGrid(_pesquisaProdutoController.PesquisarPorTipo(tipoProdutoCbx.Text));
-            }*/
-
-            if (marcaProdutoTbx.Text != "" && marcaRb.Checked == true)
-            {
-                PopularGrid(_pesquisaProdutoController.PesquisarPorMarca(marcaProdutoTbx.Text));
-                if(pesquisaProdutosDgv.Rows[0].Cells["id"].Value == null)
-                {
-                    MessageBox.Show("Nenhum produto encontrado");
-                }
-            }
-
-            if (nomeProdutoTbx.Text != "" && nomeProdutoRb.Checked == true)
-            {
-                PopularGrid(_pesquisaProdutoController.PesquisarPorNome(nomeProdutoTbx.Text));
-                if (pesquisaProdutosDgv.Rows[0].Cells["id"].Value == null)
-                {
-                    MessageBox.Show("Nenhum produto encontrado");
-                }
-            }
-
-            if (idProdutoTbx.Text == "" &&
-                nomeProdutoTbx.Text == "" &&
-                marcaProdutoTbx.Text == "" &&
-                tipoProdutoCbx.Text == ""
-                )
-            {
-                PopularGrid(_pesquisaProdutoController.PesquisarTodos());
-                if (pesquisaProdutosDgv.Rows[0].Cells["id"].Value == null)
-                {
-                    MessageBox.Show("Nenhum produto encontrado");
-                }
+                MessageBox.Show("Ocorreu o seguinte erro: " + erro.ToString());
             }
         }
 

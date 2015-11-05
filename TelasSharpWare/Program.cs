@@ -16,10 +16,12 @@ namespace TelasSharpWare
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            FormEntrada entrada = new FormEntrada();
-            Login login = new Login();
+            FormEntrada entrada;
+            Login login;
             do
             {
+                entrada = new FormEntrada();
+                login = new Login();
                 entrada.ShowDialog();
                 if (entrada.DialogResult == DialogResult.Yes)
                 {
@@ -27,7 +29,7 @@ namespace TelasSharpWare
                     {
                         Application.Run(new Caixa());
                     }
-                    if (login.DialogResult == DialogResult.No)
+                    if (login.DialogResult == DialogResult.Cancel)
                     {
                         login.Close();
                     }
@@ -35,13 +37,13 @@ namespace TelasSharpWare
                         MessageBox.Show("Login ou senha incoreta");
                 }
 
-                if (entrada.DialogResult == DialogResult.Abort)
+                else if (entrada.DialogResult == DialogResult.Abort)
                 {
                     if (login.ShowDialog() == DialogResult.OK)
                     {
                         Application.Run(new PesquisarProduto());
                     }
-                    if (login.DialogResult == DialogResult.No)
+                    if (login.DialogResult == DialogResult.Cancel)
                     {
                         login.Close();
                     }

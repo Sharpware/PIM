@@ -74,5 +74,33 @@ namespace TelasSharpWare.DAO
                 throw new Exception(erro.ToString());
             }
         }
+
+        public Funcionario BuscarFuncionarioLogado(Funcionario funcionario)
+        {
+            try
+            {
+                string cmdLogin = @"select id, login, senha from funcionario where login=@login and senha=@senha";
+                MySqlDataReader reader = null;
+                using (MySqlCommand cmd = new MySqlCommand(cmdLogin, _con))
+                {
+                    cmd.Prepare();
+                    cmd.Parameters.AddWithValue("@login", funcionario.Login);
+                    cmd.Parameters.AddWithValue("@senha", funcionario.Senha);
+                    reader = cmd.ExecuteReader();
+                    Funcionario Rfuncionario = new Funcionario();
+                    while (reader.Read())
+                    {
+                        Rfuncionario.SetId(reader.GetInt32("id"));
+                        Rfuncionario.SetLoging(reader.GetString("login"))
+                                    .SetSenha(reader.GetString("senha"));
+                    }
+                    return Rfuncionario;
+                }
+            }
+            catch(Exception erro)
+            {
+                throw new Exception(erro.ToString());
+            }
+        }
     }
 }

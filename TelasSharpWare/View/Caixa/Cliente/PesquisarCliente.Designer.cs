@@ -377,7 +377,6 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "PesquisarCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Activated += new System.EventHandler(this.PesquisarCliente_Activated);
             this.Load += new System.EventHandler(this.PesquisarCliente_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
