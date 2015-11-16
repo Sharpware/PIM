@@ -10,7 +10,6 @@ namespace TelasSharpWare.DAO
 {
     public class ConnectionFactory
     {
-
         private ConnectionFactory()
         { }
 

@@ -47,7 +47,7 @@ namespace TelasSharpWare.Controller
             {
                 return _produtoDao.BuscarPorNome(nome);
             }
-        }
+         }
 
         public List<Produto> PesquisarPorMarca(string marca)
         {

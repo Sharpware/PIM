@@ -56,6 +56,7 @@ namespace TelasSharpWare.Controller
         {
             return _venda.Troco = _venda.PagamentoCliente - _venda.ValorTotal;
         }
+
         public List<Funcionario> BuscarFuncionarios()
         {
             using (_connectionManager.Open())
@@ -63,6 +64,7 @@ namespace TelasSharpWare.Controller
                 return _funcionarioDao.BuscarFuncionarios();
             }
         }
+
         public Funcionario BuscarFuncionarioNome(string nome)
         {
             using (_connectionManager.Open())
@@ -72,11 +74,5 @@ namespace TelasSharpWare.Controller
         }
 
 
-
-        /*public void ConcluirVenda(TipoVenda tipoVenda)
-        {
-            _venda.TipoVenda = tipoVenda;
-            _vendaDao.Add(_venda);
-        }*/
     }
 }

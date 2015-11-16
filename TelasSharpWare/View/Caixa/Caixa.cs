@@ -26,26 +26,22 @@ namespace TelasSharpWare
             _venda = null;
             _vendaController = new VendaController();
             _produtoController = new PesquisaProdutoController();
-            CarregarVendedores();
+            
         }
-
-        private void Caixa_Load(object sender, EventArgs e)
-        {
-            codigoBarrasProdutoTbx.Enabled = false;
-            quantidadeTbx.Enabled = false;
-        }
+        // Metodos para serem utilizados dentro dos eventos click e dos
+        // eventos KeyDown
 
         private void CarregarVendedores()
         {
             _funcionarios = _vendaController.BuscarFuncionarios();
-            foreach(Funcionario funcionario in _funcionarios)
+            foreach (Funcionario funcionario in _funcionarios)
             {
                 vendedorVendaCbx.Items.Add(funcionario.Nome);
             }
-            vendedorVendaCbx.Text =  _funcionarios[0].Nome;
+            vendedorVendaCbx.Text = _funcionarios[0].Nome;
         }
 
-        private void botaoAdicionarClienteCaixa1_Click(object sender, EventArgs e)
+        private void AdicionarCliente()
         {
             try
             {
@@ -59,28 +55,13 @@ namespace TelasSharpWare
                     abrirVendaBtn.Visible = true;
                 }
             }
-            catch(Exception erro)
+            catch (Exception erro)
             {
                 MessageBox.Show("Ocorreu o seguinte erro: " + erro.ToString());
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void atalhosBtn_Click(object sender, EventArgs e)
-        {
-            if (atalhosPnl.Visible == false)
-            {
-                atalhosPnl.Visible = true;
-            }
-            else
-                atalhosPnl.Visible = false;
-        }
-
-        private void adicionarProdutoBtn_Click(object sender, EventArgs e)
+        private void AdicionarProduto()
         {
             try
             {
@@ -93,7 +74,7 @@ namespace TelasSharpWare
                     _venda.AddItem(itemVenda);
 
                     DataGridViewRow linha = vendaProdutosDgv.Rows[index];
-                    linha.Cells["id"].Value = itemVenda.Id;
+                    linha.Cells["id"].Value = itemVenda.Produto.Id;
                     linha.Cells["marca"].Value = itemVenda.Produto.Marca;
                     linha.Cells["nome"].Value = itemVenda.Produto.Nome;
                     linha.Cells["descricao"].Value = itemVenda.Produto.Descricao;
@@ -118,13 +99,13 @@ namespace TelasSharpWare
                     tamanhoTbx.Text = "";
                 }
             }
-            catch (Exception erro)
+            catch (Exception)
             {
-                MessageBox.Show("Ocorreu o seguinte erro: " + erro.ToString());
+                MessageBox.Show("Produto não encontrado");
             }
         }
 
-        private void botaoModoDePagamento1_Click(object sender, EventArgs e)
+        private void ModoDePagamento()
         {
             try
             {
@@ -150,9 +131,10 @@ namespace TelasSharpWare
             {
                 MessageBox.Show("Ocorreu o seguinte erro: " + erro.ToString());
             }
+
         }
 
-        private void finalizarVendaBtn_Click(object sender, EventArgs e)
+        private void FinalizarVenda()
         {
             try
             {
@@ -162,9 +144,48 @@ namespace TelasSharpWare
                 CarregarVendedores();
                 MessageBox.Show("Venda Realizada Com Sucesso\n    Feche a gaveta!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            catch(Exception erro)
+            catch (Exception erro)
             {
                 MessageBox.Show("Ocorreu um erro e a venda não pode ser efetuada!\n" + erro.ToString());
+            }
+        }
+
+        private void AbrirVenda()
+        {
+            try
+            {
+                if (_cliente != null)
+                {
+                    modoDePagamentoBtn.Visible = true;
+                    cancelarVendaBtn.Visible = true;
+                    Funcionario funcionario = _vendaController.BuscarFuncionarioNome(vendedorVendaCbx.Text);
+                    _venda = _vendaController.IniciarVenda(_cliente, funcionario);
+                    codigoBarrasProdutoTbx.Enabled = true;
+                    quantidadeTbx.Enabled = true;
+                    abrirVendaBtn.Visible = false;
+                    adicionarProdutoBtn.Visible = true;
+                }
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Ocorreu o seguinte erro: " + erro.ToString());
+            }
+        }
+
+        private void CancelarVenda()
+        {
+            try
+            {
+                if (MessageBox.Show("Deseja realmente cancelar a venda?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    _vendaController.FinalizarVenda();
+                    LimparComponentes();
+                    CarregarVendedores();
+                }
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Ocorreu o seguinte erro: " + erro.ToString());
             }
         }
 
@@ -191,43 +212,88 @@ namespace TelasSharpWare
             cancelarVendaBtn.Visible = false;
             abrirVendaLockBtn.Visible = true;
         }
+        //Fim dos metodos
+
+        //Eventos de Click, KeyDown e Load
+        private void Caixa_Load(object sender, EventArgs e)
+        {
+            codigoBarrasProdutoTbx.Enabled = false;
+            quantidadeTbx.Enabled = false;
+            CarregarVendedores();
+        }
+
+        private void botaoAdicionarClienteCaixa1_Click(object sender, EventArgs e)
+        {
+            AdicionarCliente();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void atalhosBtn_Click(object sender, EventArgs e)
+        {
+            if (atalhosPnl.Visible == false)
+            {
+                atalhosPnl.Visible = true;
+            }
+            else
+                atalhosPnl.Visible = false;
+        }
+
+        private void adicionarProdutoBtn_Click(object sender, EventArgs e)
+        {
+            AdicionarProduto();
+        }
+
+        private void botaoModoDePagamento1_Click(object sender, EventArgs e)
+        {
+            ModoDePagamento();
+        }
+
+        private void finalizarVendaBtn_Click(object sender, EventArgs e)
+        {
+            FinalizarVenda();
+        }
 
         private void abrirVendaBtn_Click_1(object sender, EventArgs e)
         {
-            try
-            {
-                if (_cliente != null)
-                {
-                    modoDePagamentoBtn.Visible = true;
-                    cancelarVendaBtn.Visible = true;
-                    Funcionario funcionario = _vendaController.BuscarFuncionarioNome(vendedorVendaCbx.Text);
-                    _venda = _vendaController.IniciarVenda(_cliente, funcionario);
-                    codigoBarrasProdutoTbx.Enabled = true;
-                    quantidadeTbx.Enabled = true;
-                    abrirVendaBtn.Visible = false;
-                    adicionarProdutoBtn.Visible = true;
-                }
-            }
-            catch (Exception erro)
-            {
-                MessageBox.Show("Ocorreu o seguinte erro: " + erro.ToString());
-            }
+            AbrirVenda();
         }
 
         private void cancelarVendaBtn_Click(object sender, EventArgs e)
         {
-            try
+            CancelarVenda();
+        }
+
+        private void codigoBarrasProdutoTbx_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
             {
-                if (MessageBox.Show("Deseja realmente cancelar a venda?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                try
                 {
-                    _vendaController.FinalizarVenda();
-                    LimparComponentes();
-                    CarregarVendedores();
+                    int dgv_Index = vendaProdutosDgv.SelectedRows[0].Cells[0].RowIndex;
+                    _venda.ItensVenda.RemoveAt(dgv_Index);
+          
+                    vendaProdutosDgv.Rows.Clear();
+                    foreach (ItemVenda itemVenda in _venda.ItensVenda)
+                    {
+                        int index = vendaProdutosDgv.Rows.Add();
+                        DataGridViewRow linha = vendaProdutosDgv.Rows[index];
+                        linha.Cells["id"].Value = itemVenda.Produto.Id;
+                        linha.Cells["marca"].Value = itemVenda.Produto.Marca;
+                        linha.Cells["nome"].Value = itemVenda.Produto.Nome;
+                        linha.Cells["descricao"].Value = itemVenda.Produto.Descricao;
+                        linha.Cells["tamanho"].Value = itemVenda.Produto.Tamanho;
+                        linha.Cells["valor"].Value = itemVenda.ValorTotal;
+                        linha.Cells["quantidade"].Value = itemVenda.Quantidade;
+                    }
                 }
-            }
-            catch (Exception erro)
-            {
-                MessageBox.Show("Ocorreu o seguinte erro: " + erro.ToString());
+                catch(Exception erro)
+                {
+                    MessageBox.Show("O seguinte erro aconteceu: " + erro.ToString());
+                }
             }
         }
     }
