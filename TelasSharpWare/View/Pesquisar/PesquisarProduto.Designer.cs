@@ -167,14 +167,14 @@
             // 
             this.tipoProdutoCbx.FormattingEnabled = true;
             this.tipoProdutoCbx.Items.AddRange(new object[] {
-            "Corrida ou caminhada",
-            "Corrida performance",
+            "CorridaCaminhada",
+            "CorridaPerformance",
             "Skate",
             "Surf",
-            "Chuteira de salão",
-            "Chuteira de campo",
-            "Vôlei",
-            "Fitness e musculação",
+            "ChuteiraSalao",
+            "ChuteiraCampo",
+            "Volei",
+            "Fitness",
             "Basquete"});
             this.tipoProdutoCbx.Location = new System.Drawing.Point(35, 84);
             this.tipoProdutoCbx.Name = "tipoProdutoCbx";

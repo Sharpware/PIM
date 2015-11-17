@@ -145,6 +145,39 @@ namespace TelasSharpWare.DAO
             return BuscarQuantProduto(BuscarPrecoProduto(produtos));
         }
 
+        public List<Produto> BuscarPorTipo(string tipo)
+        {
+            MySqlDataReader reader = null;
+            List<Produto> produtos = null;
+            string cmdText = @"SELECT id,
+                                    nome,
+                                    marca,
+                                    descricao,
+                                    tamanho FROM produto WHERE tipo_produto=@tipo";
+            using (MySqlCommand cmd = new MySqlCommand(cmdText, _con))
+            {
+                cmd.Prepare();
+                cmd.Parameters.AddWithValue("@tipo", tipo);
+                produtos = new List<Produto>();
+                reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        Produto produto = new Produto();
+                        produto.Id = reader.GetInt64("id");
+                        produto.Nome = reader.GetString("nome");
+                        produto.Marca = reader.GetString("marca");
+                        produto.Descricao = reader.GetString("descricao");
+                        produto.Tamanho = reader.GetString("tamanho");
+                        produtos.Add(produto);
+                    }
+                }
+            }
+            reader.Close();
+            return BuscarQuantProduto(BuscarPrecoProduto(produtos));
+        }
+
         public List<Produto> BuscarPorCodigo(string codigo)
         {
             MySqlDataReader reader = null;
@@ -199,6 +232,7 @@ namespace TelasSharpWare.DAO
                                 produto.PrecoVenda = reader.GetDouble("preco");
                             }
                         }
+                        reader.Close();
                     }
                 }
                 if (reader != null)
@@ -214,7 +248,6 @@ namespace TelasSharpWare.DAO
         {
             if (produtos.Count > 0)
             {
-                MySqlDataReader reader = null;
                 foreach (Produto produto in produtos)
                 {
                     string cmdBuscaQuant = @"select quantidade_produto from estoque 
@@ -223,20 +256,34 @@ namespace TelasSharpWare.DAO
                     {
                         cmd.Prepare();
                         cmd.Parameters.AddWithValue("id_produto", produto.Id);
-                        reader = cmd.ExecuteReader();
-                        if (reader.HasRows)
+                        using (var reader = cmd.ExecuteReader())
                         {
-                            while (reader.Read())
+                            if (reader.HasRows)
                             {
-                                produto.Quantidade = reader.GetInt32("quantidade_produto");
+                                while (reader.Read())
+                                {
+                                    produto.Quantidade = reader.GetInt32("quantidade_produto");
+                                }
                             }
                         }
                     }
                 }
                 return produtos;
-                reader.Close();
+
             }
             return produtos;
+        }
+
+        public bool BaixarEstoque(long idProduto, int quantidade)
+        {
+            string cmdBaixa = @"update estoque set quantidade_produto=quantidade_produto-@quantidade where id_produto=@idProduto";
+            using (var cmd = new MySqlCommand(cmdBaixa, _con))
+            {
+                cmd.Prepare();
+                cmd.Parameters.AddWithValue("quantidade", quantidade);
+                cmd.Parameters.AddWithValue("idProduto", idProduto);
+                return cmd.ExecuteNonQuery() > 0;
+            }
         }
     }
 }

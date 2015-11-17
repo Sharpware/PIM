@@ -299,7 +299,7 @@
             // 
             // adicionarClienteBtn
             // 
-            this.adicionarClienteBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("adicionarClienteBtn.BackgroundImage")));
+            this.adicionarClienteBtn.BackgroundImage = global::TelasSharpWare.Properties.Resources.BotaoAdicionarClienteVenda11;
             this.adicionarClienteBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.adicionarClienteBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.adicionarClienteBtn.Location = new System.Drawing.Point(34, 564);

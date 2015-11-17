@@ -27,10 +27,48 @@ namespace TelasSharpWare
 
         private void botaoLogin1_Click(object sender, EventArgs e)
         {
-            Funcionario funcionario = new Funcionario();
+            var funcionario = new Funcionario();
             funcionario.SetLoging(LoginTbx.Text)
                         .SetSenha(SenhaTbx.Text);
             _funcionario = _loginController.Logar(funcionario);
+            if (_funcionario.Id > 0)
+            {
+                if (_funcionario.TipoFuncionario == TipoFuncionario.Vendedor)
+                {
+                    _funcionario = null;
+                    DialogResult = DialogResult.Ignore;
+                }
+                else
+                {
+                    DialogResult = DialogResult.OK;
+                    LoginTbx.Text = "";
+                    SenhaTbx.Text = "";
+                }
+            }
+            else
+            {
+                _funcionario = null;
+                DialogResult = DialogResult.Retry;
+                LoginTbx.Text = "";
+                SenhaTbx.Text = "";
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+        }
+
+        private void SenhaTbx_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Enter)
+            {
+                return;
+            }
+            Funcionario funcionario = new Funcionario();
+            funcionario.SetLoging(LoginTbx.Text)
+                        .SetSenha(SenhaTbx.Text);
+            _funcionario = _loginController.Logar(funcionario); 
             if (_funcionario.Id > 0)
             {
                 DialogResult = DialogResult.OK;
@@ -43,11 +81,6 @@ namespace TelasSharpWare
                 LoginTbx.Text = "";
                 SenhaTbx.Text = "";
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.Cancel;
         }
     }
 }

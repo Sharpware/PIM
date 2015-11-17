@@ -24,7 +24,7 @@ namespace TelasSharpWare.Controller
         {
             using (_connectionManager.Open())
             {
-                return _funcionarioDao.BuscarFuncionarioLogado(funcionario);
+                return _funcionarioDao.BuscarFuncionarioCaixaLogado(funcionario);
             }
         }
     }

@@ -42,6 +42,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -1052,6 +1053,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\BotaoAbrirVendaLock2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BotaoAdicionarClienteCaixa11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BotaoAdicionarClienteCaixa21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BotaoAdicionarClienteVenda11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BotaoAdicionarClienteVenda21.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

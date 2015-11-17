@@ -23,7 +23,7 @@ namespace TelasSharpWare.DAO
             {
                 MySqlDataReader reader = null;
                 List<Funcionario> funcionarios;
-                string cmdBuscarNomeFuncionario = @"select nome from funcionario";
+                string cmdBuscarNomeFuncionario = @"select nome from funcionario where tipo_funcionario='vendedor'";
 
                 using (MySqlCommand cmd = new MySqlCommand(cmdBuscarNomeFuncionario, _con))
                 {
@@ -75,11 +75,11 @@ namespace TelasSharpWare.DAO
             }
         }
 
-        public Funcionario BuscarFuncionarioLogado(Funcionario funcionario)
+        public Funcionario BuscarFuncionarioCaixaLogado(Funcionario funcionario)
         {
             try
             {
-                string cmdLogin = @"select id, login, senha from funcionario where login=@login and senha=@senha";
+                string cmdLogin = @"select id, login, senha, tipo_funcionario from funcionario where login=@login and senha=@senha";
                 MySqlDataReader reader = null;
                 using (MySqlCommand cmd = new MySqlCommand(cmdLogin, _con))
                 {
@@ -92,7 +92,8 @@ namespace TelasSharpWare.DAO
                     {
                         Rfuncionario.SetId(reader.GetInt32("id"));
                         Rfuncionario.SetLoging(reader.GetString("login"))
-                                    .SetSenha(reader.GetString("senha"));
+                                    .SetSenha(reader.GetString("senha"))
+                                    .SetTipoFuncionario(reader.GetString("tipo_funcionario"));
                     }
                     return Rfuncionario;
                 }

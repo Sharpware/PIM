@@ -19,12 +19,12 @@ namespace TelasSharpWare.Botoes
 
         private void BotaoAdicionarClienteCaixa_MouseEnter(object sender, EventArgs e)
         {
-            this.BackgroundImage = Properties.Resources.BotaoAdicionarClienteCaixa2;
+            this.BackgroundImage = Properties.Resources.BotaoAdicionarClienteCaixa21;
         }
 
         private void BotaoAdicionarClienteCaixa_MouseLeave(object sender, EventArgs e)
         {
-            this.BackgroundImage = Properties.Resources.BotaoAdicionarClienteCaixa1;
+            this.BackgroundImage = Properties.Resources.BotaoAdicionarClienteCaixa11;
         }
     }
 }

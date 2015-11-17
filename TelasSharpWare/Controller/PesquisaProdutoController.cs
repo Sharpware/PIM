@@ -36,10 +36,13 @@ namespace TelasSharpWare.Controller
             }
         }
 
-        /*public List<Produto> PesquisarPorTipo(string tipo)
+        public List<Produto> PesquisarPorTipo(string tipo)
         {
-            return _produtoDao.BuscarPorTpo(tipo);
-        }*/
+            using (_connectionManager.Open())
+            {
+                return _produtoDao.BuscarPorTipo(tipo);
+            }
+        }
 
         public List<Produto> PesquisarPorNome(string nome)
         {

@@ -17,7 +17,7 @@ namespace TelasSharpWare.Model
         private double precoCusto;
         private double precoVenda;
         private String descricao;
-        private TipoProduto tipoFuncionario;
+        private TipoProduto tipoProduto;
         private Situacao status;
 
         public long Id
@@ -137,17 +137,39 @@ namespace TelasSharpWare.Model
             }
         }
 
-        public TipoProduto TipoFuncionario
+        public TipoProduto TipoProduto
         {
             get
             {
-                return tipoFuncionario;
+                return tipoProduto;
             }
 
             set
             {
-                tipoFuncionario = value;
+                tipoProduto = value;
             }
+        }
+
+        public void setTipoProduto(string tipoProduto)
+        {
+            if (tipoProduto == "CorridaCaminhada")
+                this.tipoProduto = TipoProduto.CorridaCaminhada;
+            if (tipoProduto == "CorridaPerformance")
+                this.tipoProduto = TipoProduto.CorridaPerformance;
+            if (tipoProduto == "Skate")
+                this.tipoProduto = TipoProduto.Skate;
+            if (tipoProduto == "Surf")
+                this.tipoProduto = TipoProduto.Surf;
+            if (tipoProduto == "ChuteiraSalao")
+                this.tipoProduto = TipoProduto.ChuteiraSalao;
+            if (tipoProduto == "ChuteiraCampo")
+                this.tipoProduto = TipoProduto.ChuteiraCampo;
+            if (tipoProduto == "Volei")
+                this.tipoProduto = TipoProduto.Volei;
+            if (tipoProduto == "Fitness")
+                this.tipoProduto = TipoProduto.Fitness;
+            if (tipoProduto == "Basquete")
+                this.tipoProduto = TipoProduto.Basquete;
         }
 
         public Situacao Status

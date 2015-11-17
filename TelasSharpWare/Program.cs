@@ -33,6 +33,8 @@ namespace TelasSharpWare
                     {
                         login.Close();
                     }
+                    if (login.DialogResult == DialogResult.Ignore)
+                        MessageBox.Show("Permissão negada");
                     if (login.DialogResult == DialogResult.Retry)
                         MessageBox.Show("Login ou senha incoreta");
                 }

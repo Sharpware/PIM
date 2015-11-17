@@ -50,5 +50,15 @@ namespace TelasSharpWare.Model
             _tipoFuncionario = tipoFuncionario;
             return this;
         }
+        public Funcionario SetTipoFuncionario(string tipoFuncionario)
+        {
+            if (tipoFuncionario == "Gerente")
+                _tipoFuncionario = TipoFuncionario.Gerente;
+            if (tipoFuncionario == "Caixa")
+                _tipoFuncionario = TipoFuncionario.Caixa;
+            if (tipoFuncionario == "Vendedor")
+                _tipoFuncionario = TipoFuncionario.Vendedor;
+            return this;
+        }
     }
 }

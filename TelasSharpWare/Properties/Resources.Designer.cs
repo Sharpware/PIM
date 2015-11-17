@@ -153,9 +153,29 @@ namespace TelasSharpWare.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BotaoAdicionarClienteCaixa11 {
+            get {
+                object obj = ResourceManager.GetObject("BotaoAdicionarClienteCaixa11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BotaoAdicionarClienteCaixa2 {
             get {
                 object obj = ResourceManager.GetObject("BotaoAdicionarClienteCaixa2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BotaoAdicionarClienteCaixa21 {
+            get {
+                object obj = ResourceManager.GetObject("BotaoAdicionarClienteCaixa21", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,9 +193,29 @@ namespace TelasSharpWare.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BotaoAdicionarClienteVenda11 {
+            get {
+                object obj = ResourceManager.GetObject("BotaoAdicionarClienteVenda11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BotaoAdicionarClienteVenda2 {
             get {
                 object obj = ResourceManager.GetObject("BotaoAdicionarClienteVenda2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BotaoAdicionarClienteVenda21 {
+            get {
+                object obj = ResourceManager.GetObject("BotaoAdicionarClienteVenda21", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

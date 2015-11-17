@@ -67,36 +67,43 @@ namespace TelasSharpWare
             {
                 List<Produto> produtos = _produtoController.PesquisaPorCodigoBarras(codigoBarrasProdutoTbx.Text);
                 Produto produto = produtos[0];
-                if (produto.Id > 0)
+                if (produto.Quantidade > 0)
                 {
-                    int index = vendaProdutosDgv.Rows.Add();
-                    ItemVenda itemVenda = new ItemVenda(produto, Int32.Parse(quantidadeTbx.Text));
-                    _venda.AddItem(itemVenda);
+                    if (produto.Id > 0)
+                    {
+                        int index = vendaProdutosDgv.Rows.Add();
+                        ItemVenda itemVenda = new ItemVenda(produto, Int32.Parse(quantidadeTbx.Text));
+                        _venda.AddItem(itemVenda);
 
-                    DataGridViewRow linha = vendaProdutosDgv.Rows[index];
-                    linha.Cells["id"].Value = itemVenda.Produto.Id;
-                    linha.Cells["marca"].Value = itemVenda.Produto.Marca;
-                    linha.Cells["nome"].Value = itemVenda.Produto.Nome;
-                    linha.Cells["descricao"].Value = itemVenda.Produto.Descricao;
-                    linha.Cells["tamanho"].Value = itemVenda.Produto.Tamanho;
-                    linha.Cells["valor"].Value = itemVenda.ValorTotal;
-                    linha.Cells["quantidade"].Value = itemVenda.Quantidade;
-                    _venda.QuantItensVenda += itemVenda.Quantidade;
+                        DataGridViewRow linha = vendaProdutosDgv.Rows[index];
+                        linha.Cells["id"].Value = itemVenda.Produto.Id;
+                        linha.Cells["marca"].Value = itemVenda.Produto.Marca;
+                        linha.Cells["nome"].Value = itemVenda.Produto.Nome;
+                        linha.Cells["descricao"].Value = itemVenda.Produto.Descricao;
+                        linha.Cells["tamanho"].Value = itemVenda.Produto.Tamanho;
+                        linha.Cells["valor"].Value = itemVenda.ValorTotal;
+                        linha.Cells["quantidade"].Value = itemVenda.Quantidade;
+                        _venda.QuantItensVenda += itemVenda.Quantidade;
 
-                    nomeProdutoTbx.Text = itemVenda.Produto.Nome;
-                    descricaoProdutoTbx.Text = itemVenda.Produto.Descricao;
-                    tamanhoTbx.Text = itemVenda.Produto.Tamanho;
+                        nomeProdutoTbx.Text = itemVenda.Produto.Nome;
+                        descricaoProdutoTbx.Text = itemVenda.Produto.Descricao;
+                        tamanhoTbx.Text = itemVenda.Produto.Tamanho;
 
-                    valorProdutoLbl.Text = Convert.ToString(itemVenda.Produto.PrecoVenda);
-                    valorTotalLbl.Text = Convert.ToString(_venda.ValorTotal);
-                    quantidadeItensLbl.Text = Convert.ToString(_venda.QuantItensVenda);
+                        valorProdutoLbl.Text = Convert.ToString(itemVenda.Produto.PrecoVenda);
+                        valorTotalLbl.Text = Convert.ToString(_venda.ValorTotal);
+                        quantidadeItensLbl.Text = Convert.ToString(_venda.QuantItensVenda);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Produto não encontrado");
+                        nomeProdutoTbx.Text = "";
+                        descricaoProdutoTbx.Text = "";
+                        tamanhoTbx.Text = "";
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Produto não encontrado");
-                    nomeProdutoTbx.Text = "";
-                    descricaoProdutoTbx.Text = "";
-                    tamanhoTbx.Text = "";
+                    MessageBox.Show("Não possui unidades no estoque");
                 }
             }
             catch (Exception)
@@ -107,30 +114,35 @@ namespace TelasSharpWare
 
         private void ModoDePagamento()
         {
-            try
+            if (_venda.ValorTotal > 0)
             {
-                ModoDePagamento pagamentoFrm = new ModoDePagamento(_venda);
-                pagamentoFrm.ShowDialog();
-                if (pagamentoFrm.PagamentoDinheiro.RetornoVenda == true)
+                try
                 {
-                    modoDePagamentoBtn.Visible = false;
-                    finalizarVendaBtn.Visible = true;
-                    pagamentoClienteLbl.Text = Convert.ToString(_venda.PagamentoCliente);
-                    _vendaController.CalcularTroco();
-                    trocoLbl.Text = Convert.ToString(_venda.Troco);
-                    quantidadeTbx.Enabled = false;
-                    codigoBarrasProdutoTbx.Enabled = false;
-                    quantidadeTbx.Text = "1";
-                    codigoBarrasProdutoTbx.Text = "";
-                    descricaoProdutoTbx.Text = "";
-                    tamanhoTbx.Text = "";
-                    adicionarProdutoBtn.Visible = false;
+                    ModoDePagamento pagamentoFrm = new ModoDePagamento(_venda);
+                    pagamentoFrm.ShowDialog();
+                    if (pagamentoFrm.PagamentoDinheiro.RetornoVenda == true)
+                    {
+                        modoDePagamentoBtn.Visible = false;
+                        finalizarVendaBtn.Visible = true;
+                        pagamentoClienteLbl.Text = Convert.ToString(_venda.PagamentoCliente);
+                        _vendaController.CalcularTroco();
+                        trocoLbl.Text = Convert.ToString(_venda.Troco);
+                        quantidadeTbx.Enabled = false;
+                        codigoBarrasProdutoTbx.Enabled = false;
+                        quantidadeTbx.Text = "1";
+                        codigoBarrasProdutoTbx.Text = "";
+                        descricaoProdutoTbx.Text = "";
+                        tamanhoTbx.Text = "";
+                        adicionarProdutoBtn.Visible = false;
+                    }
+                }
+                catch (Exception erro)
+                {
+                    MessageBox.Show("Ocorreu o seguinte erro: " + erro.ToString());
                 }
             }
-            catch (Exception erro)
-            {
-                MessageBox.Show("Ocorreu o seguinte erro: " + erro.ToString());
-            }
+            else
+                MessageBox.Show("Pelo menos um produto deve ser inserido na venda, para poder realza-la");
 
         }
 
@@ -164,6 +176,7 @@ namespace TelasSharpWare
                     quantidadeTbx.Enabled = true;
                     abrirVendaBtn.Visible = false;
                     adicionarProdutoBtn.Visible = true;
+                    adicionarClienteBtn.Visible = false;
                 }
             }
             catch (Exception erro)
@@ -211,6 +224,43 @@ namespace TelasSharpWare
             modoDePagamentoBtn.Visible = false;
             cancelarVendaBtn.Visible = false;
             abrirVendaLockBtn.Visible = true;
+            adicionarClienteBtn.Visible = true;
+        }
+
+        private void CancelarProduto(KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                try
+                {
+                    if (MessageBox.Show("Deseja realmente cancelar o produto?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    {
+                        int dgv_Index = vendaProdutosDgv.SelectedRows[0].Cells[0].RowIndex;
+                        _vendaController.RemoverProduto(dgv_Index);
+
+                        valorProdutoLbl.Text = "0";
+                        quantidadeItensLbl.Text = Convert.ToString(_venda.QuantItensVenda);
+                        valorTotalLbl.Text = Convert.ToString(_venda.ValorTotal);
+                        vendaProdutosDgv.Rows.Clear();
+                        foreach (ItemVenda itemVenda in _venda.ItensVenda)
+                        {
+                            int index = vendaProdutosDgv.Rows.Add();
+                            DataGridViewRow linha = vendaProdutosDgv.Rows[index];
+                            linha.Cells["id"].Value = itemVenda.Produto.Id;
+                            linha.Cells["marca"].Value = itemVenda.Produto.Marca;
+                            linha.Cells["nome"].Value = itemVenda.Produto.Nome;
+                            linha.Cells["descricao"].Value = itemVenda.Produto.Descricao;
+                            linha.Cells["tamanho"].Value = itemVenda.Produto.Tamanho;
+                            linha.Cells["valor"].Value = itemVenda.ValorTotal;
+                            linha.Cells["quantidade"].Value = itemVenda.Quantidade;
+                        }
+                    }
+                }
+                catch (Exception erro)
+                {
+                    MessageBox.Show("O seguinte erro aconteceu: " + erro.ToString());
+                }
+            }
         }
         //Fim dos metodos
 
@@ -267,34 +317,9 @@ namespace TelasSharpWare
             CancelarVenda();
         }
 
-        private void codigoBarrasProdutoTbx_KeyDown(object sender, KeyEventArgs e)
+        private void vendaProdutosDgv_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.F1)
-            {
-                try
-                {
-                    int dgv_Index = vendaProdutosDgv.SelectedRows[0].Cells[0].RowIndex;
-                    _venda.ItensVenda.RemoveAt(dgv_Index);
-          
-                    vendaProdutosDgv.Rows.Clear();
-                    foreach (ItemVenda itemVenda in _venda.ItensVenda)
-                    {
-                        int index = vendaProdutosDgv.Rows.Add();
-                        DataGridViewRow linha = vendaProdutosDgv.Rows[index];
-                        linha.Cells["id"].Value = itemVenda.Produto.Id;
-                        linha.Cells["marca"].Value = itemVenda.Produto.Marca;
-                        linha.Cells["nome"].Value = itemVenda.Produto.Nome;
-                        linha.Cells["descricao"].Value = itemVenda.Produto.Descricao;
-                        linha.Cells["tamanho"].Value = itemVenda.Produto.Tamanho;
-                        linha.Cells["valor"].Value = itemVenda.ValorTotal;
-                        linha.Cells["quantidade"].Value = itemVenda.Quantidade;
-                    }
-                }
-                catch(Exception erro)
-                {
-                    MessageBox.Show("O seguinte erro aconteceu: " + erro.ToString());
-                }
-            }
+            CancelarProduto(e);
         }
     }
 }

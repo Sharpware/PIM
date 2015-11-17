@@ -63,6 +63,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label22 = new System.Windows.Forms.Label();
             this.quantidadeTbx = new System.Windows.Forms.TextBox();
+            this.adicionarProdutoBtn = new TelasSharpWare.Botoes.BotaoAdProduto();
             this.label11 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.clienteVendaTbx = new System.Windows.Forms.TextBox();
@@ -80,7 +81,6 @@
             this.modoDePagamentoBtn = new TelasSharpWare.View.Botoes.BotaoModoDePagamento();
             this.adicionarClienteBtn = new TelasSharpWare.Botoes.BotaoAdicionarClienteCaixa();
             this.finalizarVendaBtn = new TelasSharpWare.Botoes.BotaoFinalizarVenda();
-            this.adicionarProdutoBtn = new TelasSharpWare.Botoes.BotaoAdProduto();
             ((System.ComponentModel.ISupportInitialize)(this.vendaProdutosDgv)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -110,6 +110,7 @@
             this.vendaProdutosDgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.vendaProdutosDgv.Size = new System.Drawing.Size(828, 246);
             this.vendaProdutosDgv.TabIndex = 1;
+            this.vendaProdutosDgv.KeyDown += new System.Windows.Forms.KeyEventHandler(this.vendaProdutosDgv_KeyDown);
             // 
             // id
             // 
@@ -301,7 +302,6 @@
             this.codigoBarrasProdutoTbx.Name = "codigoBarrasProdutoTbx";
             this.codigoBarrasProdutoTbx.Size = new System.Drawing.Size(412, 22);
             this.codigoBarrasProdutoTbx.TabIndex = 4;
-            this.codigoBarrasProdutoTbx.KeyDown += new System.Windows.Forms.KeyEventHandler(this.codigoBarrasProdutoTbx_KeyDown);
             // 
             // nomeProdutoTbx
             // 
@@ -432,6 +432,17 @@
             this.quantidadeTbx.Size = new System.Drawing.Size(197, 22);
             this.quantidadeTbx.TabIndex = 25;
             this.quantidadeTbx.Text = "1";
+            // 
+            // adicionarProdutoBtn
+            // 
+            this.adicionarProdutoBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("adicionarProdutoBtn.BackgroundImage")));
+            this.adicionarProdutoBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.adicionarProdutoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.adicionarProdutoBtn.Location = new System.Drawing.Point(349, 240);
+            this.adicionarProdutoBtn.Name = "adicionarProdutoBtn";
+            this.adicionarProdutoBtn.Size = new System.Drawing.Size(174, 54);
+            this.adicionarProdutoBtn.TabIndex = 24;
+            this.adicionarProdutoBtn.Click += new System.EventHandler(this.adicionarProdutoBtn_Click);
             // 
             // label11
             // 
@@ -602,7 +613,7 @@
             // 
             // adicionarClienteBtn
             // 
-            this.adicionarClienteBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("adicionarClienteBtn.BackgroundImage")));
+            this.adicionarClienteBtn.BackgroundImage = global::TelasSharpWare.Properties.Resources.BotaoAdicionarClienteCaixa11;
             this.adicionarClienteBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.adicionarClienteBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.adicionarClienteBtn.Location = new System.Drawing.Point(1124, 368);
@@ -622,17 +633,6 @@
             this.finalizarVendaBtn.TabIndex = 17;
             this.finalizarVendaBtn.Visible = false;
             this.finalizarVendaBtn.Click += new System.EventHandler(this.finalizarVendaBtn_Click);
-            // 
-            // adicionarProdutoBtn
-            // 
-            this.adicionarProdutoBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("adicionarProdutoBtn.BackgroundImage")));
-            this.adicionarProdutoBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.adicionarProdutoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.adicionarProdutoBtn.Location = new System.Drawing.Point(349, 240);
-            this.adicionarProdutoBtn.Name = "adicionarProdutoBtn";
-            this.adicionarProdutoBtn.Size = new System.Drawing.Size(174, 54);
-            this.adicionarProdutoBtn.TabIndex = 24;
-            this.adicionarProdutoBtn.Click += new System.EventHandler(this.adicionarProdutoBtn_Click);
             // 
             // Caixa
             // 

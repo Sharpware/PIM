@@ -39,6 +39,7 @@ namespace TelasSharpWare.Model
         public void RemoverProduto(int posicao)
         {
             _valorTotal -= ItensVenda[posicao].ValorTotal;
+            _quantItensVenda -= ItensVenda[posicao].Quantidade;
             ItensVenda.RemoveAt(posicao);
         }
 

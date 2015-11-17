@@ -34,7 +34,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::TelasSharpWare.Properties.Resources.BotaoAdicionarClienteVenda1;
+            this.BackgroundImage = global::TelasSharpWare.Properties.Resources.BotaoAdicionarClienteVenda11;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DoubleBuffered = true;

@@ -61,6 +61,7 @@
             this.SenhaTbx.PasswordChar = '*';
             this.SenhaTbx.Size = new System.Drawing.Size(148, 26);
             this.SenhaTbx.TabIndex = 1;
+            this.SenhaTbx.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SenhaTbx_KeyDown);
             // 
             // groupBox1
             // 

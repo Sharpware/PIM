@@ -9,7 +9,7 @@ namespace TelasSharpWare.Model
     public enum TipoProduto
     {
         CorridaCaminhada,
-        CorridaPerformace,
+        CorridaPerformance,
         Skate,
         Surf,
         ChuteiraSalao,

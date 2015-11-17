@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TelasSharpWare.DAO;
 using TelasSharpWare.Model;
 using MySql.Data.MySqlClient;
+using System.Transactions;
 
 namespace TelasSharpWare.Controller
 {
@@ -15,12 +16,14 @@ namespace TelasSharpWare.Controller
         private VendaDao _vendaDao;
         private ConnectionManager _connectionManager;
         private FuncionarioDao _funcionarioDao;
+        private ProdutoDao _produtoDao;
 
         public VendaController()
         {
             var con = ConnectionFactory.GetConnection();
             _funcionarioDao = new FuncionarioDao(con);
             _connectionManager = new ConnectionManager(con);
+            _produtoDao = new ProdutoDao(con);
             _vendaDao = new VendaDao(con);
         }
 
@@ -38,7 +41,14 @@ namespace TelasSharpWare.Controller
         {
             using (_connectionManager.Open())
             {
-                _vendaDao.SalvarVenda(_venda);
+                using (TransactionScope t = new TransactionScope())
+                {
+                    _vendaDao.SalvarVenda(_venda);
+                    foreach (ItemVenda item in _venda.ItensVenda)
+                    {
+                        _produtoDao.BaixarEstoque(item.Produto.Id, item.Quantidade);
+                    }
+                }
             }
         }
 

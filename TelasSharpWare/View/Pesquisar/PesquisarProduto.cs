@@ -60,10 +60,14 @@ namespace TelasSharpWare
                     }
                 }
 
-                /*if(tipoProdutoCbx.Text != "" && tipoRb.Checked == true)
+                if(tipoProdutoCbx.Text != "" && tipoRb.Checked == true)
                 {
                     PopularGrid(_pesquisaProdutoController.PesquisarPorTipo(tipoProdutoCbx.Text));
-                }*/
+                    if (pesquisaProdutosDgv.Rows[0].Cells["id"].Value == null)
+                    {
+                        MessageBox.Show("Nenhum produto encontrado");
+                    }
+                }
 
                 if (marcaProdutoTbx.Text != "" && marcaRb.Checked == true)
                 {
