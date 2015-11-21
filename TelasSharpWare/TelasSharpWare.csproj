@@ -92,6 +92,7 @@
     <Compile Include="Controller\ClienteController.cs" />
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Controller\PesquisaProdutoController.cs" />
+    <Compile Include="Controller\RelatorioVendaPorCliente.cs" />
     <Compile Include="Controller\VendaController.cs" />
     <Compile Include="DAO\ClienteDao.cs" />
     <Compile Include="DAO\ConnectionFactory.cs" />
@@ -512,6 +513,12 @@
     <Compile Include="View\Caixa\Cliente\EditarCliente.Designer.cs">
       <DependentUpon>EditarCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Relatorio\ExibeRelatorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Relatorio\ExibeRelatorio.Designer.cs">
+      <DependentUpon>ExibeRelatorio.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="View\Botoes\BotaoAbrirVenda.resx">
       <DependentUpon>BotaoAbrirVenda.cs</DependentUpon>
     </EmbeddedResource>
@@ -719,6 +726,9 @@
     </Compile>
     <EmbeddedResource Include="View\Caixa\Cliente\EditarCliente.resx">
       <DependentUpon>EditarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Relatorio\ExibeRelatorio.resx">
+      <DependentUpon>ExibeRelatorio.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -1117,6 +1127,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="IconeSharpWare.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Relatorio\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

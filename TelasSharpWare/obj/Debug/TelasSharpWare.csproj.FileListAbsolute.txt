@@ -376,3 +376,6 @@ C:\Users\Usuario\Documents\repositorios\GitHub\PIM\TelasSharpWare\bin\Debug\Tela
 C:\Users\Usuario\Documents\repositorios\GitHub\PIM\TelasSharpWare\bin\Debug\TelasSharpWare.application
 C:\Users\Usuario\Documents\repositorios\GitHub\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.exe.manifest
 C:\Users\Usuario\Documents\repositorios\GitHub\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.application
+C:\Users\GabriellTorres\Documents\repositorio\PIM\TelasSharpWare\bin\Debug\TelasSharpWare.exe.config
+C:\Users\GabriellTorres\Documents\repositorio\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.exe
+C:\Users\GabriellTorres\Documents\repositorio\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.pdb
