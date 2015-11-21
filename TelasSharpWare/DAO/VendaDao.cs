@@ -24,7 +24,7 @@ namespace TelasSharpWare.DAO
                 foreach (ItemVenda itemVenda in itensVenda)
                 {
                     string cmdSalvaItem = @"insert into itens_venda 
-                                  (valor_total, quantidade, id_produto, id_venda)
+                                  (valor_total, quantidade, produto_id, venda_id)
                                    values 
                                   (@valor_total, @quantidade, @id_produto, @id_venda)";
                     using (MySqlCommand cmd = new MySqlCommand(cmdSalvaItem, _con))
@@ -50,7 +50,7 @@ namespace TelasSharpWare.DAO
             try
             {
                 string cmdSalvarVenda = @"insert into venda 
-                                (valor_total, tipo_venda, data_venda, id_cliente, id_funcionario)
+                                (valor_total, tipo_venda, data_venda, cliente_id, funcionario_id)
                                 values 
                                 (@valor_total, @tipo_venda, @data_venda, @id_cliente, @id_funcionario)";
                 using (MySqlCommand cmd = new MySqlCommand(cmdSalvarVenda, _con))

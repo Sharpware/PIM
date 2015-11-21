@@ -29,7 +29,7 @@ namespace TelasSharpWare.DAO
                                             values
                                             (@numero, @tipo_telefone)";
                     string cmdInsertTelefone_Cliente = @"insert into telefone_cliente
-                                                       (id_cliente, id_telefone)
+                                                       (cliente_id, telefone_id)
                                                         values
                                                         (@id_cliente, @id_telefone)";
                     using (MySqlCommand cmd = new MySqlCommand(cmdInsertTelefone, _con))
@@ -95,8 +95,8 @@ namespace TelasSharpWare.DAO
                 List<Telefone> telefones = null;
                 List<int> ids = null;
                 MySqlDataReader reader = null;
-                string cmdBuscaTelefone_Cliente = @"select id_telefone from telefone_cliente
-                                            where id_cliente=@id_cliente";
+                string cmdBuscaTelefone_Cliente = @"select telefone_id from telefone_cliente
+                                            where cliente_id=@id_cliente";
                 using (MySqlCommand cmd = new MySqlCommand(cmdBuscaTelefone_Cliente, _con)) 
                 {
                     cmd.Prepare();
@@ -107,7 +107,7 @@ namespace TelasSharpWare.DAO
                     {
                         while (reader.Read())
                         {
-                            int id = reader.GetInt32("id_telefone");
+                            int id = reader.GetInt32("telefone_id");
                             ids.Add(id);
                         }
                     }

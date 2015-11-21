@@ -39,9 +39,9 @@ namespace TelasSharpWare.Controller
 
         public void SalvarVenda()
         {
-            using (_connectionManager.Open())
+            using (TransactionScope t = new TransactionScope())
             {
-                using (TransactionScope t = new TransactionScope())
+                using (_connectionManager.Open())
                 {
                     _vendaDao.SalvarVenda(_venda);
                     foreach (ItemVenda item in _venda.ItensVenda)
@@ -49,6 +49,7 @@ namespace TelasSharpWare.Controller
                         _produtoDao.BaixarEstoque(item.Produto.Id, item.Quantidade);
                     }
                 }
+                t.Complete();
             }
         }
 

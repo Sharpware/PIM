@@ -78,6 +78,12 @@ namespace TelasSharpWare.Model
             return this;
         }
 
+        public Pessoa<T> SetDataNascimento(DateTime? dataNascimento)
+        {
+            _dataNascimento = dataNascimento.GetValueOrDefault();
+            return this;
+        }
+
         public string Email
         {
             get

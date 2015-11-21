@@ -127,7 +127,7 @@ namespace TelasSharpWare
             }
             catch (Exception erro)
             {
-                MessageBox.Show(erro.ToString());
+               MessageBox.Show(erro.ToString());
             }
         }
 

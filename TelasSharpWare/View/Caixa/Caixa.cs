@@ -73,7 +73,7 @@ namespace TelasSharpWare
                     {
                         int index = vendaProdutosDgv.Rows.Add();
                         ItemVenda itemVenda = new ItemVenda(produto, Int32.Parse(quantidadeTbx.Text));
-                        _venda.AddItem(itemVenda);
+                        _vendaController.AddItem(itemVenda);
 
                         DataGridViewRow linha = vendaProdutosDgv.Rows[index];
                         linha.Cells["id"].Value = itemVenda.Produto.Id;
@@ -83,7 +83,7 @@ namespace TelasSharpWare
                         linha.Cells["tamanho"].Value = itemVenda.Produto.Tamanho;
                         linha.Cells["valor"].Value = itemVenda.ValorTotal;
                         linha.Cells["quantidade"].Value = itemVenda.Quantidade;
-                        _venda.QuantItensVenda += itemVenda.Quantidade;
+                        
 
                         nomeProdutoTbx.Text = itemVenda.Produto.Nome;
                         descricaoProdutoTbx.Text = itemVenda.Produto.Descricao;
@@ -166,7 +166,7 @@ namespace TelasSharpWare
         {
             try
             {
-                if (_cliente != null)
+                if (_cliente != null && vendedorVendaCbx.Text != "")
                 {
                     modoDePagamentoBtn.Visible = true;
                     cancelarVendaBtn.Visible = true;
@@ -291,7 +291,7 @@ namespace TelasSharpWare
             else
                 atalhosPnl.Visible = false;
         }
-
+        
         private void adicionarProdutoBtn_Click(object sender, EventArgs e)
         {
             AdicionarProduto();

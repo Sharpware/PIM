@@ -10,11 +10,23 @@ namespace TelasSharpWare.DAO
 {
     public class ClienteDao
     {
-        MySqlConnection _con = null;
+        private readonly MySqlConnection _con = null;
 
         public ClienteDao(MySqlConnection con)
         {
             _con = con;
+        }
+
+       //Metodo elaborado para impedir que atributos do objeto cliente
+       //recebam DBNull
+        private object GetValue(string column, MySqlDataReader reader)
+        {
+            if(reader.IsDBNull(reader.GetOrdinal(column)))
+            {
+                return null;
+            }
+
+            return reader.GetFieldValue<object>(reader.GetOrdinal(column));
         }
 
         public bool SalvarCliente(Cliente cliente)
@@ -153,21 +165,23 @@ namespace TelasSharpWare.DAO
                 cliente = new Cliente();
                 while (reader.Read())
                 {
+                    var isNull = reader.IsDBNull(reader.GetOrdinal("email"));
+                    var t = reader.GetFieldValue<object>(reader.GetOrdinal("email"));
                     cliente.SetId(reader.GetInt64("id"))
                     .SetNome(reader.GetString("nome"))
-                    .SetEmail(reader.GetString("email"))
+                    .SetEmail(GetValue("email", reader) as string)
                     .SetCPF(reader.GetString("cpf"))
-                    .SetDataNascimento(reader.GetDateTime("data_nascimento"))
-                    .SetObservacao(reader.GetString("observacao"))
+                    .SetDataNascimento(GetValue("data_nascimento", reader) as DateTime?)
+                    .SetObservacao(GetValue("observacao", reader) as string)
                     .SetSituacao(reader.GetString("situacao"))
                     .SetEndereco(new Endereco()
-                    .SetLogradouro(reader.GetString("logradouro"))
-                    .SetNumero(reader.GetString("numero"))
-                    .SetComplemento(reader.GetString("complemento"))
-                    .SetCep(reader.GetString("cep"))
-                    .SetBairro(reader.GetString("bairro"))
-                    .SetUf(reader.GetString("uf"))
-                    .SetCidade(reader.GetString("cidade")));
+                    .SetLogradouro(GetValue("logradouro", reader) as string)
+                    .SetNumero(GetValue("numero", reader) as string)
+                    .SetComplemento(GetValue("complemento", reader) as string)
+                    .SetCep(GetValue("cep", reader) as string)
+                    .SetBairro(GetValue("bairro", reader) as string)
+                    .SetUf(GetValue("uf", reader) as string)
+                    .SetCidade(GetValue("cidade", reader) as string));
                 }
                 reader.Close();
                 return cliente;

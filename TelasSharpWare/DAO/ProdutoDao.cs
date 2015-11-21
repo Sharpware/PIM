@@ -17,6 +17,16 @@ namespace TelasSharpWare.DAO
             _con = con;
         }
 
+        private object GetValue(string column, MySqlDataReader reader)
+        {
+            if (reader.IsDBNull(reader.GetOrdinal(column)))
+            {
+                return null;
+            }
+
+            return reader.GetFieldValue<object>(reader.GetOrdinal(column));
+        }
+
         public List<Produto> BuscarTodosProdutos()
         {
             MySqlDataReader reader = null;
@@ -37,7 +47,7 @@ namespace TelasSharpWare.DAO
                         produto.Id = reader.GetInt64("id");
                         produto.Nome = reader.GetString("nome");
                         produto.Marca = reader.GetString("marca");
-                        produto.Descricao = reader.GetString("descricao");
+                        produto.Descricao = GetValue("descricao", reader) as string;
                         produto.Tamanho = reader.GetString("tamanho");
                         produtos.Add(produto);
                     }
@@ -69,7 +79,7 @@ namespace TelasSharpWare.DAO
                         produto.Id = reader.GetInt64("id");
                         produto.Nome = reader.GetString("nome");
                         produto.Marca = reader.GetString("marca");
-                        produto.Descricao = reader.GetString("descricao");
+                        produto.Descricao = GetValue("descricao", reader) as string;
                         produto.Tamanho = reader.GetString("tamanho");
                         produtos.Add(produto);
                     }
@@ -102,7 +112,7 @@ namespace TelasSharpWare.DAO
                         produto.Id = reader.GetInt64("id");
                         produto.Nome = reader.GetString("nome");
                         produto.Marca = reader.GetString("marca");
-                        produto.Descricao = reader.GetString("descricao");
+                        produto.Descricao = GetValue("descricao", reader) as string;
                         produto.Tamanho = reader.GetString("tamanho");
                         produtos.Add(produto);
                     }
@@ -135,7 +145,7 @@ namespace TelasSharpWare.DAO
                         produto.Id = reader.GetInt64("id");
                         produto.Nome = reader.GetString("nome");
                         produto.Marca = reader.GetString("marca");
-                        produto.Descricao = reader.GetString("descricao");
+                        produto.Descricao = GetValue("descricao", reader) as string;
                         produto.Tamanho = reader.GetString("tamanho");
                         produtos.Add(produto);
                     }
@@ -168,7 +178,7 @@ namespace TelasSharpWare.DAO
                         produto.Id = reader.GetInt64("id");
                         produto.Nome = reader.GetString("nome");
                         produto.Marca = reader.GetString("marca");
-                        produto.Descricao = reader.GetString("descricao");
+                        produto.Descricao = GetValue("descricao", reader) as string;
                         produto.Tamanho = reader.GetString("tamanho");
                         produtos.Add(produto);
                     }
@@ -201,7 +211,7 @@ namespace TelasSharpWare.DAO
                         produto.Id = reader.GetInt64("id");
                         produto.Nome = reader.GetString("nome");
                         produto.Marca = reader.GetString("marca");
-                        produto.Descricao = reader.GetString("descricao");
+                        produto.Descricao = GetValue("descricao", reader) as string;
                         produto.Tamanho = reader.GetString("tamanho");
                         produtos.Add(produto);
                     }
@@ -219,7 +229,7 @@ namespace TelasSharpWare.DAO
                 foreach (Produto produto in produtos)
                 {
                     string cmdBuscaPreco = @"select preco from lista_preco 
-                                        where id_produto=@id_produto";
+                                        where produto_id=@id_produto";
                     using (MySqlCommand cmd = new MySqlCommand(cmdBuscaPreco, _con))
                     {
                         cmd.Prepare();
@@ -251,7 +261,7 @@ namespace TelasSharpWare.DAO
                 foreach (Produto produto in produtos)
                 {
                     string cmdBuscaQuant = @"select quantidade_produto from estoque 
-                                        where id_produto=@id_produto";
+                                        where produto_id=@id_produto";
                     using (MySqlCommand cmd = new MySqlCommand(cmdBuscaQuant, _con))
                     {
                         cmd.Prepare();
@@ -276,7 +286,7 @@ namespace TelasSharpWare.DAO
 
         public bool BaixarEstoque(long idProduto, int quantidade)
         {
-            string cmdBaixa = @"update estoque set quantidade_produto=quantidade_produto-@quantidade where id_produto=@idProduto";
+            string cmdBaixa = @"update estoque set quantidade_produto=quantidade_produto-@quantidade where produto_id=@idProduto";
             using (var cmd = new MySqlCommand(cmdBaixa, _con))
             {
                 cmd.Prepare();

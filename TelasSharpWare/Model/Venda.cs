@@ -29,10 +29,11 @@ namespace TelasSharpWare.Model
             
         }
 
-        public void AddItem(ItemVenda itensVenda)
+        public void AddItem(ItemVenda eItemVenda)
         {
-            ItemVenda itemVenda = new ItemVenda(itensVenda.Produto, itensVenda.Quantidade);
+            ItemVenda itemVenda = new ItemVenda(eItemVenda.Produto, eItemVenda.Quantidade);
             _itensVenda.Add(itemVenda);
+            QuantItensVenda += itemVenda.Quantidade;
             _valorTotal += itemVenda.ValorTotal;
         }
 
