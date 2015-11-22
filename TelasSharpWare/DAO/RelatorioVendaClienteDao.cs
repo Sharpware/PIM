@@ -67,6 +67,11 @@ namespace TelasSharpWare.DAO
             return relatorioVendaCliente;
         }
 
+        public void BuscarListaItensProduto(int idVenda)
+        {
+
+        }
+
 
     }
 }

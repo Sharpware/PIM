@@ -107,7 +107,7 @@
     <Compile Include="Controller\ClienteController.cs" />
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Controller\PesquisaProdutoController.cs" />
-    <Compile Include="Controller\RelatorioVendaPorCliente.cs" />
+    <Compile Include="Controller\RelatorioVendaPorClienteController.cs" />
     <Compile Include="Controller\VendaController.cs" />
     <Compile Include="DAO\ClienteDao.cs" />
     <Compile Include="DAO\ConnectionFactory.cs" />

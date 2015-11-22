@@ -83,7 +83,5 @@ namespace TelasSharpWare.Controller
                 return _funcionarioDao.BuscarPorNome(nome);
             }
         }
-
-
     }
 }

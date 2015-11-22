@@ -546,3 +546,4 @@ C:\Users\ATOM\Desktop\PIM\TelasSharpWare\bin\Debug\ja\DevExpress.XtraGrid.v15.1.
 C:\Users\ATOM\Desktop\PIM\TelasSharpWare\bin\Debug\ru\DevExpress.XtraGrid.v15.1.resources.dll
 C:\Users\ATOM\Desktop\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.exe.manifest
 C:\Users\ATOM\Desktop\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.application
+C:\Users\ATOM\Desktop\PIM\TelasSharpWare\obj\Debug\TelasSharpWare.csprojResolveAssemblyReference.cache

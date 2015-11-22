@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TelasSharpWare.Model;
+using TelasSharpWare.DAO;
+using TelasSharpWare.Controller;
 
 namespace TelasSharpWare.View.Relatorio
 {
@@ -15,6 +18,12 @@ namespace TelasSharpWare.View.Relatorio
         public ExibeRelatorio()
         {
             InitializeComponent();
+        }
+
+        private void ExibeRelatorio_Load(object sender, EventArgs e)
+        {
+            RelatorioVendaPorClienteController controller = new RelatorioVendaPorClienteController();
+            controller.BuscarVenda(6);
         }
     }
 }
