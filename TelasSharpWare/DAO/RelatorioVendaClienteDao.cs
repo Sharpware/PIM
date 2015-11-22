@@ -18,78 +18,55 @@ namespace TelasSharpWare.DAO
         {
             _con = con;
         }
-
-        public RelatorioVendaCliente BuscarPorVenda(Int32 idVenda)
+        public RelatorioVendaCliente relatorioVendaCliente;
+        
+        public RelatorioVendaCliente BuscarVenda(int id)
         {
-            try
-            {
-                MySqlDataReader reader = null;
-                RelatorioVendaCliente relatorioVendaCliente;
-                string cmdBuscarVenda = @"SELECT
-                                          ven.id,
-                                          ven.data_venda,
-                                          ven.valor_total,
-                                          ven.tipo_venda,
-                                          cli.nome,
-                                          cli.email,
-                                          cli.cpf,
-                                          fun.nome
-                                          FROM venda ven
-                                          INNER JOIN cliente cli 
-                                          ON cli.id = ven.id_cliente
-                                          INNER JOIN funcionario fun
-                                          ON fun.id = ven.id_funcionario
-                                          WHERE ven.id = @idVenda";
+            MySqlDataReader reader = null;
+            string cmdText = @"
+                             SELECT
+                             ven.id,
+                             ven.data_venda,
+                             ven.valor_total,
+                             ven.tipo_venda,
+                             cli.nome,
+                             cli.email,
+                             cli.cpf,
+                             fun.nome
+                             FROM venda ven
+                             INNER JOIN cliente cli 
+                             ON cli.id = ven.id_cliente
+                             INNER JOIN funcionario fun
+                             ON fun.id = ven.id_funcionario
+                             WHERE ven.id = @VENDA";
 
-                using (MySqlCommand cmd = new MySqlCommand(cmdBuscarVenda, _con))
+            using (MySqlCommand cmd = new MySqlCommand(cmdText, _con))
+            {
+                cmd.Prepare();
+                cmd.Parameters.AddWithValue("@VENDA", id);
+                reader = cmd.ExecuteReader();
+                if (reader.HasRows)
                 {
-                    cmd.Prepare();
-                    cmd.Parameters.AddWithValue("@idVenda", idVenda);
-                    reader = cmd.ExecuteReader();
-                    relatorioVendaCliente = new RelatorioVendaCliente();
+                    RelatorioVendaCliente relatorioVendaCliente;
                     while (reader.Read())
                     {
-                        //funcionario.SetId(reader.GetInt32("id"));
-                        /*
-                        private string nomeCliente;
-                        private string cpfCliente;
-                        private string emailCliente;
-                        private DateTime dataVenda;
-                        private Double valorVenda;
-                        private string tipoVenda;
-                        private string nomeFuncionario;*/
-                        relatorioVendaCliente.IdVenda(reader.GetInt32("ven.id"));
-                        relatorioVendaCliente.DataVenda(reader.GetDateTime("ven.data_venda"));
-                      /*  relatorioVendaCliente.(reader.(""));
-                        relatorioVendaCliente.(reader.(""));
-                        relatorioVendaCliente.(reader.(""));
-                        relatorioVendaCliente.(reader.(""));
-                        relatorioVendaCliente.(reader.(""));
-                        relatorioVendaCliente.(reader.(""));
-                        relatorioVendaCliente.(reader.(""));
-                        relatorioVendaCliente.(reader.(""));
-                        relatorioVendaCliente.(reader.(""));
-                        relatorioVendaCliente.(reader.(""));
-                        relatorioVendaCliente.(reader.(""));
-                        relatorioVendaCliente.(reader.(""));
-                        relatorioVendaCliente.(reader.(""));
-                        relatorioVendaCliente.(reader.(""));
-                        relatorioVendaCliente.(reader.(""));
-                        relatorioVendaCliente.(reader.(""));
-                        relatorioVendaCliente.(reader.(""));
-                        relatorioVendaCliente.(reader.(""));
-                        relatorioVendaCliente.(reader.(""));
-                        relatorioVendaCliente.(reader.("")); */
-
+                        RelatorioVendaCliente RelVenda = new RelatorioVendaCliente();
+                        RelVenda.IdVenda = reader.GetInt32("vend.id");
+                        RelVenda.DataVenda = reader.GetDateTime("vend.data_venda");
+                        RelVenda.ValorVenda = reader.GetDouble("vend.valor_total");
+                        RelVenda.TipoVenda = reader.GetString("vend.tipo_venda");
+                        RelVenda.NomeCliente = reader.GetString("cli.nome");
+                        RelVenda.EmailCliente = reader.GetString("cli.email");
+                        RelVenda.CpfCliente = reader.GetString("cli.cpf");
+                        RelVenda.NomeFuncionario = reader.GetString("fun.nome");
+                        relatorioVendaCliente = RelVenda;
                     }
-                    return relatorioVendaCliente;
                 }
             }
-            catch (Exception erro)
-            {
-                throw new Exception(erro.ToString());
-            }
+            reader.Close();
+            return relatorioVendaCliente;
         }
+
 
     }
 }
