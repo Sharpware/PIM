@@ -136,7 +136,10 @@ namespace TelasSharpWare
             this.WindowState = FormWindowState.Minimized;
         }
 
-
+        private void sairBtn_Load(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
 

@@ -546,6 +546,7 @@
             this.sairBtn.Name = "sairBtn";
             this.sairBtn.Size = new System.Drawing.Size(160, 60);
             this.sairBtn.TabIndex = 41;
+            this.sairBtn.Load += new System.EventHandler(this.sairBtn_Load);
             this.sairBtn.Click += new System.EventHandler(this.botaoSair1_Click);
             // 
             // CadastrarCliente
