@@ -132,9 +132,9 @@
             this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label8.Location = new System.Drawing.Point(3, 19);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(572, 45);
+            this.label8.Size = new System.Drawing.Size(554, 45);
             this.label8.TabIndex = 1;
-            this.label8.Text = "Relatório de Venda para Cliente";
+            this.label8.Text = "Relatório de Venda por Cliente";
             this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // sairBtn
